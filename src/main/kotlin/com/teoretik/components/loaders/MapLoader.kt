@@ -34,21 +34,12 @@ class MapLoader : TmxMapLoader() {
     }
 
     override fun castProperty(name: String?, value: String?, type: String?): Any {
-        return when (type) {
-            null -> value!!
-            "int" -> Integer.valueOf(value)
-            "float" -> java.lang.Float.valueOf(value)
-            "bool" -> java.lang.Boolean.valueOf(value)
-            "color" -> {
-                // Tiled uses the format #AARRGGBB
-                val opaqueColor = value!!.substring(3)
-                val alpha = value.substring(1, 3)
-                Color.valueOf(opaqueColor + alpha)
-            }
-            else -> throw GdxRuntimeException(
-                "Wrong type given for property $name, given : $type, supported : string, bool, int, float, color"
+        try {
+            return super.castProperty(name, value, type)
+        } catch (e : Exception) {
+            throw GdxRuntimeException(
+                "Wrong type given for property $name, given : $type, supported : string, bool, int, float, color, class"
             )
         }
-
     }
 }

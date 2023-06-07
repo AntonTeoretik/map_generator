@@ -1,14 +1,16 @@
 package com.teoretik.graphics.render
 
-import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.maps.MapObject
 import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer
 import com.badlogic.gdx.math.Affine2
 
+class MapRenderer(
+    map: TiledMap?,
+    unitScale: Float = 1f / GraphicsSettings.pixelResolution
+) : OrthogonalTiledMapRenderer(map, unitScale) {
 
-class MapRenderer (map : TiledMap, unitScale : Float) : OrthogonalTiledMapRenderer(map, unitScale) {
     override fun renderObject(obj: MapObject?) {
         if (obj == null) return
         if (obj is TiledMapTileMapObject) {
@@ -17,7 +19,7 @@ class MapRenderer (map : TiledMap, unitScale : Float) : OrthogonalTiledMapRender
         super.renderObject(obj)
     }
 
-    private fun renderTileObject(obj : TiledMapTileMapObject) {
+    private fun renderTileObject(obj: TiledMapTileMapObject) {
         val tile = obj.tile
 
         if (tile != null) {

@@ -5,22 +5,23 @@ import com.badlogic.gdx.InputAdapter
 import com.badlogic.gdx.math.Vector3
 import Screen
 import com.badlogic.gdx.Input
+import com.teoretik.graphics.camera.Camera
 
-class CameraController(private val screen: Screen) : InputAdapter() {
+class CameraController(private val camera: Camera) : InputAdapter() {
     private var positionOnTouch = Pair(0, 0)
     private val lastPosition = Vector3()
 
     override fun touchDown(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
         positionOnTouch = screenX to screenY
-        lastPosition.set(screen.camera.unprojectScreenCoords(screenX, screenY))
+        lastPosition.set(camera.unprojectScreenCoords(screenX, screenY))
         return true
     }
 
     override fun touchDragged(screenX: Int, screenY: Int, pointer: Int): Boolean {
-        val now = screen.camera.screenToWorld(screenX, screenY)
+        val now = camera.screenToWorld(screenX, screenY)
         lastPosition.sub(now)
-        screen.camera.translate(lastPosition)
-        lastPosition.set(screen.camera.screenToWorld(screenX, screenY))
+        camera.translate(lastPosition)
+        lastPosition.set(camera.screenToWorld(screenX, screenY))
         return true
     }
 
@@ -29,19 +30,21 @@ class CameraController(private val screen: Screen) : InputAdapter() {
     }
 
     override fun scrolled(amountX: Float, amountY: Float): Boolean {
-        val cursor = screen.camera.screenToWorld(Gdx.input.x, Gdx.input.y)
-        screen.camera.updateZoom(cursor, amountY * 0.05f)
+        val cursor = camera.screenToWorld(Gdx.input.x, Gdx.input.y)
+        camera.updateZoom(cursor, amountY * 0.05f)
         return true
     }
 
     override fun keyDown(keycode: Int): Boolean {
+        val v = camera.position.get()
         when (keycode) {
-            Input.Keys.W -> screen.position.y += 1
-            Input.Keys.S -> screen.position.y -= 1
-            Input.Keys.A -> screen.position.x -= 1
-            Input.Keys.D -> screen.position.x += 1
+            Input.Keys.W -> v.y += 1
+            Input.Keys.S -> v.y -= 1
+            Input.Keys.A -> v.x -= 1
+            Input.Keys.D -> v.x += 1
+            else -> return true
         }
-        screen.setCameraPosition()
+        camera.position.set(v)
         return true
     }
 }

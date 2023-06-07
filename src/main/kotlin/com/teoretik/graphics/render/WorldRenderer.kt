@@ -1,36 +1,64 @@
 package com.teoretik.graphics.render
 
-import Screen
+import IntPair
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
+import com.badlogic.gdx.graphics.g2d.Batch
+import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.utils.viewport.FitViewport
+import com.teoretik.components.GameConfiguration
 
-class WorldRenderer(val screen: Screen) {
-    // Renderers
-    val lightRenderer = LightRenderer(screen)
-    val visionRenderer = VisionRenderer()
-    val shadowsRenderer = ShadowsRenderer()
+class WorldRenderer(val gameConfiguration: GameConfiguration) {
+    val shapeRenderer = ShapeRenderer()
+    val backgroundColor = Color.BLACK.cpy()
 
-    val backgroundColor = Color.BLACK
+    val mapRenderer = MapRenderer(null)
 
-    private val viewport = FitViewport(
-        GraphicsSettings.worldHeight * Gdx.graphics.width / Gdx.graphics.height,
-        GraphicsSettings.worldHeight
-    )
+    fun setView(position: IntPair, rad : Int) {
+//        shapeRenderer.setView(
+//            gameConfiguration.camera.projMatrix(),
+//            position.x - rad + .5f,
+//            position.y - rad - .5f,
+//            2f * rad, 2 * rad - 1f
+//        )
+    }
 
     fun render() {
-        viewport.apply()
+        gameConfiguration.camera.update()
 
         // background
         val col = backgroundColor
         Gdx.gl.glClearColor(col.r, col.g, col.b, col.a)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
-        // cells
-        lightRenderer.setView(screen.position)
-        screen.gameSetup.renderer.render()
-        lightRenderer.renderVisionRadius(screen.position)
+        // render something here
+        // For now just render the current layer
+        mapRenderer.map = gameConfiguration.activeLevel?.map
+        mapRenderer.setView(gameConfiguration.camera.camera)
+        mapRenderer.render()
 
+    }
+
+
+    private fun drawCartesianGrid(numCellsX: Int, numCellsY: Int, cellSize: Float, color: Color) {
+        shapeRenderer.projectionMatrix = gameConfiguration.camera.projMatrix()
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Line)
+        shapeRenderer.color = color
+
+        // Draw vertical lines
+        for (i in 0..numCellsX) {
+            val x = i * cellSize
+            shapeRenderer.line(x, 0f, x, numCellsY * cellSize)
+        }
+
+        // Draw horizontal lines
+        for (i in 0..numCellsY) {
+            val y = i * cellSize
+            shapeRenderer.line(0f, y, numCellsX * cellSize, y)
+        }
+
+        shapeRenderer.end()
     }
 }

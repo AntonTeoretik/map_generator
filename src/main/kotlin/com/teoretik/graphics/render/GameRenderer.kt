@@ -1,12 +1,12 @@
 package com.teoretik.graphics.render
 
 import Screen
+import com.teoretik.components.GameConfiguration
 
 class UIRenderer(screen: Screen) {
 
 }
 
-class GameRenderer(screen: Screen) {
-    val worldRenderer = WorldRenderer(screen)
-    val uiRenderer = UIRenderer(screen)
+class GameRenderer(configuration: GameConfiguration) {
+    val worldRenderer = WorldRenderer(configuration)
 }

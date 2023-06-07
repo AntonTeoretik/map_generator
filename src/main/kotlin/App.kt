@@ -19,7 +19,7 @@ class App() : KtxGame<KtxScreen>() {
 
         // Set up input handling
         val inputMultiplexer = InputMultiplexer()
-        inputMultiplexer.addProcessor(CameraController(screen))
+        inputMultiplexer.addProcessor(CameraController(gameSetup.gameConfiguration.camera))
 
         val backgroundController = MapActionsController(screen)
         inputMultiplexer.addProcessor(backgroundController)

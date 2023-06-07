@@ -8,6 +8,7 @@ class GraphicsSettings (
         val worldHeight = 10f
         val noiseLevel = 0.02f
         val pixelResolution = 32
-        val animationDuration = 0.2f;
+        val animationDuration = 0.2f
+
     }
 }

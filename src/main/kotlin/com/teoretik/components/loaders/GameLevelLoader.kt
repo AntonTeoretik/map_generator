@@ -16,11 +16,13 @@ class GameLevelLoader() {
 
         private fun loadFloors(map: TiledMap, level: GameLevel) {
             for (layer in map.layers) {
+                println(layer.type())
                 if (
                     layer is MapGroupLayer &&
                     layer.isFloor()
-                )
+                ) {
                     level.floors[layer.floorNumber()!!] = layer
+                }
             }
         }
 

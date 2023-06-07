@@ -4,6 +4,20 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.math.Vector3
 
+class DynamicProcessor() {
+    companion object {
+        val dynamicObjects : MutableList<Dynamic<*>> = mutableListOf()
+
+        fun add(obj : Dynamic<*>) {
+            dynamicObjects += obj
+        }
+
+        fun update(delta: Float) {
+            dynamicObjects.forEach {it.update(delta)}
+        }
+    }
+}
+
 class Dynamic<T>(
     private var current: T,
     private val duration: Float,
@@ -14,6 +28,10 @@ class Dynamic<T>(
     private var next: T? = null
 
     private var animationInProgress: Boolean = false
+
+    init {
+        DynamicProcessor.dynamicObjects.add(this)
+    }
 
     private fun getInterpolated(time: Float): T {
         return if (next != null)
