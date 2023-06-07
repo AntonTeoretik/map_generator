@@ -1,5 +1,6 @@
 package com.teoretik.graphics.utils
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.math.Vector3
 
@@ -49,7 +50,7 @@ class Dynamic<T>(
     }
 }
 
-fun Vector3.toDynamic(duration: Float): Dynamic<Vector3> = Dynamic(this, duration, Vector3::lerp, Vector3::cpy)
-fun Vector2.toDynamic(duration: Float): Dynamic<Vector2> = Dynamic(this, duration, Vector2::lerp, Vector2::cpy)
-fun Float.toDynamic(duration: Float): Dynamic<Float> =
-    Dynamic(this, duration, { next, t -> (1 - t) * this + t * next })
+fun Vector3.toDynamic(duration: Float) = Dynamic(this, duration, Vector3::lerp, Vector3::cpy)
+fun Vector2.toDynamic(duration: Float) = Dynamic(this, duration, Vector2::lerp, Vector2::cpy)
+fun Float.toDynamic(duration: Float) = Dynamic(this, duration, { next, t -> (1 - t) * this + t * next })
+fun Color.toDynamic(duration: Float) = Dynamic(this, duration, Color::lerp, Color::cpy)

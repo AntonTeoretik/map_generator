@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.Vector3
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.ScreenViewport
 import com.teoretik.graphics.camera.Camera
-import com.teoretik.graphics.render.MapRenderer
+import com.teoretik.graphics.render.LightRenderer
 import com.teoretik.graphics.utils.toDynamic
 import ktx.app.KtxScreen
 
@@ -23,7 +23,7 @@ class Screen(val gameSetup: GameSetup) : KtxScreen {
     val layer = groupLayer.layers.get("Floor") as TiledMapTileLayer
 
     val position = IntPair(0, 0)
-    val mapRenderer = MapRenderer(this)
+    val lightRenderer = LightRenderer(this)
 
     // Camera info
     val camera = Camera()
@@ -70,8 +70,6 @@ class Screen(val gameSetup: GameSetup) : KtxScreen {
     }
 
     override fun render(delta: Float) {
-
-
         viewport.apply()
         updateCamera(delta)
 
@@ -86,9 +84,9 @@ class Screen(val gameSetup: GameSetup) : KtxScreen {
         // cells
         val v = cameraPosition.get()
 
-        mapRenderer.setView(position)
+        lightRenderer.setView(position)
         gameSetup.renderer.render()
-        mapRenderer.renderVisionRadius(position)
+        lightRenderer.renderVisionRadius(position)
 
         //drawCartesianGrid(20, 20, 1f, Color.FOREST)
 

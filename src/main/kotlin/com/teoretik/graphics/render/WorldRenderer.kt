@@ -8,12 +8,9 @@ import com.badlogic.gdx.utils.viewport.FitViewport
 
 class WorldRenderer(val screen: Screen) {
     // Renderers
-    val mapRenderer = MapRenderer(screen)
+    val lightRenderer = LightRenderer(screen)
     val visionRenderer = VisionRenderer()
     val shadowsRenderer = ShadowsRenderer()
-
-
-
 
     val backgroundColor = Color.BLACK
 
@@ -31,9 +28,9 @@ class WorldRenderer(val screen: Screen) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
         // cells
-        mapRenderer.setView(screen.position)
+        lightRenderer.setView(screen.position)
         screen.gameSetup.renderer.render()
-        mapRenderer.renderVisionRadius(screen.position)
+        lightRenderer.renderVisionRadius(screen.position)
 
     }
 }

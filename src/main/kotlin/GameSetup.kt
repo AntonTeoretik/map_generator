@@ -1,8 +1,8 @@
 
 import com.badlogic.gdx.maps.tiled.TmxMapLoader
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer
 import com.teoretik.components.GameLevel
 import com.teoretik.components.loaders.MapLoader
+import com.teoretik.graphics.render.MapRenderer
 
 
 class GameSetup {
@@ -17,5 +17,5 @@ class GameSetup {
     val map = loader.load("src/main/resources/map.tmx", parameters)
     val level = GameLevel(map)
 
-    val renderer = OrthogonalTiledMapRenderer(map, 1/32f)
+    val renderer = MapRenderer(map, 1/32f)
 }

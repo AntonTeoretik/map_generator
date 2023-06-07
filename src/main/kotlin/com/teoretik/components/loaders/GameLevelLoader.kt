@@ -7,21 +7,20 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.teoretik.components.GameLevel
 import com.teoretik.components.GameObject
 
-class GameLevelLoader () {
+class GameLevelLoader() {
     companion object {
-        fun loadLevel(map : TiledMap, level: GameLevel) {
+        fun loadLevel(map: TiledMap, level: GameLevel) {
             loadFloors(map, level)
             loadObjects(level)
         }
 
         private fun loadFloors(map: TiledMap, level: GameLevel) {
             for (layer in map.layers) {
-                if (layer is MapGroupLayer &&
-                    layer.properties["floor"] != null
-                ) {
-                    level.floors[layer.properties["floor"] as Int] = layer
-                    println(layer.properties["floor"] as Int)
-                }
+                if (
+                    layer is MapGroupLayer &&
+                    layer.isFloor()
+                )
+                    level.floors[layer.floorNumber()!!] = layer
             }
         }
 
@@ -31,7 +30,7 @@ class GameLevelLoader () {
             }
         }
 
-        private fun loadObjectsFromLayer(floorNum: Int, layer: MapLayer, level : GameLevel) {
+        private fun loadObjectsFromLayer(floorNum: Int, layer: MapLayer, level: GameLevel) {
             when (layer) {
                 is MapGroupLayer -> layer.layers.forEach { loadObjectsFromLayer(floorNum, it, level) }
                 is TiledMapTileLayer -> {
@@ -39,13 +38,7 @@ class GameLevelLoader () {
                         for (j in 0 until layer.height) {
                             val tile = layer.getCell(i, j)?.tile ?: continue
 
-                            if (tile.properties["type"] == "Light") {
-                                println("Light found!")
-                            }
-
-                            if (tile.properties["isObject"] == true ||
-                                layer.properties["isObjectLayer"] == true
-                            ) {
+                            if (tile.isObject()) {
                                 val obj = GameObject.loadFromTile(tile)
 
                                 obj.position.floor = floorNum
