@@ -1,13 +1,8 @@
 package com.teoretik.components
 
-import GameSetup
-import com.badlogic.gdx.maps.tiled.TiledMap
+import com.badlogic.gdx.math.Vector3
 import com.teoretik.components.loaders.MapLoader
 import com.teoretik.graphics.camera.Camera
-import com.teoretik.graphics.render.GameRenderer
-import com.teoretik.graphics.render.MapRenderer
-import com.teoretik.graphics.render.ViewSquare
-import com.teoretik.graphics.render.WorldRenderer
 
 /** Full game configuration, including
  *  - maps, levels and so on
@@ -20,7 +15,6 @@ class GameConfiguration {
 
     val camera = Camera()
 
-
     fun load() {
         val loader = MapLoader()
         val map = loader.load("src/main/resources/map.tmx")
@@ -28,5 +22,13 @@ class GameConfiguration {
 
         levels += level
         activeLevel = level
+
+        setUpCamera()
+    }
+
+    fun setUpCamera() {
+        val vec2 =  activeLevel?.cellToWorldCoordinates(GlobalPosition(0, 0 , 1))
+        println(vec2)
+        camera.position.set(Vector3(vec2, 0f))
     }
 }

@@ -4,6 +4,7 @@ import com.badlogic.gdx.maps.MapGroupLayer
 import com.badlogic.gdx.maps.MapLayer
 import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
+import com.teoretik.components.FloorLayer
 import com.teoretik.components.GameLevel
 import com.teoretik.components.GameObject
 
@@ -16,12 +17,12 @@ class GameLevelLoader() {
 
         private fun loadFloors(map: TiledMap, level: GameLevel) {
             for (layer in map.layers) {
-                println(layer.type())
-                if (
-                    layer is MapGroupLayer &&
-                    layer.isFloor()
-                ) {
-                    level.floors[layer.floorNumber()!!] = layer
+                if (layer is FloorLayer) {
+                    try {
+                        level.floors[layer.floorNumber()!!] = layer
+                    } catch (e : Exception) {
+                        println("The configuration is wrong: floor layer must contain property ")
+                    }
                 }
             }
         }

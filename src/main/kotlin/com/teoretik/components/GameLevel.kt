@@ -16,10 +16,6 @@ class GameLevel(
 
     init {
         GameLevelLoader.loadLevel(map, this)
-
-        val vec2 = cellToWorldCoordinates(GlobalPosition(0, 0, 1))
-        println(vec2)
-
     }
 
     fun activeFloorHeight() : Int? {
@@ -31,13 +27,12 @@ class GameLevel(
         for (layer in floor.layers)
             if (layer is TiledMapTileLayer)
                 return layer.height
-
         return null
     }
 
     fun cellToWorldCoordinates(pos : GlobalPosition) : Vector2? {
         val height = floorHeight(pos.floor) ?: return null
-        return Vector2(pos.x.toFloat() + 0.5f, -pos.y.toFloat() + height + 0.5f)
+        return Vector2(pos.x + 0.5f, -pos.y + height - 0.5f)
     }
 
     fun worldToCellCoordinates(vec : Vector2) {

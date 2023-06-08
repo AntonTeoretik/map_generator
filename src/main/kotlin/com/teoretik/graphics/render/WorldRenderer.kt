@@ -39,6 +39,9 @@ class WorldRenderer(val gameConfiguration: GameConfiguration) {
         mapRenderer.setView(gameConfiguration.camera.camera)
         mapRenderer.render()
 
+        // grid for technical info
+//        drawCartesianGrid(10, 10, 1f, Color.YELLOW)
+
     }
 
 

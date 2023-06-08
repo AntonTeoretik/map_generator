@@ -1,20 +1,11 @@
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
-import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer
-import com.badlogic.gdx.maps.MapGroupLayer
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
-import com.badlogic.gdx.math.Vector3
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.ScreenViewport
-import com.teoretik.graphics.camera.Camera
 import com.teoretik.graphics.render.GraphicsSettings
-import com.teoretik.graphics.render.ViewRenderer
-import com.teoretik.graphics.render.WorldRenderer
 import com.teoretik.graphics.utils.DynamicProcessor
-import com.teoretik.graphics.utils.toDynamic
 import ktx.app.KtxScreen
 
 data class IntPair(var x: Int, var y: Int)
@@ -55,9 +46,6 @@ class Screen(val gameSetup: GameSetup) : KtxScreen {
 
         viewport.apply()
         gameSetup.renderer.render()
-
-        // grid for technical info
-        // drawCartesianGrid(10, 10, 1f, Color.YELLOW)
 
         uiViewport.apply()
         drawTextTopLeft(batch, BitmapFont(), text)
