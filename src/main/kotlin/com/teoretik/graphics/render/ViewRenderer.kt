@@ -60,7 +60,7 @@ class ViewRenderer(val gameConfiguration: GameConfiguration) {
         sqrt((center.x - i) * (center.x - i) + (center.y - j) * (center.y - j).toFloat())
 
     private fun renderShadowSquare(x: Float, y: Float, alpha: Float) {
-        val yOffset = gameConfiguration.activeLevel?.activeFloorHeight() ?: return
+        val yOffset = gameConfiguration.activeLevel?.floorHeight(0) ?: return
 
         val vertexes: FloatArray =
             listOf(

@@ -1,33 +1,22 @@
 package com.teoretik.components
 
-import com.badlogic.gdx.maps.MapGroupLayer
 import com.badlogic.gdx.maps.tiled.TiledMap
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.loaders.GameLevelLoader
 
 class GameLevel(
     val map: TiledMap
 ) {
-    val objects: MutableList<GameObject> = mutableListOf()
-    val floors: MutableMap<Int, MapGroupLayer> = mutableMapOf()
-
-    val activeFloor : Int? = null
+    val floors: MutableMap<Int, FloorLayer> = mutableMapOf()
 
     init {
         GameLevelLoader.loadLevel(map, this)
     }
 
-    fun activeFloorHeight() : Int? {
-        return activeFloor?.run { floorHeight(this) }
-    }
+
 
     fun floorHeight(floorNum : Int) : Int? {
-        val floor = floors[floorNum] ?: return null
-        for (layer in floor.layers)
-            if (layer is TiledMapTileLayer)
-                return layer.height
-        return null
+        return floors[floorNum]?.height
     }
 
     fun cellToWorldCoordinates(pos : GlobalPosition) : Vector2? {
@@ -35,8 +24,9 @@ class GameLevel(
         return Vector2(pos.x + 0.5f, -pos.y + height - 0.5f)
     }
 
-    fun worldToCellCoordinates(vec : Vector2) {
-
+    fun worldToCellCoordinates(vec : Vector2, floorNum: Int) : GlobalPosition? {
+        val height = floorHeight(floorNum) ?: return null
+        return GlobalPosition(vec.x.toInt(), -vec.y.toInt() + height - 1 , floorNum)
     }
 
 }

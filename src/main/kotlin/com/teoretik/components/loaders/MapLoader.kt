@@ -22,31 +22,29 @@ class MapLoader : TmxMapLoader() {
     ) {
         if (element.name == "group") {
             val isFloor = element.get("class", "") == "Floor"
+
             val groupLayer = if (isFloor) FloorLayer() else MapGroupLayer()
 
             loadBasicLayerInfo(groupLayer, element)
             val properties = element.getChildByName("properties")
-            if (properties != null) {
-                loadProperties(groupLayer.properties, properties)
-            }
-            var i = 0
-            val j = element.childCount
-            while (i < j) {
-                val child = element.getChild(i)
+            loadProperties(groupLayer.properties, properties)
+
+            (0 until element.childCount).forEach {
+                val child = element.getChild(it)
                 loadLayer(map, groupLayer.layers, child, tmxFile, imageResolver)
-                i++
             }
+
             for (layer in groupLayer.layers) {
                 layer.parent = groupLayer
             }
-            parentLayers.add(groupLayer)
-        }
 
-        super.loadLayerGroup(map, parentLayers, element, tmxFile, imageResolver)
+            parentLayers.add(groupLayer)
+
+            if (isFloor) (groupLayer as FloorLayer).update()
+        }
     }
 
-    override fun loadProperties(properties: MapProperties?, element: XmlReader.Element?) {
-        if (element == null) return
+    override fun loadProperties(properties: MapProperties?, element: XmlReader.Element) {
         if (element.name == "properties") {
             for (property in element.getChildrenByName("property")) {
                 val name = property.getAttribute("name", null)
@@ -55,7 +53,7 @@ class MapLoader : TmxMapLoader() {
                 if (value == null) {
                     value = property.text
                 }
-                var castValue : Any?
+                var castValue: Any?
                 if (type == "class") {
                     castValue = MapProperties()
                     property.getChildByName("properties").apply {
@@ -66,7 +64,7 @@ class MapLoader : TmxMapLoader() {
                 } else {
                     castValue = castProperty(name, value, type)
                 }
-                properties!!.put(name, castValue)
+                properties?.put(name, castValue)
             }
         }
     }
@@ -74,7 +72,7 @@ class MapLoader : TmxMapLoader() {
     override fun castProperty(name: String?, value: String?, type: String?): Any {
         try {
             return super.castProperty(name, value, type)
-        } catch (e : Exception) {
+        } catch (e: Exception) {
             throw GdxRuntimeException(
                 "Wrong type given for property $name, given : $type, supported : string, bool, int, float, color, class"
             )

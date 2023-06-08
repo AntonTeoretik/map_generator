@@ -13,10 +13,10 @@ class MapRenderer(
 
     override fun renderObject(obj: MapObject?) {
         if (obj == null) return
+        super.renderObject(obj)
         if (obj is TiledMapTileMapObject) {
             renderTileObject(obj)
         }
-        super.renderObject(obj)
     }
 
     private fun renderTileObject(obj: TiledMapTileMapObject) {
