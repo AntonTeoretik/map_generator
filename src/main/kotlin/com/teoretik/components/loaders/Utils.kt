@@ -9,5 +9,4 @@ const val FLOOR_NUMBER = "floorNumber"
 const val TYPE = "type"
 const val OBJECT = "Object"
 
-fun TiledMapTile.type() : Any? = this.properties[TYPE]
 fun TiledMapTile.isObject() : Boolean = this.properties[TYPE] == OBJECT
