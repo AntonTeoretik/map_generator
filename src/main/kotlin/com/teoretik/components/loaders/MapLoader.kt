@@ -9,7 +9,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.TmxMapLoader
 import com.badlogic.gdx.utils.GdxRuntimeException
 import com.badlogic.gdx.utils.XmlReader
-import com.teoretik.components.FloorLayer
+import com.teoretik.components.Floor
 
 class MapLoader : TmxMapLoader() {
 
@@ -23,7 +23,7 @@ class MapLoader : TmxMapLoader() {
         if (element.name == "group") {
             val isFloor = element.get("class", "") == "Floor"
 
-            val groupLayer = if (isFloor) FloorLayer() else MapGroupLayer()
+            val groupLayer = if (isFloor) Floor() else MapGroupLayer()
 
             loadBasicLayerInfo(groupLayer, element)
             val properties = element.getChildByName("properties")
@@ -40,7 +40,7 @@ class MapLoader : TmxMapLoader() {
 
             parentLayers.add(groupLayer)
 
-            if (isFloor) (groupLayer as FloorLayer).update()
+            if (isFloor) (groupLayer as Floor).update()
         }
     }
 

@@ -3,19 +3,19 @@ package com.teoretik.components.loaders
 import com.badlogic.gdx.maps.MapGroupLayer
 import com.badlogic.gdx.maps.MapLayer
 import com.badlogic.gdx.maps.tiled.TiledMap
-import com.teoretik.components.FloorLayer
-import com.teoretik.components.GameLevel
+import com.teoretik.components.Floor
+import com.teoretik.components.Level
 
-class GameLevelLoader {
+class LevelLoader {
     companion object {
-        fun loadLevel(map: TiledMap, level: GameLevel) {
+        fun loadLevel(map: TiledMap, level: Level) {
             loadFloors(map, level)
             moveObjectsToFloorLayers(level)
         }
 
-        private fun loadFloors(map: TiledMap, level: GameLevel) {
+        private fun loadFloors(map: TiledMap, level: Level) {
             for (layer in map.layers) {
-                if (layer is FloorLayer) {
+                if (layer is Floor) {
                     try {
                         level.floors[layer.floorNumber] = layer
                     } catch (e: Exception) {
@@ -25,7 +25,7 @@ class GameLevelLoader {
             }
         }
 
-        private fun moveObjectsToFloorLayers(level: GameLevel) {
+        private fun moveObjectsToFloorLayers(level: Level) {
             level.floors.forEach { (_, layer) ->
                 layer.layers.forEach {
                     moveObjectsToTop(layer, it)
@@ -33,7 +33,7 @@ class GameLevelLoader {
             }
         }
 
-        private fun moveObjectsToTop(topLayer: FloorLayer, layer: MapLayer) {
+        private fun moveObjectsToTop(topLayer: Floor, layer: MapLayer) {
             when (layer) {
                 is MapGroupLayer -> {
                     layer.layers.forEach {

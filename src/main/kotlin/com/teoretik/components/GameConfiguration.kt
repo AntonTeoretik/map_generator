@@ -11,15 +11,15 @@ import com.teoretik.graphics.camera.Camera
  *  - main character and npc properties
  */
 class GameConfiguration {
-    val levels : MutableList<GameLevel> = mutableListOf()
-    var activeLevel : GameLevel? = null
+    val levels : MutableList<Level> = mutableListOf()
+    var activeLevel : Level? = null
 
     val camera = Camera()
 
     fun load() {
         val loader = MapLoader()
         val map = loader.load("src/main/resources/map.tmx")
-        val level = GameLevel(map)
+        val level = Level(map)
 
         levels += level
         activeLevel = level

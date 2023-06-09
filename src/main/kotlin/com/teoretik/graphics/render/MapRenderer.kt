@@ -1,15 +1,24 @@
 package com.teoretik.graphics.render
 
+import com.badlogic.gdx.maps.MapLayer
 import com.badlogic.gdx.maps.MapObject
 import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer
 import com.badlogic.gdx.math.Affine2
+import com.teoretik.components.Floor
 
 class MapRenderer(
     map: TiledMap?,
     unitScale: Float = 1f / GraphicsSettings.pixelResolution
 ) : OrthogonalTiledMapRenderer(map, unitScale) {
+
+    override fun renderMapLayer(layer: MapLayer?) {
+        super.renderMapLayer(layer)
+        if (layer is Floor) {
+            renderObjects(layer)
+        }
+    }
 
     override fun renderObject(obj: MapObject?) {
         if (obj == null) return

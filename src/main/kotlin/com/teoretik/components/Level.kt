@@ -2,18 +2,16 @@ package com.teoretik.components
 
 import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.math.Vector2
-import com.teoretik.components.loaders.GameLevelLoader
+import com.teoretik.components.loaders.LevelLoader
 
-class GameLevel(
+class Level(
     val map: TiledMap
 ) {
-    val floors: MutableMap<Int, FloorLayer> = mutableMapOf()
+    val floors: MutableMap<Int, Floor> = mutableMapOf()
 
     init {
-        GameLevelLoader.loadLevel(map, this)
+        LevelLoader.loadLevel(map, this)
     }
-
-
 
     fun floorHeight(floorNum : Int) : Int? {
         return floors[floorNum]?.height
