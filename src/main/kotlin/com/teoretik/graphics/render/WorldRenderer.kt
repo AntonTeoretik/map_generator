@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.teoretik.components.GameConfiguration
+import com.teoretik.graphics.render.GraphicsSettings.Companion.unitScale
 
 class WorldRenderer(val gameConfiguration: GameConfiguration) {
     val shapeRenderer = ShapeRenderer()
@@ -34,6 +35,14 @@ class WorldRenderer(val gameConfiguration: GameConfiguration) {
         // For now just render the current layer
         mapRenderer.map = gameConfiguration.activeLevel?.map
         mapRenderer.setView(gameConfiguration.camera.camera)
+
+        mapRenderer.shapeRenderer.projectionMatrix = gameConfiguration.camera.projMatrix()
+
+        val v = gameConfiguration.camera.position.get()
+        gameConfiguration.dynamicLight.x = v.x / unitScale
+        gameConfiguration.dynamicLight.y = v.y / unitScale
+        gameConfiguration.activeLevel!!.floors[1]!!.updateLight()
+
         mapRenderer.render()
 
         // grid for technical info

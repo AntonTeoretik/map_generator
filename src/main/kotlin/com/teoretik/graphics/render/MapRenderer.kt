@@ -1,5 +1,9 @@
 package com.teoretik.graphics.render
 
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.GL20
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.maps.MapLayer
 import com.badlogic.gdx.maps.MapObject
 import com.badlogic.gdx.maps.tiled.TiledMap
@@ -7,17 +11,95 @@ import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer
 import com.badlogic.gdx.math.Affine2
 import com.teoretik.components.Floor
+import com.teoretik.components.light.Light
 
 class MapRenderer(
     map: TiledMap?,
     unitScale: Float = 1f / GraphicsSettings.pixelResolution
 ) : OrthogonalTiledMapRenderer(map, unitScale) {
 
-    override fun renderMapLayer(layer: MapLayer?) {
+    val shapeRenderer = ShapeRenderer()
+
+    override fun renderMapLayer(layer: MapLayer) {
         super.renderMapLayer(layer)
+        if (!layer.isVisible) return
         if (layer is Floor) {
             renderObjects(layer)
+
+            //TODO remove it later
+
+            renderLight(layer)
+            //renderObstacles(layer)
         }
+    }
+
+    private fun renderLight(layer: Floor) {
+        batch.end()
+        Gdx.gl.glEnable(GL20.GL_BLEND);
+        Gdx.gl.glBlendFunc(GL20.GL_DST_COLOR, GL20.GL_ZERO);
+
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled)
+
+        for (i in 0 until layer.lightMap.size - 1) {
+            for (j in 0 until layer.lightMap[i].size - 1) {
+                val vec2 = layer.cellToWorldCoordinates(
+                    (i.toFloat()) / GraphicsSettings.resolution,
+                    (j.toFloat()) / GraphicsSettings.resolution
+                )
+
+//                val color = layer.lightMap[i][j].toColorMask()
+                val color = Light().run {
+                    listOf(0 to 0, 0 to 1, 1 to 0, 1 to 1).forEach {p ->
+                        this.add(layer.lightMap[i + p.first][j + p.second])
+                    }
+                    this.scl(0.25f)
+                    this.toColorMask()
+                }
+                shapeRenderer.color = color
+                renderShadowSquare(vec2.x, vec2.y)
+            }
+        }
+
+        shapeRenderer.end()
+
+        Gdx.gl.glDisable(GL20.GL_BLEND);
+
+        batch.begin()
+
+    }
+
+    private fun renderShadowSquare(x: Float, y: Float) {
+
+        val offset = 1f / GraphicsSettings.resolution
+        val vertexes: FloatArray =
+            listOf(
+                x, y - offset,
+                x + offset, y - offset,
+                x + offset, y,
+                x, y
+            ).toFloatArray()
+
+        for (i in 2 until vertexes.size - 2 step 2) {
+            shapeRenderer.triangle(
+                vertexes[0], vertexes[1],
+                vertexes[i], vertexes[i + 1],
+                vertexes[i + 2], vertexes[i + 3]
+            )
+        }
+    }
+
+    private fun renderObstacles(floor: Floor) {
+        batch.end()
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Line)
+        for (obst in floor.obstacles) {
+            val p = obst.polygon
+
+            shapeRenderer.color = Color.RED.cpy()
+            shapeRenderer.polygon(p.transformedVertices)
+
+        }
+        shapeRenderer.end()
+        batch.begin()
     }
 
     override fun renderObject(obj: MapObject?) {
