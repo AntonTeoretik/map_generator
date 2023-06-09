@@ -27,11 +27,17 @@ class Floor : MapGroupLayer() {
     fun updateLight() {
 //        println((objects[objects.count() - 1] as TextureMapObject).y)
         //println(lightMap[0][0].x)
+
+        //TODO -- make more efficient
+        // (use only potential visible cells)
+        // use static light where is possible
+        // block ray if hited ones
+
         LightProcessor.processLight(this)
     }
 
     fun updateObstacles() {
-
+        obstacles = mutableListOf()
         for (layer in layers.filterIsInstance<TiledMapTileLayer>()) {
             (0 until layer.width).forEach { i ->
                 (0 until layer.height).forEach { j ->

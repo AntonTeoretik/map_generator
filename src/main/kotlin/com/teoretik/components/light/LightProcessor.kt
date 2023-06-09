@@ -18,8 +18,8 @@ class LightProcessor() {
                 .filterIsInstance<TextureMapObject>()
                 .filter { it.properties["lightProperties"] != null }
                 .forEach {
-                    val x = it.x * unitScale + 0.5f
-                    val y = it.y * unitScale + 0.5f
+                    val x = it.x * unitScale// + 0.5f
+                    val y = it.y * unitScale// + 0.5f
                     processOneLightSource(Vector2(x, y), floor)
             }
         }
@@ -49,7 +49,7 @@ class LightProcessor() {
 
             val factor = (1f / (1f + v2.dst2(v1) * 0.2f) )
             //val factor = 1.0f
-            return Light(1f, 1f, 0.9f).scl(factor) as Light
+            return Light(1f, 0.8f, 0.4f).scl(factor) as Light
         }
     }
 }

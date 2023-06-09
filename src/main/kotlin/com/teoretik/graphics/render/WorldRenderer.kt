@@ -38,7 +38,8 @@ class WorldRenderer(val gameConfiguration: GameConfiguration) {
 
         mapRenderer.shapeRenderer.projectionMatrix = gameConfiguration.camera.projMatrix()
 
-        val v = gameConfiguration.camera.position.get()
+        // TODO bad!
+        val v = gameConfiguration.camera.position.get().cpy()
         gameConfiguration.dynamicLight.x = v.x / unitScale
         gameConfiguration.dynamicLight.y = v.y / unitScale
         gameConfiguration.activeLevel!!.floors[1]!!.updateLight()

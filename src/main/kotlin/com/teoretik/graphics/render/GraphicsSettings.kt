@@ -9,7 +9,7 @@ class GraphicsSettings (
         val noiseLevel = 0.02f
         val pixelResolution = 32
         val unitScale = 1f / pixelResolution
-        val resolution = 4
+        val resolution = 2
         val animationDuration = 0.2f
     }
 }
