@@ -73,4 +73,8 @@ class Floor : MapGroupLayer() {
     fun cellToWorldCoordinates(x: Float, y: Float): Vector2 {
         return Vector2(x + offsetX, -y + height + offsetY)
     }
+
+    fun worldToCellCoordinates(vec2 : Vector2) : Pair<Int, Int> {
+        return (vec2.x - offsetX).toInt() to (-vec2.y + height + offsetY).toInt() // TODO check it
+    }
 }
