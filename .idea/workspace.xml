@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Add light processor, add dynamic color">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Add todo">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/DynamicLightSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/Light.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/LightSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/LightSourceShape.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/QuasiDynamicLightSource.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/StaticLightSource.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/LightProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/LightProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/Obstacle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/Obstacle.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/GraphicsSettings.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/GraphicsSettings.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/MapRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/MapRenderer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/WorldRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/WorldRenderer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -208,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686318732798</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add todo">
+      <created>1686324508778</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686324508778</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,6 +245,7 @@
     <MESSAGE value="Improve floor map load" />
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Add light processor, add dynamic color" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add light processor, add dynamic color" />
+    <MESSAGE value="Add todo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add todo" />
   </component>
 </project>

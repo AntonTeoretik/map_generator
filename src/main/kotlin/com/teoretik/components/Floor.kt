@@ -1,14 +1,14 @@
 package com.teoretik.components
 
 import com.badlogic.gdx.maps.MapGroupLayer
-import com.badlogic.gdx.maps.objects.TextureMapObject
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.light.Light
 import com.teoretik.components.light.LightProcessor
 import com.teoretik.components.light.Obstacle
 import com.teoretik.components.loaders.FLOOR_NUMBER
-import com.teoretik.graphics.render.GraphicsSettings
+import com.teoretik.graphics.render.GraphicsSettings as Settings
+
 
 typealias Array2D<T> = List<List<T>>
 
@@ -63,8 +63,8 @@ class Floor : MapGroupLayer() {
             }
         }
 
-        lightMap = List(GraphicsSettings.resolution * width + 1) {
-            List(GraphicsSettings.resolution * height + 1) {
+        lightMap = List(Settings.resolution * width + 1) {
+            List(Settings.resolution * height + 1) {
                 Light()
             }
         }

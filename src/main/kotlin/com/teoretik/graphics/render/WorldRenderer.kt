@@ -42,7 +42,7 @@ class WorldRenderer(val gameConfiguration: GameConfiguration) {
         val v = gameConfiguration.camera.position.get().cpy()
         gameConfiguration.dynamicLight.x = v.x / unitScale
         gameConfiguration.dynamicLight.y = v.y / unitScale
-        gameConfiguration.activeLevel!!.floors[1]!!.updateLight()
+        //gameConfiguration.activeLevel!!.floors[1]!!.updateLight()
 
         mapRenderer.render()
 

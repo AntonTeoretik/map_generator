@@ -1,22 +1,11 @@
 package com.teoretik.components.light
 
-import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.maps.MapObject
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.math.Polygon
-import com.badlogic.gdx.math.Vector3
 import com.teoretik.components.loaders.cellToWorldCoordinates
 import com.teoretik.graphics.render.GraphicsSettings
-
-class Light(x: Float = 0f, y: Float = 0f, z: Float = 0f) : Vector3(x, y, z) {
-    fun toColorMask(): Color = Color(x, y, z, 0.0f)
-    fun clear() {
-        x = 0f
-        y = 0f
-        z = 0f
-    }
-}
 
 class Obstacle(
     val polygon: Polygon,

@@ -29,7 +29,7 @@ class MapRenderer(
             //TODO remove it later
 
             renderLight(layer)
-            //renderObstacles(layer)
+            renderObstacles(layer)
         }
     }
 
