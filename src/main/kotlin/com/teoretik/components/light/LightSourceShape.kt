@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2
 
 abstract class LightSourceShape {
     abstract fun provideRegion(): Rectangle?
+    abstract val processor : LightProcessor
 }
 
 class PointLightSourceShape(val rad: Float) : LightSourceShape() {
@@ -15,6 +16,7 @@ class PointLightSourceShape(val rad: Float) : LightSourceShape() {
             -rad, -rad, 2 * rad, 2 * rad
         )
     }
+    override val processor = PointLightProcessor()
 }
 
 class ConeLightSourceShape(val direction: Vector2, val angle: Float, val rad: Float) : LightSourceShape() {
@@ -25,4 +27,5 @@ class ConeLightSourceShape(val direction: Vector2, val angle: Float, val rad: Fl
             -rad, -rad, 2 * rad, 2 * rad
         )
     }
+    override val processor: LightProcessor = NoProcessor()
 }

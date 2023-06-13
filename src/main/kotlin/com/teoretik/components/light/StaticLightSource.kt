@@ -5,4 +5,7 @@ class StaticLightSource(
     y : Float,
     light: Light,
     shape: LightSourceShape,
-) : LightSource(x, y, light, shape)
+    algorithm: IntensityAlgorithm = InvDistance(0.1f, 15f)
+) : LightSource(x, y, light, shape, algorithm) {
+
+}

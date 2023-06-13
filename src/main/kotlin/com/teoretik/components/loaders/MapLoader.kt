@@ -57,10 +57,8 @@ class MapLoader : TmxMapLoader() {
                 var castValue: Any?
                 if (type == "class") {
                     castValue = MapProperties()
-                    property.getChildByName("properties").apply {
-                        this.getChildrenByName("property").forEach {
-                            loadProperties(castValue as MapProperties, it)
-                        }
+                    property.getChildByName("properties").run {
+                        loadProperties(castValue as MapProperties, this)
                     }
                 } else {
                     castValue = castProperty(name, value, type)

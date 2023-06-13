@@ -4,14 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Add basic light sources types and shapes">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Start to work with light processor">
+      <change afterPath="$PROJECT_DIR$/src/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/FloorLightProcessor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/IntensityAlgorithm.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/NoProcessor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/PointLightProcessor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/GameConfiguration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/GameConfiguration.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/DynamicLightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/DynamicLightSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/Light.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/Light.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/LightProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/LightProcessor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/LightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/LightSource.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/LightSourceShape.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/LightSourceShape.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/QuasiDynamicLightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/QuasiDynamicLightSource.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/StaticLightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/StaticLightSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/loaders/LevelLoader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/loaders/LevelLoader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/loaders/MapLoader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/loaders/MapLoader.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/GraphicsSettings.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/GraphicsSettings.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/MapRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/MapRenderer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +116,7 @@
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="com.teoretik.components.light" />
       <recent name="com.teoretik.game_components.loaders" />
       <recent name="com.teoretik.graphics.render" />
     </key>
@@ -227,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686486711708</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Start to work with light processor">
+      <created>1686494076185</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686494076185</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -252,6 +272,7 @@
     <MESSAGE value="Add light processor, add dynamic color" />
     <MESSAGE value="Add todo" />
     <MESSAGE value="Add basic light sources types and shapes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add basic light sources types and shapes" />
+    <MESSAGE value="Start to work with light processor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start to work with light processor" />
   </component>
 </project>

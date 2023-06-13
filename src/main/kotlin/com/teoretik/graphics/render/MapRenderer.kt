@@ -11,11 +11,13 @@ import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer
 import com.badlogic.gdx.math.Affine2
 import com.teoretik.components.Floor
+import com.teoretik.components.light.FloorLightProcessor
 import com.teoretik.components.light.Light
+import com.teoretik.components.light.toColorMask
 
 class MapRenderer(
     map: TiledMap?,
-    unitScale: Float = 1f / GraphicsSettings.pixelResolution
+    unitScale: Float = GraphicsSettings.unitScale
 ) : OrthogonalTiledMapRenderer(map, unitScale) {
 
     val shapeRenderer = ShapeRenderer()
@@ -40,14 +42,13 @@ class MapRenderer(
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled)
 
+
         for (i in 0 until layer.lightMap.size - 1) {
             for (j in 0 until layer.lightMap[i].size - 1) {
-                val vec2 = layer.cellToWorldCoordinates(
-                    (i.toFloat()) / GraphicsSettings.resolution,
-                    (j.toFloat()) / GraphicsSettings.resolution
-                )
+                val vec2 = FloorLightProcessor.lightMapToWorldCoordinates(i, j)
 
-//                val color = layer.lightMap[i][j].toColorMask()
+               // val color = layer.lightMap[i][j].toColorMask()
+
                 val color = Light().run {
                     listOf(0 to 0, 0 to 1, 1 to 0, 1 to 1).forEach {p ->
                         this.add(layer.lightMap[i + p.first][j + p.second])
@@ -55,6 +56,7 @@ class MapRenderer(
                     this.scl(0.25f)
                     this.toColorMask()
                 }
+
                 shapeRenderer.color = color
                 renderShadowSquare(vec2.x, vec2.y)
             }
@@ -70,11 +72,11 @@ class MapRenderer(
 
     private fun renderShadowSquare(x: Float, y: Float) {
 
-        val offset = 1f / GraphicsSettings.resolution
+        val offset = 1f / GraphicsSettings.lightResolution
         val vertexes: FloatArray =
             listOf(
-                x, y - offset,
-                x + offset, y - offset,
+                x, y + offset,
+                x + offset, y + offset,
                 x + offset, y,
                 x, y
             ).toFloatArray()
@@ -113,14 +115,14 @@ class MapRenderer(
     private fun renderTileObject(obj: TiledMapTileMapObject) {
         val tile = obj.tile
 
+
         if (tile != null) {
             val region = tile.textureRegion
-
             val offsetX = region.regionWidth / 2f * unitScale
             val offsetY = region.regionHeight / 2f * unitScale
 
             val aff = Affine2()
-                .translate(obj.x * unitScale + offsetX, obj.y * unitScale + offsetY)
+                .translate(obj.x + offsetX, obj.y + offsetY)
                 .rotate(obj.rotation)
                 .translate(-offsetX, -offsetY)
 
