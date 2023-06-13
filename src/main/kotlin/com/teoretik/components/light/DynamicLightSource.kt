@@ -1,7 +1,5 @@
 package com.teoretik.components.light
 
-import com.badlogic.gdx.math.Vector2
-
 open class DynamicLightSource(
     x : Float,
     y : Float,

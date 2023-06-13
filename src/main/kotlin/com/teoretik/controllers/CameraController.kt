@@ -1,10 +1,9 @@
 package com.teoretik.controllers
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.Input
 import com.badlogic.gdx.InputAdapter
 import com.badlogic.gdx.math.Vector3
-import Screen
-import com.badlogic.gdx.Input
 import com.teoretik.graphics.camera.Camera
 
 class CameraController(private val camera: Camera) : InputAdapter() {

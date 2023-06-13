@@ -3,11 +3,9 @@ package com.teoretik.components
 import com.badlogic.gdx.maps.MapGroupLayer
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.math.Vector2
-import com.teoretik.components.light.Light
 import com.teoretik.components.light.FloorLightProcessor
 import com.teoretik.components.light.Obstacle
 import com.teoretik.components.loaders.FLOOR_NUMBER
-import com.teoretik.graphics.render.GraphicsSettings as Settings
 
 class Floor : MapGroupLayer() {
     var width: Int = 0

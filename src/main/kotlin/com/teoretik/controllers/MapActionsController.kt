@@ -1,7 +1,7 @@
 package com.teoretik.controllers
 
-import com.badlogic.gdx.InputAdapter
 import Screen
+import com.badlogic.gdx.InputAdapter
 
 class MapActionsController(
     private val screen: Screen,

@@ -6,7 +6,6 @@ import com.badlogic.gdx.maps.MapGroupLayer
 import com.badlogic.gdx.maps.MapLayers
 import com.badlogic.gdx.maps.MapProperties
 import com.badlogic.gdx.maps.tiled.TiledMap
-import com.badlogic.gdx.maps.tiled.TiledMapTile
 import com.badlogic.gdx.maps.tiled.TmxMapLoader
 import com.badlogic.gdx.utils.GdxRuntimeException
 import com.badlogic.gdx.utils.XmlReader
