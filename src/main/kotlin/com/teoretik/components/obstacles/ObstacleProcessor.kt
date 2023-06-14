@@ -1,36 +1,15 @@
 package com.teoretik.components.obstacles
 
 import com.badlogic.gdx.maps.tiled.TiledMapTile
-import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.Floor
 import com.teoretik.components.loaders.cellToWorldCoordinates
 import com.teoretik.components.tilesWithIndexes
-import com.teoretik.graphics.render.GraphicsSettings.pixelResolution
-import com.teoretik.graphics.render.GraphicsSettings.unitScale
 import com.teoretik.utils.geometry.Array2D
 import com.teoretik.utils.geometry.InternalRectangles
+import com.teoretik.utils.tiles.*
+import com.teoretik.utils.vectors.*
 
-fun TiledMapTile.isSolid(): Boolean = this.properties?.get(Obstacle.SOLID) == true
-
-val TiledMapTile.widthInPixels: Int
-    get() = this.textureRegion.regionWidth
-val TiledMapTile.heightInPixels: Int
-    get() = this.textureRegion.regionHeight
-val TiledMapTile.widthInCells: Int
-    get() = this.widthInPixels / pixelResolution
-val TiledMapTile.heightInCells: Int
-    get() = this.heightInPixels / pixelResolution
-val TiledMapTile.width: Float
-    get() = this.widthInPixels * unitScale
-val TiledMapTile.height: Float
-    get() = this.heightInPixels * unitScale
-
-
-
-fun TiledMapTile.isStandard(): Boolean =
-    widthInPixels % pixelResolution == 0 && heightInPixels % pixelResolution == 0
-
-
+private fun TiledMapTile.isSolid(): Boolean = this.properties?.get(Obstacle.SOLID) == true
 
 class ObstacleProcessor(val floor: Floor) {
 
@@ -75,6 +54,3 @@ class ObstacleProcessor(val floor: Floor) {
         }
     }
 }
-
-private operator fun Vector2.component1(): Float = x
-private operator fun Vector2.component2(): Float = y
