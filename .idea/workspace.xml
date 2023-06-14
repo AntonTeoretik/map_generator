@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Small style fix">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowState.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/FloorLightProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/FloorLightProcessor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/Light.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/Light.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/DynamicLightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/DynamicLightSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/LightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/LightSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/QuasiDynamicLightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/QuasiDynamicLightSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/StaticLightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/StaticLightSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/MapRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/MapRenderer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/WorldRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/WorldRenderer.kt" afterDir="false" />
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Rename Light to LightColor">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/dynamic/DynamicProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Screen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Screen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/camera/Camera.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/camera/Camera.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/utils/Dynamic.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/dynamic/Dynamic.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +101,7 @@
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\utils\dynamic" />
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\components\light\processors" />
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\components\light\intensity" />
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\components\light\shape" />
@@ -298,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686747323536</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Rename Light to LightColor">
+      <created>1686748049338</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686748049338</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -330,6 +331,7 @@
     <MESSAGE value="Refactoring&#10;&#10;Finally, split classes, organise packages" />
     <MESSAGE value="Optimize search for maximums&#10;&#10;We actually don't need all the maximums be found. We need only to cover all minimal elements by them." />
     <MESSAGE value="Small style fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small style fix" />
+    <MESSAGE value="Rename Light to LightColor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename Light to LightColor" />
   </component>
 </project>

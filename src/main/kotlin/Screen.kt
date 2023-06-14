@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.ScreenViewport
 import com.teoretik.graphics.render.GraphicsSettings
-import com.teoretik.graphics.utils.DynamicProcessor
+import com.teoretik.utils.dynamic.DynamicProcessor
 import ktx.app.KtxScreen
 
 data class IntPair(var x: Int, var y: Int)

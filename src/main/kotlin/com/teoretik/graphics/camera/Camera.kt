@@ -5,8 +5,8 @@ import com.badlogic.gdx.math.Matrix4
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.math.Vector3
 import com.badlogic.gdx.utils.viewport.Viewport
-import com.teoretik.graphics.utils.Dynamic
-import com.teoretik.graphics.utils.toDynamic
+import com.teoretik.utils.dynamic.Dynamic
+import com.teoretik.utils.dynamic.toDynamic
 
 class Camera() {
     val camera = OrthographicCamera()
