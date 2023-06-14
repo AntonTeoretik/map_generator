@@ -14,27 +14,26 @@ import com.teoretik.components.light.shape.PointLightSourceShape
 import com.teoretik.components.light.source.DynamicLightSource
 import com.teoretik.components.light.source.StaticLightSource
 import com.teoretik.components.obstacles.Obstacle
-import com.teoretik.graphics.render.GraphicsSettings
+import com.teoretik.graphics.render.GraphicsSettings.lightResolution
+import com.teoretik.utils.geometry.Array2D
 
 class FloorLightProcessor(
     floor: Floor
 ) {
-    val staticLights: MutableList<StaticLightSource> = selectStaticLights(floor)
-
     val dynamicLights: MutableList<DynamicLightSource> = mutableListOf()
 
-    val staticObstacles: List<Obstacle> = floor.obstacleProcessor.obstacles
+    private val staticLights: MutableList<StaticLightSource> by lazy { selectStaticLights(floor) }
+    private val staticObstacles: List<Obstacle> by lazy { floor.obstacleProcessor.obstacles }
 
-    val staticLightMaps: MutableMap<StaticLightSource, LightMapRegion> = mutableMapOf()
+    private val staticLightMaps: MutableMap<StaticLightSource, LightMapRegion> = mutableMapOf()
 
-    val region = Rectangle(0f, 0f, floor.width.toFloat(), floor.height.toFloat())
+    private val region = Rectangle(0f, 0f, floor.width.toFloat(), floor.height.toFloat())
 
-    val lightColorMap =
-        Array(floor.width * GraphicsSettings.lightResolution + 1) {
-            Array(floor.height * GraphicsSettings.lightResolution + 1) {
-                LightColor()
-            }
-        }
+    val lightColorMap = Array2D(
+        floor.width * lightResolution + 1,
+        floor.height * lightResolution + 1
+    ) { _, _ ->
+        LightColor() }
 
     // Methods
 
@@ -53,22 +52,21 @@ class FloorLightProcessor(
         if (!Intersector.intersectRectangles(lightPreRegion, region, lightRegion)) return
 
         val lightMapRegion = LightMapRegion(
-            (GraphicsSettings.lightResolution * lightRegion.x).toInt(),
-            (GraphicsSettings.lightResolution * lightRegion.y).toInt(),
-            GraphicsSettings.lightResolution * lightRegion.width.toInt() + 2,
-            GraphicsSettings.lightResolution * lightRegion.height.toInt() + 2
+            (lightResolution * lightRegion.x).toInt(),
+            (lightResolution * lightRegion.y).toInt(),
+            lightResolution * lightRegion.width.toInt() + 2,
+            lightResolution * lightRegion.height.toInt() + 2
         )
 
         for (i in 0 until lightMapRegion.width) {
             for (j in 0 until lightMapRegion.height) {
-                lightMapRegion.lightMap[i][j] = lightSource.shape.processor.processRay(
+                lightMapRegion.lightMap[i, j] = lightSource.shape.processor.processRay(
                     Vector2(lightSource.x, lightSource.y),
                     lightMapToWorldCoordinates(i + lightMapRegion.x, j + lightMapRegion.y),
                     staticObstacles
                 )
             }
         }
-
 
         staticLightMaps[lightSource] = lightMapRegion
     }
@@ -92,26 +90,24 @@ class FloorLightProcessor(
 
     fun computeFinalLightMap() {
         clearLightmap()
+
         staticLightMaps.forEach { (light, lm) ->
-            lm.lightMap.filterIndexed { i, _ ->
-                i + lm.x < lightColorMap.size
-            }.forEachIndexed { i, arr ->
-                arr.filterIndexed { j, _ ->
-                    j + lm.y < lightColorMap[i].size
-                }.forEachIndexed { j, shadowState ->
-                    if (shadowState == ShadowState.LIGHT) {
-                        lightColorMap[i + lm.x][j + lm.y].add(
+            lm.lightMap
+                .validIndicesSeparateFilter({ i -> i + lm.x < lightColorMap.numRows }, { j -> j + lm.y < lightColorMap.numColumns })
+                .forEach {
+                    val (i, j, state) = it
+
+                    if (state == ShadowState.LIGHT) {
+                        lightColorMap[i + lm.x, j + lm.y]?.add(
                             light.computeLightInPoint(lightMapToWorldCoordinates(i + lm.x, j + lm.y))
                         )
-
                     }
                 }
-            }
         }
     }
 
     private fun clearLightmap() {
-        lightColorMap.forEach { it.forEach { l -> l.clear() } }
+        lightColorMap.validIndices().forEach { (_, _, l) -> l.clear() }
     }
 
     companion object {
@@ -121,13 +117,13 @@ class FloorLightProcessor(
             val width: Int,
             val height: Int,
         ) {
-            val lightMap = Array(width) { Array(height) { ShadowState.UNCERTAIN } }
+            val lightMap = Array2D(width, height) { _, _ -> ShadowState.UNCERTAIN }
         }
 
         fun lightMapToWorldCoordinates(x: Int, y: Int): Vector2 {
             return Vector2(
-                x.toFloat() / GraphicsSettings.lightResolution,
-                y.toFloat() / GraphicsSettings.lightResolution
+                x.toFloat() / lightResolution,
+                y.toFloat() / lightResolution
             )
         }
     }

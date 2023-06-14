@@ -10,10 +10,13 @@ import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer
 import com.badlogic.gdx.math.Affine2
+import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.Floor
 import com.teoretik.components.light.processors.FloorLightProcessor
 import com.teoretik.components.light.LightColor
 import com.teoretik.components.light.toColorMask
+
+import com.teoretik.utils.vectors.*
 
 class MapRenderer(
     map: TiledMap?,
@@ -24,15 +27,11 @@ class MapRenderer(
 
     override fun renderMapLayer(layer: MapLayer) {
         super.renderMapLayer(layer)
-        if (!layer.isVisible) return
-        if (layer is Floor) {
-            renderObjects(layer)
+        if (!layer.isVisible || layer !is Floor) return
 
-            //TODO remove it later
-
-            renderLight(layer)
-            renderObstacles(layer)
-        }
+        renderObjects(layer)
+        renderLight(layer)
+        //renderObstacles(layer)
     }
 
     private fun renderLight(layer: Floor) {
@@ -42,36 +41,30 @@ class MapRenderer(
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled)
 
-
-        for (i in 0 until layer.lightMap.size - 1) {
-            for (j in 0 until layer.lightMap[i].size - 1) {
-                val vec2 = FloorLightProcessor.lightMapToWorldCoordinates(i, j)
-
-               // val color = layer.lightMap[i][j].toColorMask()
-
-                val color = LightColor().run {
-                    listOf(0 to 0, 0 to 1, 1 to 0, 1 to 1).forEach {p ->
-                        this.add(layer.lightMap[i + p.first][j + p.second])
+        with(layer.lightMap) {
+            validIndicesSeparateFilter(
+                { it != numRows - 1 },
+                { it != numColumns - 1 }
+            ).forEach { (i, j, _) ->
+                shapeRenderer.color = LightColor().run {
+                    sequenceOf(0 to 0, 0 to 1, 1 to 0, 1 to 1).forEach { (ii, jj) ->
+                        add(this@with[i + ii, j + jj])
                     }
-                    this.scl(0.25f)
-                    this.toColorMask()
+                    scl(0.25f)
+                    toColorMask()
                 }
-
-                shapeRenderer.color = color
-                renderShadowSquare(vec2.x, vec2.y)
+                renderShadowSquare(FloorLightProcessor.lightMapToWorldCoordinates(i, j))
             }
         }
 
         shapeRenderer.end()
-
         Gdx.gl.glDisable(GL20.GL_BLEND);
-
         batch.begin()
 
     }
 
-    private fun renderShadowSquare(x: Float, y: Float) {
-
+    private fun renderShadowSquare(vector2: Vector2) {
+        val (x, y) = vector2
         val offset = 1f / GraphicsSettings.lightResolution
         val vertexes: FloatArray =
             listOf(

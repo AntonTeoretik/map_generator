@@ -7,4 +7,26 @@ class Array2D<T>(val numRows: Int, val numColumns: Int, init: (Int, Int) -> T) {
     operator fun set(row: Int, col: Int, value: T) {
         data[row][col] = value
     }
+
+    fun validIndices(predicate: (Int, Int) -> Boolean = { _, _ -> true }) = sequence<Triple<Int, Int, T>> {
+        repeat(numRows) { i ->
+            repeat(numColumns) { j ->
+                if (predicate(i, j)) yield(Triple(i, j, get(i, j)!!))
+            }
+        }
+    }
+
+    fun validIndicesSeparateFilter(
+        predicateX: (Int) -> Boolean,
+        predicateY: (Int) -> Boolean = { true },
+    ) = sequence {
+        repeat(numRows) { i ->
+            if (predicateX(i)) {
+                repeat(numColumns) { j ->
+                    if (predicateY(j)) yield(Triple(i, j, get(i, j)!!))
+                }
+            }
+        }
+    }
+
 }
