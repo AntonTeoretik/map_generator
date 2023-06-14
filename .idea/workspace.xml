@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Refactor">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Move obstacle processing to ObstacleProcessor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/obstacles/ObstacleProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/obstacles/ObstacleProcessor.kt" afterDir="false" />
     </list>
@@ -311,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686749227546</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Move obstacle processing to ObstacleProcessor">
+      <created>1686749664067</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1686749664067</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -345,6 +353,7 @@
     <MESSAGE value="Small style fix" />
     <MESSAGE value="Rename Light to LightColor" />
     <MESSAGE value="Refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor" />
+    <MESSAGE value="Move obstacle processing to ObstacleProcessor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move obstacle processing to ObstacleProcessor" />
   </component>
 </project>

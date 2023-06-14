@@ -1,6 +1,7 @@
 package com.teoretik.components
 
 import com.badlogic.gdx.maps.MapGroupLayer
+import com.badlogic.gdx.maps.tiled.TiledMapTile
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.light.processors.FloorLightProcessor
@@ -10,6 +11,7 @@ import com.teoretik.utils.geometry.Array2D
 import com.teoretik.components.loaders.FLOOR_NUMBER
 import com.teoretik.components.loaders.cellToWorldCoordinates
 import com.teoretik.graphics.render.GraphicsSettings
+import java.util.function.BiPredicate
 
 class Floor : MapGroupLayer() {
     var width: Int = 0
@@ -52,4 +54,14 @@ class Floor : MapGroupLayer() {
     }
 
     fun floorToWorldCoordinates(x: Float, y: Float): Vector2 = Vector2(x, height - y)
+
+    fun tileLayers() : Sequence<TiledMapTileLayer> = layers.asSequence().filterIsInstance<TiledMapTileLayer>()
+}
+
+fun TiledMapTileLayer.tilesWithIndexes(predicate: (TiledMapTile) -> Boolean = {true}) : Sequence<Triple<Int, Int, TiledMapTile>> = sequence {
+    (0 until width).forEach { i ->
+        (0 until height).forEach { j ->
+            getCell(i, j)?.tile?.run { if (predicate(this)) yield(Triple(i, j, this)) }
+        }
+    }
 }
