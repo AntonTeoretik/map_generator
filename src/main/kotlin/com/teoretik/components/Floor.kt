@@ -10,10 +10,9 @@ import com.teoretik.components.obstacles.ObstacleProcessor
 import com.teoretik.components.loaders.FLOOR_NUMBER
 
 class Floor : MapGroupLayer() {
-    var width: Int = 0
-        private set
-    var height: Int = 0
-        private set
+    val width: Int by lazy { tileLayers().first().width }
+    val height: Int by lazy { tileLayers().first().height }
+
     var floorNumber: Int = 0
         private set
 
@@ -34,12 +33,6 @@ class Floor : MapGroupLayer() {
     }
 
     fun update() {
-        for (layer in layers)
-            if (layer is TiledMapTileLayer) {
-                width = layer.width
-                height = layer.height
-            }
-
         floorNumber = run {
             try {
                 properties[FLOOR_NUMBER] as Int
