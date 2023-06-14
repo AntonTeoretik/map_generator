@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Refactoring&#10;&#10;Finally, split classes, organise packages">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Optimize search for maximums&#10;&#10;We actually don't need all the maximums be found. We need only to cover all minimal elements by them.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/POS.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/POS.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/GraphicsSettings.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/GraphicsSettings.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +267,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686746202031</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Optimize search for maximums&#10;&#10;We actually don't need all the maximums be found. We need only to cover all minimal elements by them.">
+      <created>1686747203685</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686747203685</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Optimize search for maximums&#10;&#10;We actually don't need all the maximums be found. We need only to cover all minimal elements by them.">
+      <created>1686747216691</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686747216691</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,6 +311,7 @@
     <MESSAGE value="Optimize imports" />
     <MESSAGE value="Optimize ObstacleProcessor" />
     <MESSAGE value="Refactoring&#10;&#10;Finally, split classes, organise packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring&#10;&#10;Finally, split classes, organise packages" />
+    <MESSAGE value="Optimize search for maximums&#10;&#10;We actually don't need all the maximums be found. We need only to cover all minimal elements by them." />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize search for maximums&#10;&#10;We actually don't need all the maximums be found. We need only to cover all minimal elements by them." />
   </component>
 </project>

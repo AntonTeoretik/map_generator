@@ -7,7 +7,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.teoretik.components.Floor
 import com.teoretik.components.Level
-import com.teoretik.graphics.render.GraphicsSettings.Companion.unitScale
+import com.teoretik.graphics.render.GraphicsSettings.unitScale
 
 class LevelLoader {
     companion object {

@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.teoretik.components.GameConfiguration
-import com.teoretik.graphics.render.GraphicsSettings.Companion.unitScale
+import com.teoretik.graphics.render.GraphicsSettings.unitScale
 
 class WorldRenderer(val gameConfiguration: GameConfiguration) {
     val shapeRenderer = ShapeRenderer()
