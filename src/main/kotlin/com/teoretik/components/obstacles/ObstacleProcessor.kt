@@ -11,11 +11,10 @@ import com.teoretik.utils.tiles.*
 import com.teoretik.utils.vectors.*
 
 class ObstacleProcessor(val floor: Floor) {
-    var obstacles: MutableList<Obstacle> = floor.obstacles
+    val obstacles: List<Obstacle> = updateStaticObstacles()
 
-    fun updateStaticObstacles() {
-        obstacles.clear()
-
+    private fun updateStaticObstacles(): List<Obstacle> {
+        val obstacles = mutableListOf<Obstacle>()
         floor.tileLayers().forEach { layer ->
             val obstacleMap = Array2D(layer.width, layer.height) { _, _ -> false }
             layer.tilesWithIndexes(TiledMapTile::isSolid).forEach {
@@ -27,11 +26,12 @@ class ObstacleProcessor(val floor: Floor) {
                     obstacles.add(Obstacle.fromPolygon(x, y, tile.width, tile.height))
                 }
             }
-            generateMaximalObstacleCoverage(obstacleMap)
+            generateMaximalObstacleCoverage(obstacleMap, obstacles)
         }
+        return obstacles.toList()
     }
 
-    private fun generateMaximalObstacleCoverage(obstacleMap: Array2D<Boolean>) {
+    private fun generateMaximalObstacleCoverage(obstacleMap: Array2D<Boolean>, obstacles : MutableList<Obstacle>) {
         InternalRectangles(obstacleMap).maximums.forEach {
             obstacles.add(
                 Obstacle.fromPolygon(

@@ -33,7 +33,6 @@ class GameConfiguration {
 
         //  activeLevel!!.floors[1]!!.objects.add(dynamicLight)
 
-        activeLevel!!.floors[1]!!.updateObstacles()
         activeLevel!!.floors[1]!!.fullUpdateLight()
     }
 

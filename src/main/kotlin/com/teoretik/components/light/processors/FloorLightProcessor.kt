@@ -23,7 +23,7 @@ class FloorLightProcessor(
 
     val dynamicLights: MutableList<DynamicLightSource> = mutableListOf()
 
-    val staticObstacles: MutableList<Obstacle> = floor.obstacles
+    val staticObstacles: List<Obstacle> = floor.obstacleProcessor.obstacles
 
     val staticLightMaps: MutableMap<StaticLightSource, LightMapRegion> = mutableMapOf()
 

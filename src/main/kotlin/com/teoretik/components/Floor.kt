@@ -13,10 +13,7 @@ class Floor : MapGroupLayer() {
     val width: Int by lazy { tileLayers().first().width }
     val height: Int by lazy { tileLayers().first().height }
 
-    var floorNumber: Int = 0
-        private set
-
-    var obstacles: MutableList<Obstacle> = mutableListOf()
+    val floorNumber: Int by lazy { properties[FLOOR_NUMBER] as Int }
 
     val obstacleProcessor by lazy { ObstacleProcessor(this) }
     val lightProcessor by lazy { FloorLightProcessor(this) }
@@ -27,22 +24,6 @@ class Floor : MapGroupLayer() {
         lightProcessor.processStaticLights()
         lightProcessor.computeFinalLightMap()
     }
-
-    fun updateObstacles() {
-        obstacleProcessor.updateStaticObstacles()
-    }
-
-    fun update() {
-        floorNumber = run {
-            try {
-                properties[FLOOR_NUMBER] as Int
-            } catch (e: Exception) {
-                0
-            }
-        }
-    }
-
-    fun floorToWorldCoordinates(x: Float, y: Float): Vector2 = Vector2(x, height - y)
 
     fun tileLayers() : Sequence<TiledMapTileLayer> = layers.asSequence().filterIsInstance<TiledMapTileLayer>()
 }

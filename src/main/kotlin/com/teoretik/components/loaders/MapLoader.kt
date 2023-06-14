@@ -39,8 +39,6 @@ class MapLoader : TmxMapLoader() {
             }
 
             parentLayers.add(groupLayer)
-
-            if (isFloor) (groupLayer as Floor).update()
         }
     }
 
