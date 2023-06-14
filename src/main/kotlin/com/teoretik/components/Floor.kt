@@ -21,9 +21,8 @@ class Floor : MapGroupLayer() {
 
     var obstacles: MutableList<Obstacle> = mutableListOf()
 
-    val lightProcessor by lazy {
-        FloorLightProcessor(this)
-    }
+    val obstacleProcessor by lazy { ObstacleProcessor(this) }
+    val lightProcessor by lazy { FloorLightProcessor(this) }
 
     val lightMap by lazy { lightProcessor.lightColorMap }
 
@@ -33,37 +32,7 @@ class Floor : MapGroupLayer() {
     }
 
     fun updateObstacles() {
-        obstacles = mutableListOf()
-        for (layer in layers.filterIsInstance<TiledMapTileLayer>()) {
-            val obstacleMap = Array2D(layer.width, layer.height) { _, _ -> false }
-            (0 until layer.width).forEach { i ->
-                (0 until layer.height).forEach { j ->
-                    val tile = layer.getCell(i, j)?.tile
-                    if (tile?.properties?.get(Obstacle.SOLID) == true) {
-                        if (Obstacle.isStandard(tile.textureRegion.regionWidth, tile.textureRegion.regionHeight)) {
-                            val width = tile.textureRegion.regionWidth / GraphicsSettings.pixelResolution
-                            val height = tile.textureRegion.regionHeight / GraphicsSettings.pixelResolution
-
-                            repeat(width) { ii ->
-                                repeat(height) { jj ->
-                                    if (i + ii < layer.width && j + jj < layer.height) {
-                                        obstacleMap[i + ii, j + jj] = true
-                                    }
-                                }
-                            }
-                        } else {
-                            val vec2 = layer.cellToWorldCoordinates(i, j)
-
-                            val width = tile.textureRegion.regionWidth * GraphicsSettings.unitScale
-                            val height = tile.textureRegion.regionHeight * GraphicsSettings.unitScale
-
-                            obstacles.add(Obstacle.fromPolygon(vec2.x, vec2.y, width, height))
-                        }
-                    }
-                }
-            }
-            ObstacleProcessor.processStandardObstacles(obstacleMap, obstacles)
-        }
+        obstacleProcessor.updateObstacles()
     }
 
     fun update() {
