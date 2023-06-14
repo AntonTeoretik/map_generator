@@ -13,7 +13,6 @@ const val OBJECT = "Object"
 
 fun TiledMapTile.isObject() : Boolean = this.properties[TYPE] == OBJECT
 
-
 fun TiledMapTileLayer.cellToWorldCoordinates(x : Int, y : Int) : Vector2 {
     return Vector2(x + offsetX,  y + offsetY)
 }

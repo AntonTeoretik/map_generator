@@ -6,6 +6,9 @@ import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.math.Polygon
 import com.teoretik.components.loaders.cellToWorldCoordinates
 import com.teoretik.graphics.render.GraphicsSettings
+import com.teoretik.utils.vectors.*
+import com.teoretik.utils.tiles.*
+
 
 
 class Obstacle(
@@ -31,17 +34,14 @@ class Obstacle(
             return null
         }
 
-        fun fromCell(x: Int, y: Int, layer: TiledMapTileLayer): Obstacle? {
-            val cell = layer.getCell(x, y)
+        fun fromCell(x0: Int, y0: Int, layer: TiledMapTileLayer): Obstacle? {
+            val cell = layer.getCell(x0, y0)
             val tile = cell?.tile ?: return null
 
             if (tile.properties?.get(SOLID) != true) return null
 
-            val vec2 = layer.cellToWorldCoordinates(x, y)
-            val width = tile.textureRegion.regionWidth * GraphicsSettings.unitScale
-            val height = tile.textureRegion.regionHeight * GraphicsSettings.unitScale
-
-            val p = createPolygon(vec2.x, vec2.y, width, height)
+            val (x, y) = layer.cellToWorldCoordinates(x0, y0)
+            val p = createPolygon(x, y, tile.width, tile.height)
 
             return Obstacle(p)
 
@@ -67,10 +67,6 @@ class Obstacle(
             )
             p.setOrigin(x + width / 2.0f, y + height / 2.0f)
             return p
-        }
-
-        fun isStandard(width: Int, height: Int): Boolean {
-            return width % GraphicsSettings.pixelResolution == 0 && height % GraphicsSettings.pixelResolution == 0
         }
     }
 
