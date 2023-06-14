@@ -13,26 +13,25 @@ import com.teoretik.utils.vectors.*
 class ObstacleProcessor(val floor: Floor) {
     var obstacles: MutableList<Obstacle> = floor.obstacles
 
-    fun updateObstacles() {
+    fun updateStaticObstacles() {
         obstacles.clear()
 
         floor.tileLayers().forEach { layer ->
             val obstacleMap = Array2D(layer.width, layer.height) { _, _ -> false }
             layer.tilesWithIndexes(TiledMapTile::isSolid).forEach {
                 val (i, j, tile) = it
-
-                if (tile.isStandard()) {
+                if (tile.isStandard())
                     fillObstacleMapForStandardTile(tile, i, j, layer, obstacleMap)
-                } else {
+                else {
                     val (x, y) = layer.cellToWorldCoordinates(i, j)
                     obstacles.add(Obstacle.fromPolygon(x, y, tile.width, tile.height))
                 }
             }
-            processStandardObstacles(obstacleMap)
+            generateMaximalObstacleCoverage(obstacleMap)
         }
     }
 
-    private fun processStandardObstacles(obstacleMap: Array2D<Boolean>) {
+    private fun generateMaximalObstacleCoverage(obstacleMap: Array2D<Boolean>) {
         InternalRectangles(obstacleMap).maximums.forEach {
             obstacles.add(
                 Obstacle.fromPolygon(

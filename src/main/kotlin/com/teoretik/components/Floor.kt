@@ -7,11 +7,7 @@ import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.light.processors.FloorLightProcessor
 import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.components.obstacles.ObstacleProcessor
-import com.teoretik.utils.geometry.Array2D
 import com.teoretik.components.loaders.FLOOR_NUMBER
-import com.teoretik.components.loaders.cellToWorldCoordinates
-import com.teoretik.graphics.render.GraphicsSettings
-import java.util.function.BiPredicate
 
 class Floor : MapGroupLayer() {
     var width: Int = 0
@@ -34,7 +30,7 @@ class Floor : MapGroupLayer() {
     }
 
     fun updateObstacles() {
-        obstacleProcessor.updateObstacles()
+        obstacleProcessor.updateStaticObstacles()
     }
 
     fun update() {
