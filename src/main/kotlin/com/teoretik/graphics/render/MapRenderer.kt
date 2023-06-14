@@ -11,8 +11,8 @@ import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer
 import com.badlogic.gdx.math.Affine2
 import com.teoretik.components.Floor
-import com.teoretik.components.light.FloorLightProcessor
-import com.teoretik.components.light.Light
+import com.teoretik.components.light.processors.FloorLightProcessor
+import com.teoretik.components.light.LightColor
 import com.teoretik.components.light.toColorMask
 
 class MapRenderer(
@@ -49,7 +49,7 @@ class MapRenderer(
 
                // val color = layer.lightMap[i][j].toColorMask()
 
-                val color = Light().run {
+                val color = LightColor().run {
                     listOf(0 to 0, 0 to 1, 1 to 0, 1 to 1).forEach {p ->
                         this.add(layer.lightMap[i + p.first][j + p.second])
                     }

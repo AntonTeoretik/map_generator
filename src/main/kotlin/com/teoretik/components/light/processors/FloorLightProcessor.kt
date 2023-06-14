@@ -1,4 +1,4 @@
-package com.teoretik.components.light
+package com.teoretik.components.light.processors
 
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.maps.MapProperties
@@ -7,14 +7,14 @@ import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.Floor
+import com.teoretik.components.light.LightColor
+import com.teoretik.components.light.ShadowState
+import com.teoretik.components.light.clear
 import com.teoretik.components.light.shape.PointLightSourceShape
 import com.teoretik.components.light.source.DynamicLightSource
 import com.teoretik.components.light.source.StaticLightSource
 import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.graphics.render.GraphicsSettings
-
-enum class ShadowState { SHADOW, LIGHT, UNCERTAIN }
-
 
 class FloorLightProcessor(
     floor: Floor
@@ -29,10 +29,10 @@ class FloorLightProcessor(
 
     val region = Rectangle(0f, 0f, floor.width.toFloat(), floor.height.toFloat())
 
-    val lightMap =
+    val lightColorMap =
         Array(floor.width * GraphicsSettings.lightResolution + 1) {
             Array(floor.height * GraphicsSettings.lightResolution + 1) {
-                Light()
+                LightColor()
             }
         }
 
@@ -84,7 +84,7 @@ class FloorLightProcessor(
                 StaticLightSource(
                     it.x + 0.5f,
                     it.y + 0.5f,
-                    Light(color.r, color.g, color.b),
+                    LightColor(color.r, color.g, color.b),
                     PointLightSourceShape(20f) // CHANGE ALL OF THIS!!!
                 )
             }.toMutableList()
@@ -94,13 +94,13 @@ class FloorLightProcessor(
         clearLightmap()
         staticLightMaps.forEach { (light, lm) ->
             lm.lightMap.filterIndexed { i, _ ->
-                i + lm.x < lightMap.size
+                i + lm.x < lightColorMap.size
             }.forEachIndexed { i, arr ->
                 arr.filterIndexed { j, _ ->
-                    j + lm.y < lightMap[i].size
+                    j + lm.y < lightColorMap[i].size
                 }.forEachIndexed { j, shadowState ->
                     if (shadowState == ShadowState.LIGHT) {
-                        lightMap[i + lm.x][j + lm.y].add(
+                        lightColorMap[i + lm.x][j + lm.y].add(
                             light.computeLightInPoint(lightMapToWorldCoordinates(i + lm.x, j + lm.y))
                         )
 
@@ -111,7 +111,7 @@ class FloorLightProcessor(
     }
 
     private fun clearLightmap() {
-        lightMap.forEach { it.forEach { l -> l.clear() } }
+        lightColorMap.forEach { it.forEach { l -> l.clear() } }
     }
 
     companion object {

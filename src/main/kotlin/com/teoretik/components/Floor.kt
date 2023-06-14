@@ -3,7 +3,7 @@ package com.teoretik.components
 import com.badlogic.gdx.maps.MapGroupLayer
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.math.Vector2
-import com.teoretik.components.light.FloorLightProcessor
+import com.teoretik.components.light.processors.FloorLightProcessor
 import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.components.obstacles.ObstacleProcessor
 import com.teoretik.geometry.Array2D
@@ -25,20 +25,11 @@ class Floor : MapGroupLayer() {
         FloorLightProcessor(this)
     }
 
-    val lightMap by lazy { lightProcessor.lightMap }
-
-    fun updateLightmap() {
-        lightProcessor.computeFinalLightMap()
-    }
+    val lightMap by lazy { lightProcessor.lightColorMap }
 
     fun fullUpdateLight() {
-        //TODO -- make more efficient
-        // (use only potential visible cells)
-        // use static light where is possible
-        // block ray if hit ones
         lightProcessor.processStaticLights()
         lightProcessor.computeFinalLightMap()
-        //FloorLightProcessor.processLight(this)
     }
 
     fun updateObstacles() {

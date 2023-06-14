@@ -1,17 +1,17 @@
 package com.teoretik.components.light.source
 
 import com.teoretik.components.light.intensity.IntensityAlgorithm
-import com.teoretik.components.light.Light
+import com.teoretik.components.light.LightColor
 import com.teoretik.components.light.shape.LightSourceShape
 import com.teoretik.components.light.intensity.Linear
 
 open class DynamicLightSource(
     x : Float,
     y : Float,
-    light: Light,
+    lightColor: LightColor,
     shape: LightSourceShape,
     val intensityAlgorithm: IntensityAlgorithm = Linear(),
-) : LightSource(x, y, light, shape) {
+) : LightSource(x, y, lightColor, shape) {
     override var x: Float = x
         set(value) {
             field = value

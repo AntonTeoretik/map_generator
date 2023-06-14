@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Optimize search for maximums&#10;&#10;We actually don't need all the maximums be found. We need only to cover all minimal elements by them.">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Small style fix">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowState.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/GraphicsSettings.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/GraphicsSettings.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/FloorLightProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/FloorLightProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/Light.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/Light.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/DynamicLightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/DynamicLightSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/LightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/LightSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/QuasiDynamicLightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/QuasiDynamicLightSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/StaticLightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/StaticLightSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/MapRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/MapRenderer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/WorldRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/WorldRenderer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +108,7 @@
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\components\light\processors" />
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\components\light\intensity" />
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\components\light\shape" />
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik" />
@@ -109,11 +119,11 @@
       <recent name="com.teoretik.graphics.render" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.teoretik.components.light" />
       <recent name="com.teoretik.components.light.processors" />
       <recent name="com.teoretik.components.light.source" />
       <recent name="com.teoretik.geometry" />
       <recent name="com.teoretik.components.obstacles" />
-      <recent name="com.teoretik.game_components" />
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.MainKt">
@@ -281,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686747216691</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Small style fix">
+      <created>1686747323536</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686747323536</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -312,6 +329,7 @@
     <MESSAGE value="Optimize ObstacleProcessor" />
     <MESSAGE value="Refactoring&#10;&#10;Finally, split classes, organise packages" />
     <MESSAGE value="Optimize search for maximums&#10;&#10;We actually don't need all the maximums be found. We need only to cover all minimal elements by them." />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize search for maximums&#10;&#10;We actually don't need all the maximums be found. We need only to cover all minimal elements by them." />
+    <MESSAGE value="Small style fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small style fix" />
   </component>
 </project>
