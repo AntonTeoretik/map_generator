@@ -3,7 +3,7 @@ package com.teoretik.geometry
 class InternalRectangles(val table: Array2D<Boolean>) :
     POS<IntegralRect>() {
 
-    override val minimals = sequence {
+    override val minimums = sequence {
         (0 until table.numRows).flatMap { i ->
             (0 until table.numColumns).map { j ->
                 if(table[i, j] == true) yield(IntegralRect(i, j, i, j))

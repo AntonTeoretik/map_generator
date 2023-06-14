@@ -8,12 +8,12 @@ abstract class POS<T> {
     abstract fun parents(elem: T): Sequence<T>
     abstract fun isInSet(elem: T): Boolean
     abstract fun less(elem1: T, elem2 : T) : Boolean
-    abstract val minimals: Set<T>
+    abstract val minimums: Set<T>
 
-    val maximals: Set<T> by lazy {
+    val maximums: Set<T> by lazy {
         run {
             val maxis = mutableSetOf<T>()
-            minimals.forEach {
+            minimums.forEach {
                 if (maxis.none {maxT -> less(it, maxT)}) {
                     produceMaximalsForElem(it, maxis)
                 }
@@ -23,12 +23,10 @@ abstract class POS<T> {
     }
 
     private fun produceMaximalsForElem(elem: T, maxis : MutableSet<T>) {
-        var isMax = true
-
-        parents(elem).forEach {
-            isMax = false
-            produceMaximalsForElem(it, maxis)
+        try {
+            produceMaximalsForElem(parents(elem).first(), maxis)
+        } catch (e : Exception) {
+            maxis.add(elem)
         }
-        if (isMax) maxis.add(elem)
     }
 }

@@ -69,15 +69,9 @@ class Floor : MapGroupLayer() {
                             obstacles.add(Obstacle.fromPolygon(vec2.x, vec2.y, width, height))
                         }
                     }
-
-//                    val obst = Obstacle.fromCell(i, j, layer)
-//                    if (obst != null) obstacles.add(obst)
                 }
             }
-            println("Update obstacles...")
             ObstacleProcessor.processStandardObstacles(obstacleMap, obstacles)
-            println("Done")
-
         }
     }
 

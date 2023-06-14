@@ -5,7 +5,7 @@ import com.teoretik.geometry.InternalRectangles
 
 object ObstacleProcessor {
     fun processStandardObstacles(obstacleMap: Array2D<Boolean>, obstacles: MutableList<Obstacle>) {
-        InternalRectangles(obstacleMap).maximals.forEach {
+        InternalRectangles(obstacleMap).maximums.forEach {
             obstacles.add(
                 Obstacle.fromPolygon(
                     it.x0.toFloat(),
