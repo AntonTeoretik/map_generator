@@ -1,4 +1,9 @@
-package com.teoretik.components.light
+package com.teoretik.components.light.source
+
+import com.teoretik.components.light.intensity.IntensityAlgorithm
+import com.teoretik.components.light.Light
+import com.teoretik.components.light.shape.LightSourceShape
+import com.teoretik.components.light.intensity.Linear
 
 open class DynamicLightSource(
     x : Float,

@@ -4,9 +4,9 @@ import com.badlogic.gdx.maps.MapGroupLayer
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.light.FloorLightProcessor
-import com.teoretik.components.light.Obstacle
-import com.teoretik.components.light.ObstacleProcessor
-import com.teoretik.components.light.geometry.Array2D
+import com.teoretik.components.obstacles.Obstacle
+import com.teoretik.components.obstacles.ObstacleProcessor
+import com.teoretik.geometry.Array2D
 import com.teoretik.components.loaders.FLOOR_NUMBER
 import com.teoretik.components.loaders.cellToWorldCoordinates
 import com.teoretik.graphics.render.GraphicsSettings

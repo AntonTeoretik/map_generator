@@ -1,4 +1,7 @@
-package com.teoretik.components.light
+package com.teoretik.components.light.source
+
+import com.teoretik.components.light.Light
+import com.teoretik.components.light.shape.LightSourceShape
 
 class QuasiDynamicLightSource(
     x: Float,

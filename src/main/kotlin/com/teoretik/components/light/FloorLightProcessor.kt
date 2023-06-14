@@ -7,6 +7,10 @@ import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.Floor
+import com.teoretik.components.light.shape.PointLightSourceShape
+import com.teoretik.components.light.source.DynamicLightSource
+import com.teoretik.components.light.source.StaticLightSource
+import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.graphics.render.GraphicsSettings
 
 enum class ShadowState { SHADOW, LIGHT, UNCERTAIN }
@@ -95,18 +99,14 @@ class FloorLightProcessor(
                 arr.filterIndexed { j, _ ->
                     j + lm.y < lightMap[i].size
                 }.forEachIndexed { j, shadowState ->
-                    //println("${i + lm.x} ; ${j + lm.y}")
                     if (shadowState == ShadowState.LIGHT) {
                         lightMap[i + lm.x][j + lm.y].add(
-                           // Light(0f, 1f, 1f)
                             light.computeLightInPoint(lightMapToWorldCoordinates(i + lm.x, j + lm.y))
                         )
-                        //println(light.computeLightInPoint(lightMapToWorldCoordinates(i + lm.x, j + lm.y)))
-//                        light.apply { println("$x $y") }
+
                     }
                 }
             }
-//            return
         }
     }
 

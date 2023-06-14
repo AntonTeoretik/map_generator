@@ -1,4 +1,4 @@
-package com.teoretik.components.light.geometry
+package com.teoretik.geometry
 
 
 /**

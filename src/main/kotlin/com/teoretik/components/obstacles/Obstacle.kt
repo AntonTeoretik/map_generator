@@ -1,54 +1,15 @@
-package com.teoretik.components.light
+package com.teoretik.components.obstacles
 
 import com.badlogic.gdx.maps.MapObject
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.math.Polygon
-import com.teoretik.components.light.geometry.Array2D
-import com.teoretik.components.light.geometry.IntegralRect
-import com.teoretik.components.light.geometry.InternalRectangles
 import com.teoretik.components.loaders.cellToWorldCoordinates
 import com.teoretik.graphics.render.GraphicsSettings
-
-object ObstacleProcessor {
-    private fun collectEdgeCells(obstacleMap: Array<Array<Boolean>>): Array<Array<Boolean>> {
-        val newObstacleMap = Array(obstacleMap.size) { i ->
-            Array(obstacleMap[i].size) { j ->
-                var isInternal = obstacleMap[i][j]
-                (-1..1).forEach { ii ->
-                    (-1..1).forEach { jj ->
-                        val nbr = obstacleMap.getOrNull(i + ii)?.getOrNull(j + jj) ?: false
-                        isInternal = isInternal && nbr
-                    }
-                }
-                !isInternal && obstacleMap[i][j]
-            }
-        }
-        return newObstacleMap
-    }
-
-    private fun collectRectangles() {
-
-    }
-
-    fun processStandardObstacles(obstacleMap: Array2D<Boolean>, obstacles: MutableList<Obstacle>) {
-
-        InternalRectangles(obstacleMap).maximals.forEach {
-            println("Max obstacle $it")
-            obstacles.add(Obstacle.fromPolygon(
-                it.x0.toFloat(),
-                it.y0.toFloat(),
-                it.getWidth().toFloat() + 1f,
-                it.getHeight().toFloat() + 1f
-            ))
-        }
-    }
-}
 
 
 class Obstacle(
     val polygon: Polygon,
-    val opacity: Float,
 ) {
     companion object {
         val DYNAMIC = "dynamic"
@@ -64,7 +25,7 @@ class Obstacle(
 
                 val p = createPolygon(obj.x, obj.y, width, height)
                 p.rotate(obj.rotation)
-                return Obstacle(p, obj.opacity)
+                return Obstacle(p)
             }
             // TODO handle other cases?
             return null
@@ -82,7 +43,7 @@ class Obstacle(
 
             val p = createPolygon(vec2.x, vec2.y, width, height)
 
-            return Obstacle(p, 1f)
+            return Obstacle(p)
 
             // TODO -- check opacity
             // TODO -- need to take in to account rotation
@@ -91,7 +52,7 @@ class Obstacle(
 
         fun fromPolygon(x: Float, y: Float, width: Float, height: Float): Obstacle {
             val p = createPolygon(x, y, width, height)
-            return Obstacle(p, 1f)
+            return Obstacle(p)
         }
 
 
