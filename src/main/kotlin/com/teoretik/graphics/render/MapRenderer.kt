@@ -103,7 +103,6 @@ class MapRenderer(
             shapeRenderer.color = Color.RED.cpy()
             shapeRenderer.color.a = 0.5f
             shapeRenderer.polygon(p.transformedVertices)
-
         }
         shapeRenderer.end()
         batch.begin()

@@ -1,4 +1,4 @@
-package com.teoretik.geometry
+package com.teoretik.utils.geometry
 
 
 /**

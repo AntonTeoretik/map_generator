@@ -1,7 +1,7 @@
 package com.teoretik.components.obstacles
 
-import com.teoretik.geometry.Array2D
-import com.teoretik.geometry.InternalRectangles
+import com.teoretik.utils.geometry.Array2D
+import com.teoretik.utils.geometry.InternalRectangles
 
 object ObstacleProcessor {
     fun processStandardObstacles(obstacleMap: Array2D<Boolean>, obstacles: MutableList<Obstacle>) {
