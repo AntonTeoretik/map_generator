@@ -10,6 +10,6 @@ class GraphicsSettings (
         val noiseLevel = 0.02f
         val pixelResolution = 32
         val unitScale = 1f / pixelResolution
-        val lightResolution = 4                         // light "pixels" per cell
+        val lightResolution = 8                         // light "pixels" per cell
     }
 }

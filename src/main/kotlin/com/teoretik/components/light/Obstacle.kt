@@ -4,14 +4,54 @@ import com.badlogic.gdx.maps.MapObject
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.math.Polygon
+import com.teoretik.components.light.geometry.Array2D
+import com.teoretik.components.light.geometry.IntegralRect
+import com.teoretik.components.light.geometry.InternalRectangles
 import com.teoretik.components.loaders.cellToWorldCoordinates
 import com.teoretik.graphics.render.GraphicsSettings
+
+object ObstacleProcessor {
+    private fun collectEdgeCells(obstacleMap: Array<Array<Boolean>>): Array<Array<Boolean>> {
+        val newObstacleMap = Array(obstacleMap.size) { i ->
+            Array(obstacleMap[i].size) { j ->
+                var isInternal = obstacleMap[i][j]
+                (-1..1).forEach { ii ->
+                    (-1..1).forEach { jj ->
+                        val nbr = obstacleMap.getOrNull(i + ii)?.getOrNull(j + jj) ?: false
+                        isInternal = isInternal && nbr
+                    }
+                }
+                !isInternal && obstacleMap[i][j]
+            }
+        }
+        return newObstacleMap
+    }
+
+    private fun collectRectangles() {
+
+    }
+
+    fun processStandardObstacles(obstacleMap: Array2D<Boolean>, obstacles: MutableList<Obstacle>) {
+
+        InternalRectangles(obstacleMap).maximals.forEach {
+            println("Max obstacle $it")
+            obstacles.add(Obstacle.fromPolygon(
+                it.x0.toFloat(),
+                it.y0.toFloat(),
+                it.getWidth().toFloat() + 1f,
+                it.getHeight().toFloat() + 1f
+            ))
+        }
+    }
+}
+
 
 class Obstacle(
     val polygon: Polygon,
     val opacity: Float,
 ) {
     companion object {
+        val DYNAMIC = "dynamic"
         val SOLID = "solid"
         val eps = 0.001f
 
@@ -49,6 +89,12 @@ class Obstacle(
 
         }
 
+        fun fromPolygon(x: Float, y: Float, width: Float, height: Float): Obstacle {
+            val p = createPolygon(x, y, width, height)
+            return Obstacle(p, 1f)
+        }
+
+
         private fun createPolygon(x: Float, y: Float, width: Float, height: Float): Polygon {
             val p = Polygon(
                 floatArrayOf(
@@ -60,6 +106,10 @@ class Obstacle(
             )
             p.setOrigin(x + width / 2.0f, y + height / 2.0f)
             return p
+        }
+
+        fun isStandard(width: Int, height: Int): Boolean {
+            return width % GraphicsSettings.pixelResolution == 0 && height % GraphicsSettings.pixelResolution == 0
         }
     }
 

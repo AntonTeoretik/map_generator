@@ -39,8 +39,6 @@ class GameConfiguration {
 
     fun setUpCamera() {
         val vec2 = activeLevel?.cellToWorldCoordinates(GlobalPosition(0, 15 , 1))
-        println(vec2)
-        println(activeLevel?.worldToCellCoordinates(Vector2(0.5f, 0.5f), 1))
         camera.position.set(Vector3(vec2, 0f))
     }
 }

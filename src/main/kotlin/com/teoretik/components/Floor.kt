@@ -5,7 +5,11 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.light.FloorLightProcessor
 import com.teoretik.components.light.Obstacle
+import com.teoretik.components.light.ObstacleProcessor
+import com.teoretik.components.light.geometry.Array2D
 import com.teoretik.components.loaders.FLOOR_NUMBER
+import com.teoretik.components.loaders.cellToWorldCoordinates
+import com.teoretik.graphics.render.GraphicsSettings
 
 class Floor : MapGroupLayer() {
     var width: Int = 0
@@ -40,12 +44,40 @@ class Floor : MapGroupLayer() {
     fun updateObstacles() {
         obstacles = mutableListOf()
         for (layer in layers.filterIsInstance<TiledMapTileLayer>()) {
+            val obstacleMap = Array2D(layer.width, layer.height) { _, _ -> false }
             (0 until layer.width).forEach { i ->
                 (0 until layer.height).forEach { j ->
-                    val obst = Obstacle.fromCell(i, j, layer)
-                    if (obst != null) obstacles.add(obst)
+                    val tile = layer.getCell(i, j)?.tile
+                    if (tile?.properties?.get(Obstacle.SOLID) == true) {
+                        if (Obstacle.isStandard(tile.textureRegion.regionWidth, tile.textureRegion.regionHeight)) {
+                            val width = tile.textureRegion.regionWidth / GraphicsSettings.pixelResolution
+                            val height = tile.textureRegion.regionHeight / GraphicsSettings.pixelResolution
+
+                            repeat(width) { ii ->
+                                repeat(height) { jj ->
+                                    if (i + ii < layer.width && j + jj < layer.height) {
+                                        obstacleMap[i + ii, j + jj] = true
+                                    }
+                                }
+                            }
+                        } else {
+                            val vec2 = layer.cellToWorldCoordinates(i, j)
+
+                            val width = tile.textureRegion.regionWidth * GraphicsSettings.unitScale
+                            val height = tile.textureRegion.regionHeight * GraphicsSettings.unitScale
+
+                            obstacles.add(Obstacle.fromPolygon(vec2.x, vec2.y, width, height))
+                        }
+                    }
+
+//                    val obst = Obstacle.fromCell(i, j, layer)
+//                    if (obst != null) obstacles.add(obst)
                 }
             }
+            println("Update obstacles...")
+            ObstacleProcessor.processStandardObstacles(obstacleMap, obstacles)
+            println("Done")
+
         }
     }
 

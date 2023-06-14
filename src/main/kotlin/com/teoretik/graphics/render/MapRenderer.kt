@@ -31,7 +31,7 @@ class MapRenderer(
             //TODO remove it later
 
             renderLight(layer)
-            renderObstacles(layer)
+            //renderObstacles(layer)
         }
     }
 
@@ -93,10 +93,15 @@ class MapRenderer(
     private fun renderObstacles(floor: Floor) {
         batch.end()
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line)
+
+        Gdx.gl.glEnable(GL20.GL_BLEND);
+        Gdx.gl.glBlendFunc(GL20.GL_ONE_MINUS_SRC_ALPHA, GL20.GL_SRC_ALPHA)
+
         for (obst in floor.obstacles) {
             val p = obst.polygon
 
             shapeRenderer.color = Color.RED.cpy()
+            shapeRenderer.color.a = 0.5f
             shapeRenderer.polygon(p.transformedVertices)
 
         }

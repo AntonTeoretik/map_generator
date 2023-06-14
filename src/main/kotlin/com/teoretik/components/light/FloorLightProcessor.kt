@@ -65,7 +65,6 @@ class FloorLightProcessor(
             }
         }
 
-//        lightMapRegion.apply { println("$x $y $width $height") }
 
         staticLightMaps[lightSource] = lightMapRegion
     }
@@ -77,9 +76,7 @@ class FloorLightProcessor(
                 it.properties["lightProperties"] != null
             }
             .map {
-               // (it.properties["lightProperties"] as MapProperties).values.forEach { println(it) }
                 val color = (it.properties["lightProperties"] as MapProperties)["color"] as? Color ?: Color.WHITE
-                println(color)
                 StaticLightSource(
                     it.x + 0.5f,
                     it.y + 0.5f,
