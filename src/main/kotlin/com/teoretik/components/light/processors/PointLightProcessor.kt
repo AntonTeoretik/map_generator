@@ -10,6 +10,8 @@ class PointLightProcessor() : LightProcessor(null) {
         obstacles.forEach {
             val intersects = Intersector.intersectSegmentPolygon(start, end, it.polygon)
             if (intersects && !it.polygon.contains(end)) return ShadowState.SHADOW
+            if (intersects) return ShadowState.SHADOW
+
         }
         return ShadowState.LIGHT
     }

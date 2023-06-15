@@ -26,7 +26,6 @@ class Level(
         val height = floorHeight(floorNum) ?: return null
         return GlobalPosition(vec.x.toInt(), -vec.y.toInt() + height - 1 , floorNum)
     }
-
 }
 
 

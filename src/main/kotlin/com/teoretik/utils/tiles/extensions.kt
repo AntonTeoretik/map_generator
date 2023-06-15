@@ -1,6 +1,7 @@
 package com.teoretik.utils.tiles
 
 import com.badlogic.gdx.maps.tiled.TiledMapTile
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.teoretik.graphics.render.GraphicsSettings
 
 val TiledMapTile.widthInPixels: Int
@@ -17,3 +18,11 @@ val TiledMapTile.height: Float
     get() = this.heightInPixels * GraphicsSettings.unitScale
 fun TiledMapTile.isStandard(): Boolean =
     widthInPixels % GraphicsSettings.pixelResolution == 0 && heightInPixels % GraphicsSettings.pixelResolution == 0
+
+fun TiledMapTileLayer.tilesWithIndexes(predicate: (TiledMapTile) -> Boolean = {true}) : Sequence<Triple<Int, Int, TiledMapTile>> = sequence {
+    (0 until width).forEach { i ->
+        (0 until height).forEach { j ->
+            getCell(i, j)?.tile?.run { if (predicate(this)) yield(Triple(i, j, this)) }
+        }
+    }
+}

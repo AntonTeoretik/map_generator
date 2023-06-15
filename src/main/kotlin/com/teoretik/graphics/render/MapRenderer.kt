@@ -41,7 +41,7 @@ class MapRenderer(
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled)
 
-        with(layer.lightMap) {
+        with(layer.lightProcessor.lightColorMap) {
             validIndicesSeparateFilter(
                 { it != numRows - 1 },
                 { it != numColumns - 1 }
@@ -90,7 +90,7 @@ class MapRenderer(
         Gdx.gl.glEnable(GL20.GL_BLEND);
         Gdx.gl.glBlendFunc(GL20.GL_ONE_MINUS_SRC_ALPHA, GL20.GL_SRC_ALPHA)
 
-        for (obst in floor.obstacleProcessor.obstacles) {
+        for (obst in floor.obstacleProcessor.staticObstacles) {
             val p = obst.polygon
 
             shapeRenderer.color = Color.RED.cpy()

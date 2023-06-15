@@ -2,16 +2,36 @@ package com.teoretik.components.obstacles
 
 import com.badlogic.gdx.maps.tiled.TiledMapTile
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
+import com.badlogic.gdx.math.Intersector
+import com.badlogic.gdx.math.Polygon
+import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.Floor
 import com.teoretik.components.loaders.cellToWorldCoordinates
-import com.teoretik.components.tilesWithIndexes
 import com.teoretik.utils.geometry.Array2D
 import com.teoretik.utils.geometry.InternalRectangles
 import com.teoretik.utils.tiles.*
 import com.teoretik.utils.vectors.*
 
 class ObstacleProcessor(val floor: Floor) {
-    val obstacles: List<Obstacle> = updateStaticObstacles()
+    val staticObstacles: List<Obstacle> = updateStaticObstacles()
+
+    fun isObstacleInCell(x: Int, y: Int): Boolean {
+        val (x0, y0) = floor.cellToWorldCoordinates(x, y)
+        val shift = 0.5f
+        val p = Polygon(
+            floatArrayOf(
+                x0 - shift, y0 - shift,
+                x0 + shift, y0 + shift,
+                x0 + shift, y0 - shift,
+                x0 - shift, y0 + shift,
+            )
+        )
+        return staticObstacles.any { Intersector.intersectPolygons(p, it.polygon, null) }
+    }
+
+    fun isPointInObstacle(point: Vector2) : Boolean {
+        return staticObstacles.any { it.polygon.contains(point) }
+    }
 
     private fun updateStaticObstacles(): List<Obstacle> {
         val obstacles = mutableListOf<Obstacle>()
@@ -31,7 +51,7 @@ class ObstacleProcessor(val floor: Floor) {
         return obstacles.toList()
     }
 
-    private fun generateMaximalObstacleCoverage(obstacleMap: Array2D<Boolean>, obstacles : MutableList<Obstacle>) {
+    private fun generateMaximalObstacleCoverage(obstacleMap: Array2D<Boolean>, obstacles: MutableList<Obstacle>) {
         InternalRectangles(obstacleMap).maximums.forEach {
             obstacles.add(
                 Obstacle.fromPolygon(

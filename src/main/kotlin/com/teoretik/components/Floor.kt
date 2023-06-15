@@ -18,20 +18,13 @@ class Floor : MapGroupLayer() {
     val obstacleProcessor by lazy { ObstacleProcessor(this) }
     val lightProcessor by lazy { FloorLightProcessor(this) }
 
-    val lightMap by lazy { lightProcessor.lightColorMap }
-
     fun fullUpdateLight() {
         lightProcessor.processStaticLights()
         lightProcessor.computeFinalLightMap()
     }
 
     fun tileLayers() : Sequence<TiledMapTileLayer> = layers.asSequence().filterIsInstance<TiledMapTileLayer>()
+
+    fun cellToWorldCoordinates(x : Int, y : Int) = Vector2(x + 0.5f, -y + height - 0.5f)
 }
 
-fun TiledMapTileLayer.tilesWithIndexes(predicate: (TiledMapTile) -> Boolean = {true}) : Sequence<Triple<Int, Int, TiledMapTile>> = sequence {
-    (0 until width).forEach { i ->
-        (0 until height).forEach { j ->
-            getCell(i, j)?.tile?.run { if (predicate(this)) yield(Triple(i, j, this)) }
-        }
-    }
-}
