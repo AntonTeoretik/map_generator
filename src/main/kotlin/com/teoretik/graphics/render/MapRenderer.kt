@@ -15,14 +15,13 @@ import com.teoretik.components.Floor
 import com.teoretik.components.light.processors.ShadowsProcessor
 import com.teoretik.components.light.LightColor
 import com.teoretik.components.light.toColorMask
+import com.teoretik.graphics.camera.Camera
 
 import com.teoretik.utils.vectors.*
 
 class MapRenderer(
-    map: TiledMap?,
-    unitScale: Float = GraphicsSettings.unitScale
-) : OrthogonalTiledMapRenderer(map, unitScale) {
-
+    map: TiledMap?
+) : OrthogonalTiledMapRenderer(map, GraphicsSettings.unitScale) {
     val shapeRenderer = ShapeRenderer()
 
     override fun renderMapLayer(layer: MapLayer) {
@@ -30,12 +29,13 @@ class MapRenderer(
         if (!layer.isVisible || layer !is Floor) return
 
         renderObjects(layer)
-        renderLight(layer)
+        renderShadows(layer)
         //renderObstacles(layer)
     }
 
-    private fun renderLight(layer: Floor) {
+    private fun renderShadows(layer: Floor) {
         batch.end()
+
         Gdx.gl.glEnable(GL20.GL_BLEND);
         Gdx.gl.glBlendFunc(GL20.GL_DST_COLOR, GL20.GL_ZERO);
 
@@ -104,14 +104,12 @@ class MapRenderer(
     override fun renderObject(obj: MapObject?) {
         if (obj == null) return
         super.renderObject(obj)
-        if (obj is TiledMapTileMapObject) {
+        if (obj is TiledMapTileMapObject)
             renderTileObject(obj)
-        }
     }
 
     private fun renderTileObject(obj: TiledMapTileMapObject) {
         val tile = obj.tile
-
 
         if (tile != null) {
             val region = tile.textureRegion
@@ -125,5 +123,9 @@ class MapRenderer(
 
             batch.draw(region, 1f, 1f, aff)
         }
+    }
+
+    fun setView(camera: Camera) {
+        setView(camera.camera)
     }
 }

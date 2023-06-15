@@ -3,18 +3,22 @@ package com.teoretik.components
 import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.loaders.LevelLoader
+import com.teoretik.graphics.render.LevelRenderer
+
 
 class Level(
-    map: TiledMap
+    val map: TiledMap
 ) {
     val floors: Map<Int, Floor> = LevelLoader.loadLevel(map)
 
-    fun floorHeight(floorNum: Int): Int? {
-        return floors[floorNum]?.height
+    val renderer = LevelRenderer(map)
+
+    fun setActiveFloor(floorNum: Int?) {
+        floors.forEach { (num, floor) -> floor.isVisible = num == floorNum }
     }
 
     fun cellToWorldCoordinates(pos: GlobalPosition): Vector2? {
-        val height = floorHeight(pos.floor) ?: return null
+        val height = floors[pos.floor]?.height ?: return null
         return Vector2(pos.x + 0.5f, -pos.y + height - 0.5f)
     }
 }
