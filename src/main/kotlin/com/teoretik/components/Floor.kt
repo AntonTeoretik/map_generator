@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.light.processors.ShadowsProcessor
 import com.teoretik.components.obstacles.ObstacleProcessor
 import com.teoretik.components.loaders.FLOOR_NUMBER
+import com.teoretik.graphics.render.FloorRenderer
 import com.teoretik.graphics.render.TerrainRenderer
 
 /**
@@ -25,7 +26,7 @@ class Floor: MapGroupLayer() {
     val obstacleProcessor by lazy { ObstacleProcessor(this) }
     val lightProcessor by lazy { ShadowsProcessor(this) }
 
-    val renderer = TerrainRenderer(TiledMap().apply { layers.add(this@Floor) })
+    val renderer = FloorRenderer(this)
 
     fun fullUpdateLight() {
         lightProcessor.processStaticLights()
