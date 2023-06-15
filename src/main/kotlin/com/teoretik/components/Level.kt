@@ -10,12 +10,9 @@ class Level(
     val map: TiledMap
 ) {
     val floors: Map<Int, Floor> = LevelLoader.loadLevel(map)
+    val renderer = LevelRenderer(this)
 
-    val renderer = LevelRenderer(map)
-
-    fun setActiveFloor(floorNum: Int?) {
-        floors.forEach { (num, floor) -> floor.isVisible = num == floorNum }
-    }
+    var activeFloor : Int? = null
 
     fun cellToWorldCoordinates(pos: GlobalPosition): Vector2? {
         val height = floors[pos.floor]?.height ?: return null

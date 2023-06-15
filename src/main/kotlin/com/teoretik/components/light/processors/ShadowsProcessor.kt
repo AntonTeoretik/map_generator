@@ -90,7 +90,6 @@ class ShadowsProcessor(
 
     fun computeFinalLightMap() {
         clearLightmap()
-
         staticLightMaps.forEach { (light, lm) ->
             lm.lightMap
                 .validIndicesSeparateFilter({ i -> i + lm.x < lightColorMap.numRows }, { j -> j + lm.y < lightColorMap.numColumns })

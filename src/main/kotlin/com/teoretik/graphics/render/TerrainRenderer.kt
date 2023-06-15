@@ -19,7 +19,7 @@ import com.teoretik.graphics.camera.Camera
 
 import com.teoretik.utils.vectors.*
 
-class MapRenderer(
+class TerrainRenderer(
     map: TiledMap?
 ) : OrthogonalTiledMapRenderer(map, GraphicsSettings.unitScale) {
     val shapeRenderer = ShapeRenderer()
@@ -30,7 +30,7 @@ class MapRenderer(
 
         renderObjects(layer)
         renderShadows(layer)
-        //renderObstacles(layer)
+        renderObstacles(layer)
     }
 
     private fun renderShadows(layer: Floor) {
@@ -45,7 +45,7 @@ class MapRenderer(
             validIndicesSeparateFilter(
                 { it != numRows - 1 },
                 { it != numColumns - 1 }
-            ).forEach { (i, j, _) ->
+            ).forEach { (i, j, l) ->
                 shapeRenderer.color = LightColor().run {
                     sequenceOf(0 to 0, 0 to 1, 1 to 0, 1 to 1).forEach { (ii, jj) ->
                         add(this@with[i + ii, j + jj])

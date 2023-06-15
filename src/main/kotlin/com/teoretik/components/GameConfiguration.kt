@@ -34,6 +34,9 @@ class GameConfiguration {
         //  activeLevel!!.floors[1]!!.objects.add(dynamicLight)
 
         activeLevel!!.floors[1]!!.fullUpdateLight()
+        activeLevel!!.floors[2]!!.fullUpdateLight()
+
+        activeLevel!!.activeFloor = 1
     }
 
     private fun setUpCamera() {

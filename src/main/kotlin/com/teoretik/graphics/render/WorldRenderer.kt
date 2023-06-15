@@ -3,22 +3,24 @@ package com.teoretik.graphics.render
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
-import com.badlogic.gdx.maps.tiled.TiledMap
 import com.teoretik.components.GameConfiguration
+import com.teoretik.components.Level
 import com.teoretik.graphics.camera.Camera
 
-class LevelRenderer(map : TiledMap) : Renderer {
-    private val mapRenderer = MapRenderer(map)
+class LevelRenderer(private val level: Level) : Renderer {
     private val shadowsRenderer = ShadowsRenderer()
 
+
     override fun render() {
-        mapRenderer.render()
-        shadowsRenderer.render()
+        level.floors[level.activeFloor]?.renderer?.render()
+
+        //terrainRenderer.render()
+       // shadowsRenderer.render()
     }
 
     fun withCamera(camera: Camera) : LevelRenderer {
-        mapRenderer.setView(camera)
-        mapRenderer.shapeRenderer.projectionMatrix = camera.projMatrix()
+        level.floors[level.activeFloor]?.renderer?.setView(camera)
+        level.floors[level.activeFloor]?.renderer?.shapeRenderer?.projectionMatrix = camera.projMatrix()
 
         shadowsRenderer.setView(camera)
 
@@ -36,9 +38,6 @@ class WorldRenderer(private val gameConfiguration: GameConfiguration) : Renderer
 
         val level = gameConfiguration.activeLevel ?: return
         level.renderer.withCamera(gameConfiguration.camera).render()
-
-
-
     }
 
     private fun clearBackground() {
