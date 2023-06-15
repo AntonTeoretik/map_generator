@@ -26,7 +26,7 @@ class Floor: MapGroupLayer() {
     val obstacleProcessor by lazy { ObstacleProcessor(this) }
     val lightProcessor by lazy { ShadowsProcessor(this) }
 
-    val renderer = FloorRenderer(this)
+    val renderer by lazy { FloorRenderer(this) }
 
     fun fullUpdateLight() {
         lightProcessor.processStaticLights()

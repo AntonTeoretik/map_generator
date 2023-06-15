@@ -6,10 +6,11 @@ import com.teoretik.graphics.camera.Camera
 
 class FloorRenderer(private val floor: Floor) : Renderer {
     private val terrainRenderer = TerrainRenderer(TiledMap().apply { layers.add(floor) })
-    private val shadowsRenderer = ShadowsRenderer()
+    private val shadowsRenderer = ShadowsRenderer(floor.lightProcessor.lightColorMap)
 
     override fun render() {
         terrainRenderer.render()
+        shadowsRenderer.render()
     }
 
     fun setView(camera : Camera) {

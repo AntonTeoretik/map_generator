@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Split one map to several for each floor&#10;&#10;Attach to each floor its own renderer">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/LevelRenderer.kt" afterDir="false" />
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="More renderers!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/WorldRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/WorldRenderer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/FloorRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/FloorRenderer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/ShadowsRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/ShadowsRenderer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/TerrainRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/TerrainRenderer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -413,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686844112877</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="More renderers!">
+      <created>1686845336349</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1686845336349</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -428,7 +436,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add light processor, add dynamic color" />
     <MESSAGE value="Add todo" />
     <MESSAGE value="Add basic light sources types and shapes" />
     <MESSAGE value="Start to work with light processor" />
@@ -453,6 +460,7 @@
     <MESSAGE value="Remove unnecessary dependency" />
     <MESSAGE value="Introduce some renderers" />
     <MESSAGE value="Split one map to several for each floor&#10;&#10;Attach to each floor its own renderer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Split one map to several for each floor&#10;&#10;Attach to each floor its own renderer" />
+    <MESSAGE value="More renderers!" />
+    <option name="LAST_COMMIT_MESSAGE" value="More renderers!" />
   </component>
 </project>

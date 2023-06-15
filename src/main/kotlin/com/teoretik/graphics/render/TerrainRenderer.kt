@@ -26,61 +26,11 @@ class TerrainRenderer(
 
     override fun renderMapLayer(layer: MapLayer) {
         super.renderMapLayer(layer)
+
         if (!layer.isVisible || layer !is Floor) return
 
         renderObjects(layer)
-        renderShadows(layer)
-        renderObstacles(layer)
-    }
-
-    private fun renderShadows(layer: Floor) {
-        batch.end()
-
-        Gdx.gl.glEnable(GL20.GL_BLEND);
-        Gdx.gl.glBlendFunc(GL20.GL_DST_COLOR, GL20.GL_ZERO);
-
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled)
-
-        with(layer.lightProcessor.lightColorMap) {
-            validIndicesSeparateFilter(
-                { it != numRows - 1 },
-                { it != numColumns - 1 }
-            ).forEach { (i, j, l) ->
-                shapeRenderer.color = LightColor().run {
-                    sequenceOf(0 to 0, 0 to 1, 1 to 0, 1 to 1).forEach { (ii, jj) ->
-                        add(this@with[i + ii, j + jj])
-                    }
-                    scl(0.25f)
-                    toColorMask()
-                }
-                renderShadowSquare(ShadowsProcessor.lightMapToWorldCoordinates(i, j))
-            }
-        }
-
-        shapeRenderer.end()
-        Gdx.gl.glDisable(GL20.GL_BLEND);
-        batch.begin()
-
-    }
-
-    private fun renderShadowSquare(vector2: Vector2) {
-        val (x, y) = vector2
-        val offset = 1f / GraphicsSettings.lightResolution
-        val vertexes: FloatArray =
-            listOf(
-                x, y + offset,
-                x + offset, y + offset,
-                x + offset, y,
-                x, y
-            ).toFloatArray()
-
-        for (i in 2 until vertexes.size - 2 step 2) {
-            shapeRenderer.triangle(
-                vertexes[0], vertexes[1],
-                vertexes[i], vertexes[i + 1],
-                vertexes[i + 2], vertexes[i + 3]
-            )
-        }
+       // renderObstacles(layer)
     }
 
     private fun renderObstacles(floor: Floor) {
