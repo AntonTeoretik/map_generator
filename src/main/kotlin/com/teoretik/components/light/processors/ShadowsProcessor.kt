@@ -17,7 +17,7 @@ import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.graphics.render.GraphicsSettings.lightResolution
 import com.teoretik.utils.geometry.Array2D
 
-class FloorLightProcessor(
+class ShadowsProcessor(
     floor: Floor
 ) {
     val dynamicLights: MutableList<DynamicLightSource> = mutableListOf()

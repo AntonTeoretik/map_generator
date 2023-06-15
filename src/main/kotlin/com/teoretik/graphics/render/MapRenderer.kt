@@ -12,7 +12,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer
 import com.badlogic.gdx.math.Affine2
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.Floor
-import com.teoretik.components.light.processors.FloorLightProcessor
+import com.teoretik.components.light.processors.ShadowsProcessor
 import com.teoretik.components.light.LightColor
 import com.teoretik.components.light.toColorMask
 
@@ -53,7 +53,7 @@ class MapRenderer(
                     scl(0.25f)
                     toColorMask()
                 }
-                renderShadowSquare(FloorLightProcessor.lightMapToWorldCoordinates(i, j))
+                renderShadowSquare(ShadowsProcessor.lightMapToWorldCoordinates(i, j))
             }
         }
 
