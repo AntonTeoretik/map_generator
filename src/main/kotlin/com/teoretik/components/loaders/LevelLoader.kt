@@ -9,65 +9,68 @@ import com.teoretik.components.Floor
 import com.teoretik.components.Level
 import com.teoretik.graphics.render.GraphicsSettings.unitScale
 
-class LevelLoader {
-    companion object {
-        fun loadLevel(map: TiledMap, level: Level) {
-            loadFloors(map, level)
-            moveObjectsToFloorLayers(level)
-            adjustObjectCoordinates(level)
-        }
+object LevelLoader {
+    fun loadLevel(map: TiledMap): Map<Int, Floor> {
+        val floors : MutableMap<Int, Floor> = mutableMapOf()
 
-        private fun loadFloors(map: TiledMap, level: Level) {
-            for (layer in map.layers) {
-                if (layer is Floor) {
-                    try {
-                        level.floors[layer.floorNumber] = layer
-                    } catch (e: Exception) {
-                        println("The configuration is wrong: floor layer must contain property ")
-                    }
-                }
-            }
-        }
+        loadFloors(map, floors)
+        moveObjectsToFloorLayers(floors)
+        adjustObjectCoordinates(floors)
 
-        private fun moveObjectsToFloorLayers(level: Level) {
-            level.floors.forEach { (_, layer) ->
-                layer.layers.forEach {
-                    moveObjectsToTop(layer, it)
-                }
-            }
-        }
+        return floors.toMap()
+    }
 
-        private fun moveObjectsToTop(topLayer: Floor, layer: MapLayer) {
-            when (layer) {
-                is MapGroupLayer -> {
-                    layer.layers.forEach {
-                        moveObjectsToTop(topLayer, it)
-                    }
-                }
-            }
-
-            layer.objects.forEach {
-                topLayer.objects.add(it)
-            }
-
-            (0 until layer.objects.count).reversed().forEach {
-                layer.objects.remove(it)
-            }
-        }
-
-        private fun adjustObjectCoordinates(level: Level) {
-            level.floors.forEach { (_, layer) ->
-                adjustObjectCoordinates(layer.objects)
-            }
-        }
-
-        private fun adjustObjectCoordinates(objects: MapObjects) {
-            objects.forEach {
-                if (it is TiledMapTileMapObject) {
-                    it.x = it.x * unitScale
-                    it.y = it.y * unitScale
+    private fun loadFloors(map: TiledMap, floors: MutableMap<Int, Floor>) {
+        for (layer in map.layers) {
+            if (layer is Floor) {
+                try {
+                    floors[layer.floorNumber] = layer
+                } catch (e: Exception) {
+                    println("The configuration is wrong: floor layer must contain property ")
                 }
             }
         }
     }
+
+    private fun moveObjectsToFloorLayers(floors: MutableMap<Int, Floor>) {
+        floors.forEach { (_, layer) ->
+            layer.layers.forEach {
+                moveObjectsToTop(layer, it)
+            }
+        }
+    }
+
+    private fun moveObjectsToTop(topLayer: Floor, layer: MapLayer) {
+        when (layer) {
+            is MapGroupLayer -> {
+                layer.layers.forEach {
+                    moveObjectsToTop(topLayer, it)
+                }
+            }
+        }
+
+        layer.objects.forEach {
+            topLayer.objects.add(it)
+        }
+
+        (0 until layer.objects.count).reversed().forEach {
+            layer.objects.remove(it)
+        }
+    }
+
+    private fun adjustObjectCoordinates(floors: MutableMap<Int, Floor>) {
+        floors.forEach { (_, layer) ->
+            adjustObjectCoordinates(layer.objects)
+        }
+    }
+
+    private fun adjustObjectCoordinates(objects: MapObjects) {
+        objects.forEach {
+            if (it is TiledMapTileMapObject) {
+                it.x = it.x * unitScale
+                it.y = it.y * unitScale
+            }
+        }
+    }
 }
+

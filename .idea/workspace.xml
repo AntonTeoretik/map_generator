@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Enhance the code">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Rename FloorLightProcessor to ShadowsProcessor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/GameConfiguration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/GameConfiguration.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Level.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Level.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/FloorLightProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/FloorLightProcessor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/PointLightProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/PointLightProcessor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/obstacles/ObstacleProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/obstacles/ObstacleProcessor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/MapRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/MapRenderer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/tiles/extensions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/tiles/extensions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/loaders/LevelLoader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/loaders/LevelLoader.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -382,7 +378,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686759337795</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Add a couple of methods">
+      <created>1686824178737</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1686824178737</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Rename FloorLightProcessor to ShadowsProcessor">
+      <created>1686824358291</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1686824358291</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -397,8 +407,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Even more classes&#10;&#10;Organize renders and game logic, remove most parts from screen" />
-    <MESSAGE value="Fix Map loader" />
     <MESSAGE value="Clean up imports" />
     <MESSAGE value="Improve floor map load" />
     <MESSAGE value="Refactoring" />
@@ -422,6 +430,8 @@
     <MESSAGE value="Code cleaning" />
     <MESSAGE value="Move static obstacles initialization to ObstacleProcessor" />
     <MESSAGE value="Enhance the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhance the code" />
+    <MESSAGE value="Add a couple of methods" />
+    <MESSAGE value="Rename FloorLightProcessor to ShadowsProcessor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename FloorLightProcessor to ShadowsProcessor" />
   </component>
 </project>

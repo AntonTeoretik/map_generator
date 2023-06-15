@@ -36,7 +36,7 @@ class GameConfiguration {
         activeLevel!!.floors[1]!!.fullUpdateLight()
     }
 
-    fun setUpCamera() {
+    private fun setUpCamera() {
         val vec2 = activeLevel?.cellToWorldCoordinates(GlobalPosition(0, 15 , 1))
         camera.position.set(Vector3(vec2, 0f))
     }
