@@ -19,13 +19,14 @@ class ViewPointProcessor(val floor: Floor) {
     fun processVisibility() {
         totalVisibility.iterate().forEach { totalVisibility[it.first, it.second] = Visibility.NOT_VISIBLE }
         viewPoints.forEach {point ->
-            val lightPreRegion = point.shape.hitBox()?.apply {
+            val preRegion = point.shape.hitBox()?.apply {
                 x += point.x
                 y += point.y
             } ?: region
 
             val r = Rectangle()
-            if (!Intersector.intersectRectangles(lightPreRegion, region, r)) return
+
+            if (!Intersector.intersectRectangles(preRegion, region, r)) return
 
             with(totalVisibility) {
                 iterate(
@@ -36,9 +37,13 @@ class ViewPointProcessor(val floor: Floor) {
 
                     val res = point.shape.processor.processRay(
                         Vector2(point.x, point.y),
-                        floor.cellToWorldCoordinates(i, j),
-                        floor.obstacleProcessor.staticObstacles.asSequence().map { it.polygon })
-                    if (res == HitResult.HIT) this[i, j] = Visibility.VISIBLE
+                        Vector2(i.toFloat(), j.toFloat()),
+                        floor.obstacleProcessor.staticObstacles.asSequence().map { it.polygon },
+                        processEndPoint = true
+                    )
+                    if (res == HitResult.HIT) {
+                        set(i, j, Visibility.VISIBLE)
+                    }
                 }
             }
         }

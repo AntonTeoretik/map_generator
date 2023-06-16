@@ -6,7 +6,12 @@ import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.geometry.rays.HitResult
 
 class NoProcessor() : RayProcessor {
-    override fun processRay(start: Vector2, end: Vector2, obstacles: Sequence<Polygon>): HitResult {
+    override fun processRay(
+        start: Vector2,
+        end: Vector2,
+        obstacles: Sequence<Polygon>,
+        processEndPoint: Boolean
+    ): HitResult {
         return HitResult.MISS
     }
 }

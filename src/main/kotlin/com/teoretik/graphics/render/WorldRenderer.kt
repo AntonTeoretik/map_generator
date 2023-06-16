@@ -11,7 +11,7 @@ class WorldRenderer(private val gameConfiguration: GameConfiguration) : Renderer
 
     override fun render() {
         clearBackground()
-
+        gameConfiguration.updateViewPoint()
         gameConfiguration.camera.update()
 
         setView(gameConfiguration.camera)

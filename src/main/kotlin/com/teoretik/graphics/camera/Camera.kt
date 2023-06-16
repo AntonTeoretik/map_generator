@@ -31,6 +31,10 @@ class Camera() {
 
     fun getPosition(): Vector3 = camera.position
 
+    fun getPosition2D() : Vector2 {
+        return Vector2(camera.position.x, camera.position.y)
+    }
+
     fun translate(position: Vector3) {
         camera.translate(position)
         camera.update()
