@@ -1,5 +1,6 @@
 package com.teoretik.components.light.processors
 
+import IntPair
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.maps.MapProperties
 import com.badlogic.gdx.maps.objects.TextureMapObject
@@ -16,6 +17,7 @@ import com.teoretik.components.light.source.StaticLightSource
 import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.graphics.render.GraphicsSettings.lightResolution
 import com.teoretik.utils.geometry.Array2D
+import kotlin.math.min
 
 class ShadowsProcessor(
     floor: Floor
@@ -33,7 +35,8 @@ class ShadowsProcessor(
         floor.width * lightResolution + 1,
         floor.height * lightResolution + 1
     ) { _, _ ->
-        LightColor() }
+        LightColor()
+    }
 
     // Methods
 
@@ -91,17 +94,18 @@ class ShadowsProcessor(
     fun computeFinalLightMap() {
         clearLightmap()
         staticLightMaps.forEach { (light, lm) ->
-            lm.lightMap
-                .validIndicesSeparateFilter({ i -> i + lm.x < lightColorMap.numRows }, { j -> j + lm.y < lightColorMap.numColumns })
-                .forEach {
-                    val (i, j, state) = it
+            lm.lightMap.iterateOverRectangle(
+                0 until  lightColorMap.numRows - lm.x,
+                0 until lightColorMap.numColumns - lm.y,
+            ).forEach {
+                val (i, j, state) = it
 
-                    if (state == ShadowState.LIGHT) {
-                        lightColorMap[i + lm.x, j + lm.y]?.add(
-                            light.computeLightInPoint(lightMapToWorldCoordinates(i + lm.x, j + lm.y))
-                        )
-                    }
+                if (state == ShadowState.LIGHT) {
+                    lightColorMap[i + lm.x, j + lm.y]?.add(
+                        light.computeLightInPoint(lightMapToWorldCoordinates(i + lm.x, j + lm.y))
+                    )
                 }
+            }
         }
     }
 
@@ -124,6 +128,10 @@ class ShadowsProcessor(
                 x.toFloat() / lightResolution,
                 y.toFloat() / lightResolution
             )
+        }
+
+        fun worldCoordinatesToIndices(x: Float, y: Float): IntPair {
+            return IntPair((x * lightResolution).toInt(), (y * lightResolution).toInt())
         }
     }
 }

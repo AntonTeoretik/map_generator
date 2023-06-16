@@ -16,15 +16,10 @@ class Array2D<T>(val numRows: Int, val numColumns: Int, init: (Int, Int) -> T) {
         }
     }
 
-    fun validIndicesSeparateFilter(
-        predicateX: (Int) -> Boolean,
-        predicateY: (Int) -> Boolean = { true },
-    ) = sequence {
-        repeat(numRows) { i ->
-            if (predicateX(i)) {
-                repeat(numColumns) { j ->
-                    if (predicateY(j)) yield(Triple(i, j, get(i, j)!!))
-                }
+    fun iterateOverRectangle(rangeX : IntRange, rangeY: IntRange) = sequence {
+        for (i in rangeX) {
+            for (j in rangeY) {
+                yield(Triple(i, j, get(i, j)))
             }
         }
     }

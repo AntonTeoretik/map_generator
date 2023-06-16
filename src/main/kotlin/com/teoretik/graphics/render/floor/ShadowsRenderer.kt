@@ -15,9 +15,11 @@ import com.teoretik.graphics.resources.Shape
 import com.teoretik.utils.geometry.Array2D
 import com.teoretik.utils.vectors.component1
 import com.teoretik.utils.vectors.component2
+import kotlin.math.max
+import kotlin.math.min
 
-class ShadowsRenderer(private val lightColorMap : Array2D<LightColor>) : BoundedRenderer() {
-    override fun setView(camera : Camera) {
+class ShadowsRenderer(private val lightColorMap: Array2D<LightColor>) : BoundedRenderer() {
+    override fun setView(camera: Camera) {
         Shape.projectionMatrix = camera.projMatrix()
         super.setView(camera)
     }
@@ -28,10 +30,17 @@ class ShadowsRenderer(private val lightColorMap : Array2D<LightColor>) : Bounded
 
         Shape.begin(ShapeRenderer.ShapeType.Filled)
 
+        val (x0, y0) = with(viewBounds) {
+            ShadowsProcessor.worldCoordinatesToIndices(x, y)
+        }
+        val (x1, y1) = with(viewBounds) {
+            ShadowsProcessor.worldCoordinatesToIndices(x + width, y + height)
+        }
+
         with(lightColorMap) {
-            validIndicesSeparateFilter(
-                { it != numRows - 1 },
-                { it != numColumns - 1 }
+            iterateOverRectangle(
+                max(x0 - 1, 0)until min(numRows - 1, x1 + 1),
+                max(y0 - 1, 0)until min(numColumns - 1, y1 + 1)
             ).forEach { (i, j, _) ->
                 Shape.color = LightColor().run {
                     sequenceOf(0 to 0, 0 to 1, 1 to 0, 1 to 1).forEach { (ii, jj) ->
