@@ -6,7 +6,7 @@ import com.teoretik.geometry.rays.processors.RayProcessor
 import com.teoretik.geometry.rays.processors.NoProcessor
 
 class Cone(val direction: Vector2, val angle: Float, val rad: Float) : Shape() {
-    override fun provideRegion(): Rectangle? {
+    override fun hitBox(): Rectangle? {
         if (rad == Float.POSITIVE_INFINITY)
             return null
         return Rectangle(

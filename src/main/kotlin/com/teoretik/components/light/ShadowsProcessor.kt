@@ -43,7 +43,7 @@ class ShadowsProcessor(
 
     private fun processStaticLight(lightSource: StaticLightSource) {
 
-        val lightPreRegion = lightSource.shape.provideRegion()?.apply {
+        val lightPreRegion = lightSource.shape.hitBox()?.apply {
             x += lightSource.x
             y += lightSource.y
         } ?: region
