@@ -11,7 +11,7 @@ import com.teoretik.components.Floor
 import com.teoretik.components.light.LightColor
 import com.teoretik.components.light.ShadowState
 import com.teoretik.components.light.clear
-import com.teoretik.components.light.shape.PointLightSourceShape
+import com.teoretik.components.light.shape.Ball
 import com.teoretik.components.light.source.DynamicLightSource
 import com.teoretik.components.light.source.StaticLightSource
 import com.teoretik.components.obstacles.Obstacle
@@ -85,7 +85,7 @@ class ShadowsProcessor(
                     it.x + 0.5f,
                     it.y + 0.5f,
                     LightColor(color.r, color.g, color.b),
-                    PointLightSourceShape(20f) // CHANGE ALL OF THIS!!!
+                    Ball(20f) // CHANGE ALL OF THIS!!!
                 )
             }.toMutableList()
     }

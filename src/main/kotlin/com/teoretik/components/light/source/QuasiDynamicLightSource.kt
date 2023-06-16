@@ -1,13 +1,13 @@
 package com.teoretik.components.light.source
 
 import com.teoretik.components.light.LightColor
-import com.teoretik.components.light.shape.LightSourceShape
+import com.teoretik.components.light.shape.Shape
 
 class QuasiDynamicLightSource(
     x: Float,
     y: Float,
     lightColor: LightColor,
-    shape: LightSourceShape,
+    shape: Shape,
     val effectiveRadius: Float
 ) : DynamicLightSource(x, y, lightColor, shape) {
     val originX = x

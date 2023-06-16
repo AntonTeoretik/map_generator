@@ -3,7 +3,7 @@ package com.teoretik.components.light.shape
 import com.badlogic.gdx.math.Rectangle
 import com.teoretik.components.light.processors.PointLightProcessor
 
-class PointLightSourceShape(val rad: Float) : LightSourceShape() {
+class Ball(val rad: Float) : Shape() {
     override fun provideRegion(): Rectangle? {
         if (rad == Float.POSITIVE_INFINITY)
             return null
