@@ -1,9 +1,9 @@
-package com.teoretik.components.light.processors
+package com.teoretik.geometry.rays.processors
 
 import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Vector2
-import com.teoretik.components.light.HitResult
 import com.teoretik.components.obstacles.Obstacle
+import com.teoretik.geometry.rays.HitResult
 
 class PointRayProcessor() : RayProcessor(null) {
     override fun processRay(start: Vector2, end: Vector2, obstacles: List<Obstacle>): HitResult {

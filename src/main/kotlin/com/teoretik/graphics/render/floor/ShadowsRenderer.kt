@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.light.LightColor
-import com.teoretik.components.light.processors.ShadowsProcessor
+import com.teoretik.components.light.ShadowsProcessor
 import com.teoretik.components.light.toColorMask
 import com.teoretik.graphics.camera.Camera
 import com.teoretik.graphics.render.BoundedRenderer

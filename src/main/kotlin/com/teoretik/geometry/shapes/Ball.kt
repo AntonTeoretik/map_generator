@@ -1,7 +1,7 @@
 package com.teoretik.geometry.shapes
 
 import com.badlogic.gdx.math.Rectangle
-import com.teoretik.components.light.processors.PointRayProcessor
+import com.teoretik.geometry.rays.processors.PointRayProcessor
 
 class Ball(val rad: Float) : Shape() {
     override fun provideRegion(): Rectangle? {

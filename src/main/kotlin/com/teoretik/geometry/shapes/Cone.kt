@@ -2,8 +2,8 @@ package com.teoretik.geometry.shapes
 
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.math.Vector2
-import com.teoretik.components.light.processors.RayProcessor
-import com.teoretik.components.light.processors.NoProcessor
+import com.teoretik.geometry.rays.processors.RayProcessor
+import com.teoretik.geometry.rays.processors.NoProcessor
 
 class Cone(val direction: Vector2, val angle: Float, val rad: Float) : Shape() {
     override fun provideRegion(): Rectangle? {

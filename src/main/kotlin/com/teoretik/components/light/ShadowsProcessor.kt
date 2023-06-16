@@ -1,4 +1,4 @@
-package com.teoretik.components.light.processors
+package com.teoretik.components.light
 
 import IntPair
 import com.badlogic.gdx.graphics.Color
@@ -8,15 +8,13 @@ import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.Floor
-import com.teoretik.components.light.LightColor
-import com.teoretik.components.light.HitResult
-import com.teoretik.components.light.clear
 import com.teoretik.geometry.shapes.Ball
 import com.teoretik.components.light.source.DynamicLightSource
 import com.teoretik.components.light.source.StaticLightSource
 import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.graphics.render.GraphicsSettings.lightResolution
 import com.teoretik.geometry.integral.Array2D
+import com.teoretik.geometry.rays.HitResult
 
 class ShadowsProcessor(
     floor: Floor

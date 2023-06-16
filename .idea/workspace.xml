@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Move geometry related classes to a separate package">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Rename ray tracing related classes">
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/viewpoint/ViewPoint.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/LightProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/LightProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/HitResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/HitResult.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/NoProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/NoProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/PointRayProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/PointRayProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/RayProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/RayProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/ShadowsProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/shapes/Ball.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/shapes/Ball.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/shapes/Cone.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/shapes/Cone.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/shapes/Shape.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/shapes/Shape.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/floor/ShadowsRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/floor/ShadowsRenderer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,11 +113,11 @@
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\geometry\rays" />
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\utils" />
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\utils\dynamic" />
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\components\light\processors" />
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\components\light\intensity" />
-      <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\components\light\shape" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
       <recent name="com.teoretik.components.light" />
@@ -116,11 +125,11 @@
       <recent name="com.teoretik.graphics.render" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.teoretik.geometry.rays.processors" />
+      <recent name="com.teoretik.components.light" />
+      <recent name="com.teoretik.geometry.rays" />
       <recent name="com.teoretik.utils.geometry.shapes" />
       <recent name="com.teoretik.utils.geometry.integral" />
-      <recent name="com.teoretik.graphics.render.floor" />
-      <recent name="com.teoretik.graphics.resources" />
-      <recent name="com.teoretik.utils.geometry" />
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.MainKt">
@@ -491,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686924653414</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Rename ray tracing related classes">
+      <created>1686924956916</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1686924956916</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -506,7 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor" />
     <MESSAGE value="Move obstacle processing to ObstacleProcessor" />
     <MESSAGE value="Some code improvement" />
     <MESSAGE value="Move extensions to utils" />
@@ -531,6 +546,7 @@
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Rename classes" />
     <MESSAGE value="Move geometry related classes to a separate package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move geometry related classes to a separate package" />
+    <MESSAGE value="Rename ray tracing related classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename ray tracing related classes" />
   </component>
 </project>
