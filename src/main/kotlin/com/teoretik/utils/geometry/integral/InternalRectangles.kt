@@ -1,4 +1,4 @@
-package com.teoretik.utils.geometry
+package com.teoretik.utils.geometry.integral
 
 class InternalRectangles(val table: Array2D<Boolean>) :
     POS<IntegralRect>() {

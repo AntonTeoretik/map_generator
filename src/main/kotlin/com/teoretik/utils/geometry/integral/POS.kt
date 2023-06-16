@@ -1,4 +1,4 @@
-package com.teoretik.utils.geometry
+package com.teoretik.utils.geometry.integral
 
 
 /**

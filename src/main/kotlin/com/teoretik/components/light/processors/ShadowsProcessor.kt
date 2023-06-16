@@ -16,8 +16,7 @@ import com.teoretik.components.light.source.DynamicLightSource
 import com.teoretik.components.light.source.StaticLightSource
 import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.graphics.render.GraphicsSettings.lightResolution
-import com.teoretik.utils.geometry.Array2D
-import kotlin.math.min
+import com.teoretik.utils.geometry.integral.Array2D
 
 class ShadowsProcessor(
     floor: Floor

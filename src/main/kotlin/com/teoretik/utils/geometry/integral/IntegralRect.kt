@@ -1,4 +1,4 @@
-package com.teoretik.utils.geometry
+package com.teoretik.utils.geometry.integral
 
 data class IntegralRect(var x0: Int, var y0: Int, var x1: Int, var y1: Int) {
     fun getWidth() = x1 - x0

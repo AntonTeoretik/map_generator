@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Introduce BoundedRenderer">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/ShadowsProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/processors/ShadowsProcessor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/floor/ShadowsRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/floor/ShadowsRenderer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/geometry/Array2D.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/geometry/Array2D.kt" afterDir="false" />
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Optimize ShadowsRenderer">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/viewpoint/ViewPoint.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +54,8 @@
         <option value="Interface" />
         <option value="Kotlin Enum" />
         <option value="Class" />
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -465,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686919959129</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Optimize ShadowsRenderer">
+      <created>1686924060152</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1686924060152</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -480,7 +484,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring&#10;&#10;Finally, split classes, organise packages" />
     <MESSAGE value="Optimize search for maximums&#10;&#10;We actually don't need all the maximums be found. We need only to cover all minimal elements by them." />
     <MESSAGE value="Small style fix" />
     <MESSAGE value="Rename Light to LightColor" />
@@ -505,6 +508,7 @@
     <MESSAGE value="Add sample map" />
     <MESSAGE value="Update git ignore" />
     <MESSAGE value="Introduce BoundedRenderer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Introduce BoundedRenderer" />
+    <MESSAGE value="Optimize ShadowsRenderer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize ShadowsRenderer" />
   </component>
 </project>
