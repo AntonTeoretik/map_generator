@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.Floor
 import com.teoretik.components.light.LightColor
-import com.teoretik.components.light.ShadowState
+import com.teoretik.components.light.HitResult
 import com.teoretik.components.light.clear
 import com.teoretik.geometry.shapes.Ball
 import com.teoretik.components.light.source.DynamicLightSource
@@ -99,7 +99,7 @@ class ShadowsProcessor(
             ).forEach {
                 val (i, j, state) = it
 
-                if (state == ShadowState.LIGHT) {
+                if (state == HitResult.HIT) {
                     lightColorMap[i + lm.x, j + lm.y]?.add(
                         light.computeLightInPoint(lightMapToWorldCoordinates(i + lm.x, j + lm.y))
                     )
@@ -119,7 +119,7 @@ class ShadowsProcessor(
             val width: Int,
             val height: Int,
         ) {
-            val lightMap = Array2D(width, height) { _, _ -> ShadowState.UNCERTAIN }
+            val lightMap = Array2D(width, height) { _, _ -> HitResult.UNCERTAIN }
         }
 
         fun lightMapToWorldCoordinates(x: Int, y: Int): Vector2 {
