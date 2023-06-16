@@ -1,0 +1,72 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Map.tmx",
+    "automapping.whileDrawing": false,
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "Boxes.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 11
+        },
+        "Floors.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 8
+        },
+        "Lights.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 8.4658
+        },
+        "Map.tmx": {
+            "expandedGroupLayers": [
+                2
+            ],
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 506,
+                "y": 404.5
+            }
+        },
+        "MixTest.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 8
+        },
+        "Water.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 5.5
+        }
+    },
+    "frame.defaultDuration": 500,
+    "last.imagePath": "C:/Users/Anton Ablov/IdeaProjects/map_generator/src/main/resources",
+    "map.fixedSize": false,
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "Map.tmx",
+        "Floors.tsx",
+        "Water.tsx",
+        "Lights.tsx",
+        "Boxes.tsx"
+    ],
+    "project": "map.tiled-project",
+    "property.type": "color",
+    "recentFiles": [
+        "Boxes.tsx",
+        "Lights.tsx",
+        "Water.tsx",
+        "Floors.tsx",
+        "Map.tmx",
+        "MixTest.tsx"
+    ],
+    "textEdit.monospace": false,
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.type": 0
+}

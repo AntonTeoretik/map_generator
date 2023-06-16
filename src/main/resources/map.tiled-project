@@ -1,0 +1,76 @@
+{
+    "automappingRulesFile": "",
+    "commands": [
+    ],
+    "compatibilityVersion": 1100,
+    "extensionsPath": "extensions",
+    "folders": [
+        "."
+    ],
+    "propertyTypes": [
+        {
+            "color": "#ff0000ff",
+            "drawFill": true,
+            "id": 2,
+            "members": [
+                {
+                    "name": "floorNumber",
+                    "type": "int",
+                    "value": -100
+                }
+            ],
+            "name": "Floor",
+            "type": "class",
+            "useAs": [
+                "property",
+                "layer"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": false,
+            "id": 1,
+            "members": [
+                {
+                    "name": "color",
+                    "type": "color",
+                    "value": "#ff000000"
+                },
+                {
+                    "name": "intensity",
+                    "type": "int",
+                    "value": -1
+                },
+                {
+                    "name": "on",
+                    "type": "bool",
+                    "value": true
+                }
+            ],
+            "name": "LightProperties",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "drawFill": true,
+            "id": 3,
+            "members": [
+                {
+                    "name": "solid",
+                    "type": "bool",
+                    "value": false
+                }
+            ],
+            "name": "Object",
+            "type": "class",
+            "useAs": [
+                "property",
+                "object",
+                "tile"
+            ]
+        }
+    ]
+}

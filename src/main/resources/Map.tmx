@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="41" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="138">
+ <tileset firstgid="1" source="Floors.tsx"/>
+ <tileset firstgid="3" source="Water.tsx"/>
+ <tileset firstgid="9" source="Lights.tsx"/>
+ <tileset firstgid="13" source="Boxes.tsx"/>
+ <group id="8" name="Level 2" class="Floor">
+  <properties>
+   <property name="floorNumber" type="int" value="2"/>
+  </properties>
+  <layer id="9" name="Floor" width="41" height="32">
+   <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,1,2,2,2,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,1,2,2,1,2,2,1,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,2,1,1,2,1,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,2,1,1,2,1,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,1,1,1,2,2,1,2,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,1,1,1,1,1,1,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,2,2,2,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,1,1,2,2,1,2,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,2,1,2,2,1,2,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <layer id="10" name="Boxes" width="41" height="32">
+   <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,13,13,13,13,13,13,13,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,13,13,13,13,13,13,13,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="11" name="Objects">
+   <object id="137" gid="11" x="429" y="288.5" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffffee05"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="2" name="Level 1" class="Floor">
+  <properties>
+   <property name="floorNumber" type="int" value="1"/>
+  </properties>
+  <layer id="3" name="Floor" width="41" height="32">
+   <data encoding="csv">
+1,1,2,2,2,1,2,1,2,2,1,1,1,2,1,1,1,2,2,2,1,2,2,2,2,1,1,2,2,2,2,2,1,1,2,1,2,1,1,1,1,
+1,2,1,1,1,1,1,2,2,1,2,1,1,1,2,1,2,2,1,1,2,1,1,2,2,1,1,2,1,2,1,1,1,2,2,2,2,1,2,2,2,
+1,1,2,1,1,1,1,2,1,2,2,2,1,1,1,2,1,2,1,1,2,2,1,2,1,2,1,2,2,1,1,1,1,1,1,1,1,1,2,1,2,
+2,1,2,2,1,2,1,2,1,1,1,1,2,2,1,2,2,1,2,1,1,1,1,2,2,2,2,1,1,2,1,2,1,1,2,1,1,2,2,2,2,
+2,1,2,2,1,2,2,2,1,2,1,1,2,2,1,2,1,2,2,2,2,2,1,2,2,1,2,2,2,1,2,1,2,1,2,1,2,2,2,1,2,
+2,2,1,2,2,1,1,1,1,2,2,1,1,2,2,1,1,1,2,1,2,2,1,1,2,2,1,1,1,2,1,1,2,1,2,1,1,1,1,1,1,
+1,1,1,1,2,1,2,1,2,6,6,6,6,1,2,1,2,2,2,2,1,2,2,1,2,2,2,2,1,2,2,1,1,2,1,1,2,2,2,1,2,
+2,1,2,2,2,1,1,1,2,6,1,2,6,1,2,2,2,1,2,2,1,1,2,1,1,1,2,2,1,1,1,2,2,1,2,2,2,1,2,1,2,
+2,2,1,1,2,1,1,1,1,6,1,2,6,2,2,2,2,2,2,1,2,1,1,2,2,2,2,2,2,1,1,1,2,1,1,2,1,1,2,1,2,
+2,2,2,2,1,2,1,2,2,6,6,6,6,1,2,1,2,1,1,1,2,2,1,1,2,1,2,1,1,1,2,2,2,1,1,1,1,1,2,1,2,
+2,2,2,2,2,1,1,1,1,1,2,1,2,1,1,1,1,1,2,1,2,1,1,2,2,1,1,2,2,2,2,1,1,2,1,1,2,2,1,2,2,
+1,1,2,1,2,1,2,2,2,2,2,1,2,1,2,2,1,2,2,1,1,2,2,2,2,2,1,2,2,1,1,2,2,2,1,1,1,2,2,2,1,
+2,2,2,1,1,2,1,2,1,1,1,2,1,2,1,2,2,2,2,1,1,1,1,1,1,2,2,2,2,2,2,1,1,1,2,2,2,2,1,2,1,
+1,1,1,2,2,1,1,2,1,2,2,1,2,1,2,2,2,2,2,1,2,2,1,2,2,1,2,1,1,2,1,2,1,2,1,1,1,1,1,2,2,
+2,1,2,2,1,2,2,1,1,1,2,2,1,1,2,1,1,1,2,1,2,2,2,1,2,1,2,2,2,1,2,2,1,2,1,1,2,1,2,1,2,
+2,2,2,1,1,2,2,2,2,1,2,2,2,1,2,1,1,2,2,2,1,2,2,1,1,2,1,2,1,2,2,1,2,2,1,1,2,2,2,1,2,
+1,1,2,2,2,2,2,1,2,1,2,1,2,1,2,2,1,1,1,2,2,1,1,1,1,2,1,2,1,1,2,2,2,1,2,1,2,2,1,2,1,
+1,2,2,1,2,2,1,2,1,2,2,1,2,1,2,2,1,1,1,2,1,2,1,1,2,2,2,2,6,6,6,1,1,1,1,2,2,2,1,1,1,
+1,1,1,2,1,2,2,1,1,2,1,2,1,2,2,2,2,2,2,2,2,2,2,1,1,2,1,1,6,6,6,1,1,1,1,1,1,1,1,1,2,
+2,1,2,1,2,2,6,6,1,2,1,2,2,1,1,2,2,2,1,1,2,1,2,2,1,2,2,1,6,6,6,2,2,1,2,2,2,2,1,1,2,
+2,1,1,1,1,2,6,6,6,2,1,1,1,1,1,2,2,1,2,1,1,2,1,2,2,2,2,2,6,6,6,1,2,2,1,1,1,2,1,1,2,
+1,1,1,2,6,6,6,6,6,2,2,1,2,1,2,1,1,1,2,1,1,2,1,1,2,2,2,2,6,6,6,1,1,2,2,2,2,1,1,1,2,
+1,2,2,2,6,6,6,6,6,6,2,2,2,1,2,2,1,2,2,2,2,2,2,1,1,2,1,1,6,6,6,1,2,1,1,2,2,1,2,2,1,
+1,2,1,1,6,6,6,6,6,6,2,2,2,2,1,2,1,1,2,1,2,2,2,1,1,1,2,2,6,6,6,2,2,1,1,1,1,1,1,2,1,
+1,1,2,1,6,6,6,6,6,6,1,2,1,1,2,2,1,2,2,2,1,2,1,1,2,2,2,1,6,6,6,2,1,2,1,1,1,1,2,2,1,
+2,1,1,2,6,6,6,6,6,2,1,1,2,1,2,1,1,2,2,2,1,2,1,1,1,1,2,1,6,6,6,1,1,2,2,2,1,1,1,1,1,
+1,2,2,1,1,1,6,6,6,2,1,2,1,2,1,2,1,2,2,2,2,1,2,1,1,2,2,2,6,6,6,1,1,2,2,2,2,2,1,2,2,
+2,1,1,2,2,1,6,6,1,2,2,1,1,1,2,1,1,2,2,1,1,1,2,2,2,2,1,1,6,6,6,2,2,1,1,1,1,1,2,2,2,
+2,2,2,2,1,1,1,2,2,2,1,1,1,1,2,2,1,1,1,1,2,1,2,2,2,1,1,1,6,6,6,1,1,1,1,1,2,1,1,1,1,
+2,1,1,2,2,2,1,1,2,2,2,1,1,1,1,1,2,2,2,2,1,1,1,2,2,1,1,2,6,6,6,1,2,1,2,1,2,1,1,2,2,
+2,1,2,1,2,1,1,2,2,2,2,2,1,2,1,2,1,2,1,2,2,2,2,1,1,1,1,1,2,1,1,1,1,2,1,1,1,1,2,1,1,
+2,1,1,1,1,2,1,1,1,1,1,1,1,1,2,1,1,2,2,1,2,1,1,1,1,2,2,1,2,2,2,1,2,1,1,2,2,1,1,2,1
+</data>
+  </layer>
+  <layer id="7" name="Boxes" width="41" height="32">
+   <data encoding="csv">
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,13,0,0,0,0,0,0,13,0,0,0,0,0,0,13,0,0,0,0,0,13,
+13,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,13,0,0,0,0,0,0,13,0,0,0,0,0,0,13,0,0,0,0,0,13,
+13,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,13,13,13,13,13,13,0,13,0,13,13,13,13,13,13,13,13,13,13,0,13,
+13,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,13,13,0,13,13,13,0,13,13,13,0,13,13,13,0,13,13,13,0,13,13,
+13,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,
+13,0,0,0,13,0,0,0,0,0,13,13,0,0,0,0,0,13,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,
+13,0,0,0,13,0,0,0,0,0,13,13,0,0,0,0,0,13,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,
+13,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,
+13,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,13,13,0,13,13,13,0,13,13,13,0,13,13,13,0,13,13,13,0,13,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,0,0,13,13,13,0,0,13,13,13,0,13,13,13,13,13,13,0,13,13,13,13,13,13,13,13,13,13,
+13,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,13,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,13,13,13,13,13,13,13,13,13,0,13,0,0,0,0,0,0,0,13,0,0,0,13,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,13,
+13,0,13,13,0,0,0,0,0,13,13,0,13,0,0,13,13,13,13,13,13,13,0,13,13,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,13,
+13,0,13,0,0,0,0,0,0,0,13,0,13,0,0,13,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,13,0,0,0,0,0,0,0,0,0,13,0,0,13,0,0,13,0,0,0,0,0,0,0,13,0,0,0,0,13,13,0,0,0,0,0,0,0,13,
+13,0,13,0,0,0,0,0,0,0,0,0,13,0,0,13,0,0,0,0,0,13,0,0,13,13,13,0,0,0,0,13,13,0,0,0,13,13,0,0,13,
+13,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,13,
+13,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,13,0,0,0,0,0,0,0,0,13,0,0,0,13,
+13,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,13,0,0,0,0,0,0,0,0,13,0,0,0,13,
+13,0,13,0,0,0,0,0,0,0,0,0,13,0,0,13,0,0,0,0,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,13,0,0,13,
+13,0,13,0,0,0,0,0,0,0,0,0,13,0,0,13,0,0,0,0,0,13,0,0,13,13,13,0,0,0,0,13,13,0,0,0,0,0,0,0,13,
+13,0,13,0,0,0,0,0,0,0,13,0,13,0,0,13,0,0,13,0,0,0,0,0,0,0,13,0,0,0,0,13,13,0,0,0,0,0,0,0,13,
+13,0,13,13,0,0,0,0,0,13,13,0,13,0,0,13,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,13,0,0,0,13,
+13,0,13,13,13,13,13,13,13,13,13,0,13,0,0,13,0,0,13,0,13,13,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,13,0,0,13,0,0,0,0,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13
+</data>
+  </layer>
+  <objectgroup id="6" name="Objects">
+   <object id="86" gid="10" x="65.3333" y="81.3333" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="87" gid="10" x="184" y="85.3333" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="88" gid="10" x="486.667" y="84" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="89" gid="10" x="494.667" y="462.667" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="90" gid="10" x="590.667" y="81.3333" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="91" gid="10" x="689.333" y="81.3333" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff3fbebe"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="92" gid="10" x="1038.67" y="80" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff3fbebe"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="93" gid="10" x="1134.67" y="81.3333" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="94" gid="10" x="138.667" y="657.333" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="95" gid="10" x="137.333" y="876" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="96" gid="10" x="814.667" y="562.667" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="97" gid="10" x="520" y="984" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="98" gid="10" x="1229.33" y="972" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="99" gid="10" x="428" y="976" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="100" gid="10" x="685.333" y="272" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff8b0000"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="101" gid="10" x="816" y="272" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff8b0000"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="102" gid="10" x="942.667" y="269.333" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff8b0000"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="103" gid="10" x="1201.33" y="274.667" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff8b0000"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="104" gid="10" x="713.333" y="366.667" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff8b0000"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="105" gid="10" x="844" y="366.667" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff8b0000"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="106" gid="10" x="972" y="368" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff8b0000"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="107" gid="10" x="1106.67" y="372" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff8b0000"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="108" gid="10" x="1232" y="373.333" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff8b0000"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="110" gid="10" x="1247.33" y="481.333" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ff2a7e7e"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+   <object id="111" gid="10" x="694.667" y="558.667" width="32" height="32">
+    <properties>
+     <property name="lightProperties" type="class" propertytype="LightProperties">
+      <properties>
+       <property name="color" type="color" value="#ffccc090"/>
+       <property name="intensity" type="int" value="10"/>
+       <property name="on" type="bool" value="true"/>
+      </properties>
+     </property>
+    </properties>
+   </object>
+  </objectgroup>
+ </group>
+</map>
