@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Move ray tracing classes to geometry">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="RayProcessor is an interface now">
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/viewpoint/ViewPoint.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/obstacles/Obstacle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/obstacles/Obstacle.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/NoProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/NoProcessor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/PointRayProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/PointRayProcessor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/RayProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/RayProcessor.kt" afterDir="false" />
     </list>
@@ -173,20 +169,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685460452313</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Initial commit">
-      <created>1686065903331</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1686065903331</updated>
-    </task>
-    <task id="LOCAL-00002" summary="More classes!&#10;&#10;Tried to make module structure">
-      <created>1686135926415</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1686135926415</updated>
     </task>
     <task id="LOCAL-00003" summary="Even more classes&#10;&#10;Organize renders and game logic, remove most parts from screen">
       <created>1686152195686</created>
@@ -517,7 +499,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686925153633</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="RayProcessor works now only with polygons">
+      <created>1686925826760</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1686925826761</updated>
+    </task>
+    <task id="LOCAL-00051" summary="RayProcessor is an interface now">
+      <created>1686926001368</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1686926001368</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,8 +528,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Some code improvement" />
-    <MESSAGE value="Move extensions to utils" />
     <MESSAGE value="Code refactoring" />
     <MESSAGE value="Rename function" />
     <MESSAGE value="Code cleaning" />
@@ -557,6 +551,8 @@
     <MESSAGE value="Move geometry related classes to a separate package" />
     <MESSAGE value="Rename ray tracing related classes" />
     <MESSAGE value="Move ray tracing classes to geometry" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move ray tracing classes to geometry" />
+    <MESSAGE value="RayProcessor works now only with polygons" />
+    <MESSAGE value="RayProcessor is an interface now" />
+    <option name="LAST_COMMIT_MESSAGE" value="RayProcessor is an interface now" />
   </component>
 </project>
