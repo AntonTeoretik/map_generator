@@ -11,5 +11,5 @@ class Ball(val rad: Float) : Shape() {
             -rad, -rad, 2 * rad, 2 * rad
         )
     }
-    override val processor = PointRayProcessor()
+    override val processor = PointRayProcessor
 }

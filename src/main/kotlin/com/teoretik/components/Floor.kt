@@ -25,7 +25,7 @@ class Floor: MapGroupLayer() {
 
     val obstacleProcessor by lazy { ObstacleProcessor(this) }
     val lightProcessor by lazy { ShadowsProcessor(this) }
-    val viewPointProcessor : ViewPointProcessor = ViewPointProcessor(this)
+    val viewPointProcessor : ViewPointProcessor by lazy { ViewPointProcessor(this) }
 
     val renderer by lazy { FloorRenderer(this) }
 

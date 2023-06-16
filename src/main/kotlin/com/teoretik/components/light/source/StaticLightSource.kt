@@ -11,6 +11,4 @@ class StaticLightSource(
     lightColor: LightColor,
     shape: Shape,
     algorithm: IntensityAlgorithm = InvDistance(0.1f, 15f)
-) : LightSource(x, y, lightColor, shape, algorithm) {
-
-}
+) : LightSource(x, y, lightColor, shape, algorithm)

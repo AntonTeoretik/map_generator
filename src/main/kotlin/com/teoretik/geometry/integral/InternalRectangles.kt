@@ -4,8 +4,8 @@ class InternalRectangles(val table: Array2D<Boolean>) :
     POS<IntegralRect>() {
 
     override val minimums = sequence {
-        (0 until table.numRows).flatMap { i ->
-            (0 until table.numColumns).map { j ->
+        (0 until table.width).flatMap { i ->
+            (0 until table.height).map { j ->
                 if(table[i, j] == true) yield(IntegralRect(i, j, i, j))
             }
         }
@@ -33,8 +33,8 @@ class InternalRectangles(val table: Array2D<Boolean>) :
         }
 
     override fun isInSet(elem: IntegralRect): Boolean {
-        val validXRange = 0 until table.numColumns
-        val validYRange = 0 until table.numRows
+        val validXRange = 0 until table.height
+        val validYRange = 0 until table.width
 
         return with(elem) {
             x0 in validXRange && x1 in validXRange && y0 in validYRange && y1 in validYRange &&

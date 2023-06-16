@@ -1,7 +1,7 @@
 package com.teoretik.geometry.integral
 
-class Array2D<T>(val numRows: Int, val numColumns: Int, init: (Int, Int) -> T) {
-    private val data: List<MutableList<T>> = List(numRows) { i -> MutableList(numColumns) { j -> init(i, j) } }
+class Array2D<T>(val width: Int, val height: Int, init: (Int, Int) -> T) {
+    private val data: List<MutableList<T>> = List(width) { i -> MutableList(height) { j -> init(i, j) } }
 
     operator fun get(row: Int, col: Int): T? = data.getOrNull(row)?.getOrNull(col)
     operator fun set(row: Int, col: Int, value: T) {
@@ -9,14 +9,14 @@ class Array2D<T>(val numRows: Int, val numColumns: Int, init: (Int, Int) -> T) {
     }
 
     fun validIndices(predicate: (Int, Int) -> Boolean = { _, _ -> true }) = sequence<Triple<Int, Int, T>> {
-        repeat(numRows) { i ->
-            repeat(numColumns) { j ->
+        repeat(width) { i ->
+            repeat(height) { j ->
                 if (predicate(i, j)) yield(Triple(i, j, get(i, j)!!))
             }
         }
     }
 
-    fun iterate(rangeX : IntRange = 0 until numRows, rangeY: IntRange = 0 until numColumns) = sequence {
+    fun iterate(rangeX : IntRange = 0 until width, rangeY: IntRange = 0 until height) = sequence {
         for (i in rangeX) {
             for (j in rangeY) {
                 yield(Triple(i, j, get(i, j)))
