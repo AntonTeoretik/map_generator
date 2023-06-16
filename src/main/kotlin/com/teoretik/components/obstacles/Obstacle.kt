@@ -9,8 +9,6 @@ import com.teoretik.graphics.render.GraphicsSettings
 import com.teoretik.utils.vectors.*
 import com.teoretik.utils.tiles.*
 
-
-
 class Obstacle(
     val polygon: Polygon,
 ) {
@@ -55,7 +53,6 @@ class Obstacle(
             return Obstacle(p)
         }
 
-
         private fun createPolygon(x: Float, y: Float, width: Float, height: Float): Polygon {
             val p = Polygon(
                 floatArrayOf(
@@ -69,5 +66,4 @@ class Obstacle(
             return p
         }
     }
-
 }

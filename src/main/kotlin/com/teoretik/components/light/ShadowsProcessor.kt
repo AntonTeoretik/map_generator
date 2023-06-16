@@ -63,7 +63,7 @@ class ShadowsProcessor(
                 lightMapRegion.lightMap[i, j] = lightSource.shape.processor.processRay(
                     Vector2(lightSource.x, lightSource.y),
                     lightMapToWorldCoordinates(i + lightMapRegion.x, j + lightMapRegion.y),
-                    staticObstacles
+                    staticObstacles.asSequence().map { it.polygon }
                 )
             }
         }
