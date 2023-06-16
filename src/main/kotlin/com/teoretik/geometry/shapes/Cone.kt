@@ -1,4 +1,4 @@
-package com.teoretik.components.light.shape
+package com.teoretik.geometry.shapes
 
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.math.Vector2

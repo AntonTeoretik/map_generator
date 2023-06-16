@@ -11,12 +11,12 @@ import com.teoretik.components.Floor
 import com.teoretik.components.light.LightColor
 import com.teoretik.components.light.ShadowState
 import com.teoretik.components.light.clear
-import com.teoretik.components.light.shape.Ball
+import com.teoretik.geometry.shapes.Ball
 import com.teoretik.components.light.source.DynamicLightSource
 import com.teoretik.components.light.source.StaticLightSource
 import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.graphics.render.GraphicsSettings.lightResolution
-import com.teoretik.utils.geometry.integral.Array2D
+import com.teoretik.geometry.integral.Array2D
 
 class ShadowsProcessor(
     floor: Floor

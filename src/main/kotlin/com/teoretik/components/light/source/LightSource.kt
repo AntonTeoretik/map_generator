@@ -4,7 +4,7 @@ import com.badlogic.gdx.maps.MapObject
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.light.intensity.IntensityAlgorithm
 import com.teoretik.components.light.LightColor
-import com.teoretik.components.light.shape.Shape
+import com.teoretik.geometry.shapes.Shape
 import com.teoretik.components.light.intensity.Linear
 
 abstract class LightSource(

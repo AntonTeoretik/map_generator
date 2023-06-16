@@ -11,7 +11,7 @@ import com.teoretik.graphics.camera.Camera
 import com.teoretik.graphics.render.BoundedRenderer
 import com.teoretik.graphics.render.GraphicsSettings
 import com.teoretik.graphics.resources.Shape
-import com.teoretik.utils.geometry.integral.Array2D
+import com.teoretik.geometry.integral.Array2D
 import com.teoretik.utils.vectors.component1
 import com.teoretik.utils.vectors.component2
 import kotlin.math.max

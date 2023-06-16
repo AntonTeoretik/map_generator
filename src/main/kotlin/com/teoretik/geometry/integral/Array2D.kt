@@ -1,4 +1,4 @@
-package com.teoretik.utils.geometry.integral
+package com.teoretik.geometry.integral
 
 class Array2D<T>(val numRows: Int, val numColumns: Int, init: (Int, Int) -> T) {
     private val data: List<MutableList<T>> = List(numRows) { i -> MutableList(numColumns) { j -> init(i, j) } }

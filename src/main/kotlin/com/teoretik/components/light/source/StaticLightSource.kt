@@ -3,7 +3,7 @@ package com.teoretik.components.light.source
 import com.teoretik.components.light.intensity.IntensityAlgorithm
 import com.teoretik.components.light.intensity.InvDistance
 import com.teoretik.components.light.LightColor
-import com.teoretik.components.light.shape.Shape
+import com.teoretik.geometry.shapes.Shape
 
 class StaticLightSource(
     x : Float,
