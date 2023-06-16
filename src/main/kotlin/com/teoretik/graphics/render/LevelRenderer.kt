@@ -9,8 +9,7 @@ class LevelRenderer(private val level: Level) : Renderer {
         level.floors[level.activeFloor]?.renderer?.render()
     }
 
-    fun withCamera(camera: Camera) : LevelRenderer {
+    override fun setView(camera: Camera) {
         level.floors[level.activeFloor]?.renderer?.setView(camera)
-        return this
     }
 }

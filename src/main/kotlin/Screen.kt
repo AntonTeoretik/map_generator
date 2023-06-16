@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.ScreenViewport
 import com.teoretik.graphics.render.GraphicsSettings
+import com.teoretik.graphics.resources.Batch
+import com.teoretik.graphics.resources.Shape
 import com.teoretik.utils.dynamic.DynamicProcessor
 import ktx.app.KtxScreen
 
@@ -52,6 +54,8 @@ class Screen(val gameSetup: GameSetup) : KtxScreen {
     }
 
     override fun dispose() {
+        Batch.dispose()
+        Shape.dispose()
     }
 
 

@@ -5,18 +5,20 @@ import com.teoretik.components.Floor
 import com.teoretik.graphics.camera.Camera
 
 class FloorRenderer(private val floor: Floor) : Renderer {
-    private val terrainRenderer = TerrainRenderer(TiledMap().apply { layers.add(floor) })
-    private val shadowsRenderer = ShadowsRenderer(floor.lightProcessor.lightColorMap)
+
+    private val renderers = listOf(
+        TerrainRenderer(TiledMap().apply { layers.add(floor) }),
+        ObjectRenderer(floor.objects),
+        ShadowsRenderer(floor.lightProcessor.lightColorMap),
+        ObstacleRenderer(floor.obstacleProcessor)
+    )
 
     override fun render() {
-        terrainRenderer.render()
-        shadowsRenderer.render()
+        renderers.forEach {it.render()}
     }
 
-    fun setView(camera : Camera) {
-        terrainRenderer.setView(camera)
-        terrainRenderer.shapeRenderer.projectionMatrix = camera.projMatrix()
-        shadowsRenderer.setView(camera)
+    override fun setView(camera : Camera) {
+        renderers.forEach {it.setView(camera)}
     }
 
 }

@@ -1,15 +1,12 @@
 package com.teoretik.components
 
-import com.badlogic.gdx.maps.Map
 import com.badlogic.gdx.maps.MapGroupLayer
-import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.light.processors.ShadowsProcessor
 import com.teoretik.components.obstacles.ObstacleProcessor
 import com.teoretik.components.loaders.FLOOR_NUMBER
 import com.teoretik.graphics.render.FloorRenderer
-import com.teoretik.graphics.render.TerrainRenderer
 
 /**
  * Contains the floor configuration, namely:
@@ -18,6 +15,7 @@ import com.teoretik.graphics.render.TerrainRenderer
  *
  */
 class Floor: MapGroupLayer() {
+
     val width: Int by lazy { tileLayers().first().width }
 
     val height: Int by lazy { tileLayers().first().height }

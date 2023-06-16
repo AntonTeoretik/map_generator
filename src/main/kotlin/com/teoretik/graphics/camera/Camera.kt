@@ -71,4 +71,6 @@ class Camera() {
         return Vector2(vec.x, vec.y)
     }
 
+    fun getZoom(): Float = camera.zoom
+
 }

@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.teoretik.components.GameConfiguration
+import com.teoretik.graphics.camera.Camera
 
 class WorldRenderer(private val gameConfiguration: GameConfiguration) : Renderer {
     private val backgroundColor = Color.BLACK.cpy()
@@ -13,8 +14,12 @@ class WorldRenderer(private val gameConfiguration: GameConfiguration) : Renderer
 
         gameConfiguration.camera.update()
 
-        val level = gameConfiguration.activeLevel ?: return
-        level.renderer.withCamera(gameConfiguration.camera).render()
+        setView(gameConfiguration.camera)
+        gameConfiguration.activeLevel?.renderer?.render()
+    }
+
+    override fun setView(camera: Camera) {
+        gameConfiguration.activeLevel?.renderer?.setView(camera)
     }
 
     private fun clearBackground() {
