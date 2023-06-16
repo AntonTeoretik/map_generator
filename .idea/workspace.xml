@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Rename method">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Rename properties in Array2D">
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/viewpoint/ViewPoint.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/StaticLightSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/StaticLightSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/PointRayProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/PointRayProcessor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/shapes/Ball.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/shapes/Ball.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,13 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685460452313</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Improve floor map load">
-      <created>1686243273928</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1686243273928</updated>
     </task>
     <task id="LOCAL-00007" summary="Refactoring">
       <created>1686299616636</created>
@@ -516,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686927691673</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Rename properties in Array2D">
+      <created>1686930728716</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1686930728716</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -531,7 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Code cleaning" />
     <MESSAGE value="Move static obstacles initialization to ObstacleProcessor" />
     <MESSAGE value="Enhance the code" />
     <MESSAGE value="Add a couple of methods" />
@@ -556,6 +551,7 @@
     <MESSAGE value="RayProcessor is an interface now" />
     <MESSAGE value="Code clean" />
     <MESSAGE value="Rename method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename method" />
+    <MESSAGE value="Rename properties in Array2D" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename properties in Array2D" />
   </component>
 </project>
