@@ -1,10 +1,12 @@
-package com.teoretik.graphics.render
+package com.teoretik.graphics.render.floor
 
 import com.badlogic.gdx.maps.MapObject
 import com.badlogic.gdx.maps.MapObjects
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.math.Affine2
 import com.teoretik.graphics.camera.Camera
+import com.teoretik.graphics.render.GraphicsSettings
+import com.teoretik.graphics.render.Renderer
 import com.teoretik.graphics.resources.Batch
 
 class ObjectRenderer(

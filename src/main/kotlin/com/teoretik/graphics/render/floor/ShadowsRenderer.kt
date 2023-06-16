@@ -1,4 +1,4 @@
-package com.teoretik.graphics.render
+package com.teoretik.graphics.render.floor
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.GL20
@@ -8,6 +8,8 @@ import com.teoretik.components.light.LightColor
 import com.teoretik.components.light.processors.ShadowsProcessor
 import com.teoretik.components.light.toColorMask
 import com.teoretik.graphics.camera.Camera
+import com.teoretik.graphics.render.GraphicsSettings
+import com.teoretik.graphics.render.Renderer
 import com.teoretik.graphics.resources.Shape
 import com.teoretik.utils.geometry.Array2D
 import com.teoretik.utils.vectors.component1

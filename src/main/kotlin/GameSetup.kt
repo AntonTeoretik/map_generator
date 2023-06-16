@@ -1,6 +1,6 @@
 
 import com.teoretik.components.GameConfiguration
-import com.teoretik.graphics.render.WorldRenderer
+import com.teoretik.graphics.render.GameRenderer
 
 
 class GameSetup {
@@ -8,5 +8,5 @@ class GameSetup {
     init {
         gameConfiguration.load()
     }
-    val renderer = WorldRenderer(gameConfiguration)
+    val renderer = GameRenderer(gameConfiguration)
 }

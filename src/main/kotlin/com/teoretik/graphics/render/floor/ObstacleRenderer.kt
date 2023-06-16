@@ -1,4 +1,4 @@
-package com.teoretik.graphics.render
+package com.teoretik.graphics.render.floor
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.teoretik.components.obstacles.ObstacleProcessor
 import com.teoretik.graphics.camera.Camera
+import com.teoretik.graphics.render.Renderer
 import com.teoretik.graphics.resources.Shape
 
 class ObstacleRenderer(private val obstacleProcessor : ObstacleProcessor) : Renderer {
