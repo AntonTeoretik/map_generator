@@ -91,7 +91,7 @@ class ShadowsProcessor(
     fun computeFinalLightMap() {
         clearLightmap()
         staticLightMaps.forEach { (light, lm) ->
-            lm.lightMap.iterateOverRectangle(
+            lm.lightMap.iterate(
                 0 until  lightColorMap.numRows - lm.x,
                 0 until lightColorMap.numColumns - lm.y,
             ).forEach {

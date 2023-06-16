@@ -37,7 +37,7 @@ class ShadowsRenderer(private val lightColorMap: Array2D<LightColor>) : BoundedR
         }
 
         with(lightColorMap) {
-            iterateOverRectangle(
+            iterate(
                 max(x0 - 1, 0)until min(numRows - 1, x1 + 1),
                 max(y0 - 1, 0)until min(numColumns - 1, y1 + 1)
             ).forEach { (i, j, _) ->

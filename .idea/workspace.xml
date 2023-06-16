@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="RayProcessor is an interface now">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Code clean">
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/viewpoint/ViewPoint.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/PointRayProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/PointRayProcessor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/RayProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/rays/processors/RayProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Floor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/GlobalPosition.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/GlobalPosition.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/integral/Array2D.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/integral/Array2D.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/floor/ShadowsRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/floor/ShadowsRenderer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,20 +173,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685460452313</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Even more classes&#10;&#10;Organize renders and game logic, remove most parts from screen">
-      <created>1686152195686</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1686152195686</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Fix Map loader">
-      <created>1686217848956</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1686217848956</updated>
     </task>
     <task id="LOCAL-00005" summary="Clean up imports">
       <created>1686217919917</created>
@@ -513,7 +503,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686926001368</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Code clean">
+      <created>1686926049837</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1686926049837</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Code clean">
+      <created>1686926062684</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1686926062684</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -528,7 +532,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Code refactoring" />
     <MESSAGE value="Rename function" />
     <MESSAGE value="Code cleaning" />
     <MESSAGE value="Move static obstacles initialization to ObstacleProcessor" />
@@ -553,6 +556,7 @@
     <MESSAGE value="Move ray tracing classes to geometry" />
     <MESSAGE value="RayProcessor works now only with polygons" />
     <MESSAGE value="RayProcessor is an interface now" />
-    <option name="LAST_COMMIT_MESSAGE" value="RayProcessor is an interface now" />
+    <MESSAGE value="Code clean" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code clean" />
   </component>
 </project>

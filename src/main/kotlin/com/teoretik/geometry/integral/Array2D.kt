@@ -16,7 +16,7 @@ class Array2D<T>(val numRows: Int, val numColumns: Int, init: (Int, Int) -> T) {
         }
     }
 
-    fun iterateOverRectangle(rangeX : IntRange, rangeY: IntRange) = sequence {
+    fun iterate(rangeX : IntRange = 0 until numRows, rangeY: IntRange = 0 until numColumns) = sequence {
         for (i in rangeX) {
             for (j in rangeY) {
                 yield(Triple(i, j, get(i, j)))
