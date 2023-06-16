@@ -4,24 +4,30 @@ import com.badlogic.gdx.maps.MapObject
 import com.badlogic.gdx.maps.MapObjects
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.math.Affine2
+import com.badlogic.gdx.math.Rectangle
 import com.teoretik.graphics.camera.Camera
+import com.teoretik.graphics.render.BoundedRenderer
 import com.teoretik.graphics.render.GraphicsSettings
 import com.teoretik.graphics.render.Renderer
 import com.teoretik.graphics.resources.Batch
+import kotlin.math.abs
+
+
 
 class ObjectRenderer(
     private val objects : MapObjects
-) : Renderer {
+) : BoundedRenderer() {
     private val batch = Batch()
+
+    override fun setView(camera: Camera) {
+        batch.projectionMatrix = camera.projMatrix()
+        super.setView(camera)
+    }
 
     override fun render() {
         batch.begin()
         objects.forEach { renderObject(it) }
         batch.end()
-    }
-
-    override fun setView(camera: Camera) {
-        batch.projectionMatrix = camera.projMatrix()
     }
 
     private fun renderObject(obj: MapObject?) {

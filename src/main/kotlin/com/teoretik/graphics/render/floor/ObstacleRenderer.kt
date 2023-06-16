@@ -11,6 +11,10 @@ import com.teoretik.graphics.resources.Shape
 
 class ObstacleRenderer(private val obstacleProcessor : ObstacleProcessor) : Renderer {
 
+    override fun setView(camera : Camera) {
+        Shape.projectionMatrix = camera.projMatrix()
+    }
+
     override fun render() {
         Shape.begin(ShapeRenderer.ShapeType.Line)
 
@@ -25,10 +29,6 @@ class ObstacleRenderer(private val obstacleProcessor : ObstacleProcessor) : Rend
             Shape.polygon(p.transformedVertices)
         }
         Shape.end()
-    }
-
-    override fun setView(camera : Camera) {
-        Shape.projectionMatrix = camera.projMatrix()
     }
 
 }

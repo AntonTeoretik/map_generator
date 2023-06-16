@@ -8,6 +8,7 @@ import com.teoretik.components.light.LightColor
 import com.teoretik.components.light.processors.ShadowsProcessor
 import com.teoretik.components.light.toColorMask
 import com.teoretik.graphics.camera.Camera
+import com.teoretik.graphics.render.BoundedRenderer
 import com.teoretik.graphics.render.GraphicsSettings
 import com.teoretik.graphics.render.Renderer
 import com.teoretik.graphics.resources.Shape
@@ -15,9 +16,10 @@ import com.teoretik.utils.geometry.Array2D
 import com.teoretik.utils.vectors.component1
 import com.teoretik.utils.vectors.component2
 
-class ShadowsRenderer(private val lightColorMap : Array2D<LightColor>) : Renderer {
+class ShadowsRenderer(private val lightColorMap : Array2D<LightColor>) : BoundedRenderer() {
     override fun setView(camera : Camera) {
         Shape.projectionMatrix = camera.projMatrix()
+        super.setView(camera)
     }
 
     override fun render() {
@@ -44,7 +46,6 @@ class ShadowsRenderer(private val lightColorMap : Array2D<LightColor>) : Rendere
 
         Shape.end()
         Gdx.gl.glDisable(GL20.GL_BLEND)
-
     }
 
     private fun renderShadowSquare(vector2: Vector2) {
