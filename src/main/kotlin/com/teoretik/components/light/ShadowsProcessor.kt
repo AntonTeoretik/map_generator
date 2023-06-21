@@ -125,7 +125,7 @@ class ShadowsProcessor(
             val width: Int,
             val height: Int,
         ) {
-            val lightMap = CoordMap<HitResult>()
+            val lightMap = CoordList<HitResult>()
             //val lightMap = Array2D(width, height) { _, _ -> HitResult.UNCERTAIN }
         }
 
@@ -143,7 +143,7 @@ class ShadowsProcessor(
     }
 }
 
-class CoordMap<T>() {
+class CoordList<T>() {
     private val map = mutableMapOf<Pair<Int, Int>, T>()
 
     operator fun get(x: Int, y: Int): T? = map[x to y]
