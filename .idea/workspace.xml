@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Optimize view point processor">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Change the structure responsible for light map">
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,27 +167,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685460452313</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Finish static light processor, fix bugs">
-      <created>1686650467282</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1686650467282</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Optimize imports">
-      <created>1686655209049</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1686655209049</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Optimize ObstacleProcessor">
-      <created>1686744874300</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1686744874300</updated>
     </task>
     <task id="LOCAL-00015" summary="Refactoring&#10;&#10;Finally, split classes, organise packages">
       <created>1686746202031</created>
@@ -512,7 +490,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687359438397</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Optimize light processor -- store only hit cells">
+      <created>1687361971825</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1687361971825</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Rename">
+      <created>1687362011584</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1687362011584</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Change the structure responsible for light map">
+      <created>1687362380963</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1687362380963</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -527,9 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Introduce some renderers" />
-    <MESSAGE value="Split one map to several for each floor&#10;&#10;Attach to each floor its own renderer" />
-    <MESSAGE value="More renderers!" />
     <MESSAGE value="Separate ShadowsRenderer and TerrainRenderer" />
     <MESSAGE value="Introduce Renderer interface&#10;&#10;Create the unique Batch for every renderer" />
     <MESSAGE value="Some reorganization" />
@@ -552,6 +548,9 @@
     <MESSAGE value="Enhance resolution for visible range" />
     <MESSAGE value="Optimize light processing" />
     <MESSAGE value="Optimize view point processor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize view point processor" />
+    <MESSAGE value="Optimize light processor -- store only hit cells" />
+    <MESSAGE value="Rename" />
+    <MESSAGE value="Change the structure responsible for light map" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change the structure responsible for light map" />
   </component>
 </project>

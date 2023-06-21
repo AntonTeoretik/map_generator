@@ -63,6 +63,7 @@ class ShadowsProcessor(
             .filter { Intersector.intersectPolygons(it.polygon, lightRegion.toPolygon(), null) }
             .map { it.polygon }
 
+        val coordList = mutableListOf<Pair<Int,Int>>()
         for (i in lightMapRegion.x until lightMapRegion.x + lightMapRegion.width) {
             for (j in lightMapRegion.y until lightMapRegion.y + lightMapRegion.height) {
                 val res = lightSource.shape.processor.processRay(
@@ -70,10 +71,12 @@ class ShadowsProcessor(
                     lightMapToWorldCoordinates(i, j),
                     relevantStaticObstacles.asSequence()
                 )
-                if (res == HitResult.HIT) {lightMapRegion.lightMap[i, j] = HitResult.HIT}
+                if (res == HitResult.HIT) {
+                    coordList.add(i to j)
+                }
             }
         }
-
+        lightMapRegion.lightMap = coordList
         staticLightMaps[lightSource] = lightMapRegion
     }
 
@@ -97,13 +100,11 @@ class ShadowsProcessor(
     fun computeFinalLightMap() {
         clearLightmap()
         staticLightMaps.forEach { (light, lm) ->
-            lm.lightMap.iterate().forEach {
-                val (i, j, state) = it
-                if (state == HitResult.HIT) {
-                    staticLightColorMap[i, j]?.add(
-                        light.computeLightInPoint(lightMapToWorldCoordinates(i + lm.x, j + lm.y))
-                    )
-                }
+            lm.lightMap.forEach {
+                val (i, j) = it
+                staticLightColorMap[i, j]?.add(
+                    light.computeLightInPoint(lightMapToWorldCoordinates(i + lm.x, j + lm.y))
+                )
             }
         }
     }
@@ -125,8 +126,7 @@ class ShadowsProcessor(
             val width: Int,
             val height: Int,
         ) {
-            val lightMap = CoordList<HitResult>()
-            //val lightMap = Array2D(width, height) { _, _ -> HitResult.UNCERTAIN }
+            var lightMap = listOf<Pair<Int, Int>>()
         }
 
         fun lightMapToWorldCoordinates(x: Int, y: Int): Vector2 {
@@ -138,22 +138,6 @@ class ShadowsProcessor(
 
         fun worldCoordinatesToIndices(x: Float, y: Float): IntPair {
             return IntPair((x * lightResolution).toInt(), (y * lightResolution).toInt())
-        }
-
-    }
-}
-
-class CoordList<T>() {
-    private val map = mutableMapOf<Pair<Int, Int>, T>()
-
-    operator fun get(x: Int, y: Int): T? = map[x to y]
-    operator fun set(x: Int, y: Int, value: T) {
-        map[x to y] = value
-    }
-
-    fun iterate(): Sequence<Triple<Int, Int, T>> = sequence {
-        map.forEach { (t, u) ->
-            yield(Triple(t.first, t.second, u))
         }
     }
 }
