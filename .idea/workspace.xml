@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Enhance resolution for visible range">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/geometry/extensions.kt" afterDir="false" />
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Optimize light processing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/FloorRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/FloorRenderer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/floor/VisibilityRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/floor/VisibilityRenderer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/viewpoint/ViewPointProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/viewpoint/ViewPointProcessor.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,13 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685460452313</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Add basic light sources types and shapes">
-      <created>1686486711708</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1686486711708</updated>
     </task>
     <task id="LOCAL-00011" summary="Start to work with light processor">
       <created>1686494076185</created>
@@ -515,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687354492655</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Optimize light processing">
+      <created>1687359002771</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1687359002772</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,7 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rename FloorLightProcessor to ShadowsProcessor" />
     <MESSAGE value="Remove unnecessary dependency" />
     <MESSAGE value="Introduce some renderers" />
     <MESSAGE value="Split one map to several for each floor&#10;&#10;Attach to each floor its own renderer" />
@@ -555,6 +551,7 @@
     <MESSAGE value="Add Visibility Processor" />
     <MESSAGE value="Add Visibility Renderer" />
     <MESSAGE value="Enhance resolution for visible range" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhance resolution for visible range" />
+    <MESSAGE value="Optimize light processing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize light processing" />
   </component>
 </project>

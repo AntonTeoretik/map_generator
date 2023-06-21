@@ -6,7 +6,9 @@ import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.Floor
 import com.teoretik.geometry.integral.Array2D
 import com.teoretik.geometry.rays.HitResult
+import com.teoretik.geometry.toPolygon
 import com.teoretik.graphics.render.GraphicsSettings.visibilityResolution
+import java.time.Clock
 import kotlin.math.max
 import kotlin.math.min
 
@@ -32,6 +34,12 @@ class ViewPointProcessor(val floor: Floor) {
 
             if (!Intersector.intersectRectangles(preRegion, region, r)) return
 
+            val relevantObstacles = floor.obstacleProcessor.staticObstacles
+                .filter { Intersector.intersectPolygons(it.polygon, r.toPolygon(), null) }
+                .map { it.polygon }
+
+            //println(relevantObstacles.count())
+
             with(totalVisibility) {
                 val xScaled = (r.x * visibilityResolution).toInt()
                 val yScaled = (r.y * visibilityResolution).toInt()
@@ -47,7 +55,7 @@ class ViewPointProcessor(val floor: Floor) {
                     val res = point.shape.processor.processRay(
                         Vector2(point.x, point.y),
                         Vector2(i.toFloat() / visibilityResolution, j.toFloat() / visibilityResolution),
-                        floor.obstacleProcessor.staticObstacles.asSequence().map { it.polygon },
+                        relevantObstacles.asSequence(),
                         processEndPoint = true
                     )
                     if (res == HitResult.HIT) {
