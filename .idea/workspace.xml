@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Optimize light processing">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Optimize view point processor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/viewpoint/ViewPointProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/viewpoint/ViewPointProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,13 +168,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685460452313</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Start to work with light processor">
-      <created>1686494076185</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1686494076185</updated>
     </task>
     <task id="LOCAL-00012" summary="Finish static light processor, fix bugs">
       <created>1686650467282</created>
@@ -512,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687359002772</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Optimize view point processor">
+      <created>1687359438397</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1687359438397</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -527,7 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove unnecessary dependency" />
     <MESSAGE value="Introduce some renderers" />
     <MESSAGE value="Split one map to several for each floor&#10;&#10;Attach to each floor its own renderer" />
     <MESSAGE value="More renderers!" />
@@ -552,6 +551,7 @@
     <MESSAGE value="Add Visibility Renderer" />
     <MESSAGE value="Enhance resolution for visible range" />
     <MESSAGE value="Optimize light processing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize light processing" />
+    <MESSAGE value="Optimize view point processor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize view point processor" />
   </component>
 </project>

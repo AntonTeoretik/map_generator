@@ -17,7 +17,6 @@ import com.teoretik.geometry.integral.Array2D
 import com.teoretik.geometry.rays.HitResult
 import com.teoretik.geometry.toPolygon
 import java.time.Clock
-import java.util.*
 
 class ShadowsProcessor(
     floor: Floor
@@ -64,15 +63,14 @@ class ShadowsProcessor(
             .filter { Intersector.intersectPolygons(it.polygon, lightRegion.toPolygon(), null) }
             .map { it.polygon }
 
-        //println(relevantStaticObstacles.count())
-
-        for (i in 0 until lightMapRegion.width) {
-            for (j in 0 until lightMapRegion.height) {
-                lightMapRegion.lightMap[i, j] = lightSource.shape.processor.processRay(
+        for (i in lightMapRegion.x until lightMapRegion.x + lightMapRegion.width) {
+            for (j in lightMapRegion.y until lightMapRegion.y + lightMapRegion.height) {
+                val res = lightSource.shape.processor.processRay(
                     Vector2(lightSource.x, lightSource.y),
-                    lightMapToWorldCoordinates(i + lightMapRegion.x, j + lightMapRegion.y),
+                    lightMapToWorldCoordinates(i, j),
                     relevantStaticObstacles.asSequence()
                 )
+                if (res == HitResult.HIT) {lightMapRegion.lightMap[i, j] = HitResult.HIT}
             }
         }
 
@@ -99,14 +97,10 @@ class ShadowsProcessor(
     fun computeFinalLightMap() {
         clearLightmap()
         staticLightMaps.forEach { (light, lm) ->
-            lm.lightMap.iterate(
-                0 until  staticLightColorMap.width - lm.x,
-                0 until staticLightColorMap.height - lm.y,
-            ).forEach {
+            lm.lightMap.iterate().forEach {
                 val (i, j, state) = it
-
                 if (state == HitResult.HIT) {
-                    staticLightColorMap[i + lm.x, j + lm.y]?.add(
+                    staticLightColorMap[i, j]?.add(
                         light.computeLightInPoint(lightMapToWorldCoordinates(i + lm.x, j + lm.y))
                     )
                 }
@@ -119,7 +113,9 @@ class ShadowsProcessor(
     }
 
     fun updateLight() {
-        //computeFinalLightMap()
+        val t1 = Clock.systemUTC().millis()
+        computeFinalLightMap()
+        println(Clock.systemUTC().millis() - t1)
     }
 
     companion object {
@@ -129,7 +125,8 @@ class ShadowsProcessor(
             val width: Int,
             val height: Int,
         ) {
-            val lightMap = Array2D(width, height) { _, _ -> HitResult.UNCERTAIN }
+            val lightMap = CoordMap<HitResult>()
+            //val lightMap = Array2D(width, height) { _, _ -> HitResult.UNCERTAIN }
         }
 
         fun lightMapToWorldCoordinates(x: Int, y: Int): Vector2 {
@@ -143,5 +140,20 @@ class ShadowsProcessor(
             return IntPair((x * lightResolution).toInt(), (y * lightResolution).toInt())
         }
 
+    }
+}
+
+class CoordMap<T>() {
+    private val map = mutableMapOf<Pair<Int, Int>, T>()
+
+    operator fun get(x: Int, y: Int): T? = map[x to y]
+    operator fun set(x: Int, y: Int, value: T) {
+        map[x to y] = value
+    }
+
+    fun iterate(): Sequence<Triple<Int, Int, T>> = sequence {
+        map.forEach { (t, u) ->
+            yield(Triple(t.first, t.second, u))
+        }
     }
 }
