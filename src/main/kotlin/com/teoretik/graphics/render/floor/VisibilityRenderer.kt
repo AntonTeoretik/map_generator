@@ -1,6 +1,8 @@
 package com.teoretik.graphics.render.floor
 
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.light.ShadowsProcessor
@@ -9,6 +11,7 @@ import com.teoretik.components.viewpoint.ViewPointProcessor
 import com.teoretik.components.viewpoint.Visibility
 import com.teoretik.graphics.camera.Camera
 import com.teoretik.graphics.render.BoundedRenderer
+import com.teoretik.graphics.render.GraphicsSettings.visibilityResolution
 import com.teoretik.graphics.resources.Shape
 import com.teoretik.utils.vectors.component1
 import com.teoretik.utils.vectors.component2
@@ -24,22 +27,30 @@ class VisibilityRenderer(private val viewPointProcessor: ViewPointProcessor) : B
     override fun render() {
         viewPointProcessor.processVisibility()
 
+        Gdx.gl.glEnable(GL20.GL_BLEND)
+        Gdx.gl.glBlendFunc(GL20.GL_DST_COLOR, GL20.GL_ZERO)
+
         Shape.begin(ShapeRenderer.ShapeType.Filled)
 
-        val x0 = viewBounds.x.toInt()
-        val y0 = viewBounds.y.toInt()
+        val x0 = (viewBounds.x * visibilityResolution).toInt()
+        val y0 = (viewBounds.y * visibilityResolution).toInt()
 
-        val x1 = (x0 + viewBounds.width + 1).toInt()
-        val y1 = (y0 + viewBounds.height + 1).toInt()
+        val x1 = (x0 + viewBounds.width * visibilityResolution + 1).toInt()
+        val y1 = (y0 + viewBounds.height * visibilityResolution + 1).toInt()
 
 
         with(viewPointProcessor.totalVisibility) {
             iterate(
                 max(x0 - 1, 0) until min(width - 1, x1 + 1),
                 max(y0 - 1, 0) until min(height - 1, y1 + 1)
-            ).filter { it.third == Visibility.NOT_VISIBLE }.forEach { (i, j, _) ->
-                Shape.color = Color.BLACK.cpy()
-                renderSquare(Vector2(i.toFloat(), j.toFloat()))
+            ).forEach { (i, j, _) ->
+                val alpha = sequenceOf(0 to 0, 0 to 1, 1 to 0, 1 to 1).filter { (ii, jj) ->
+                    this@with[i + ii, j + jj] == Visibility.VISIBLE
+                }.count() * 0.25f
+
+                Shape.color = Color.WHITE.cpy()
+                Shape.color.mul(alpha)
+                renderSquare(Vector2(i.toFloat() / visibilityResolution, j.toFloat() / visibilityResolution))
             }
         }
 
@@ -48,7 +59,7 @@ class VisibilityRenderer(private val viewPointProcessor: ViewPointProcessor) : B
 
     private fun renderSquare(vector2: Vector2) {
         val (x, y) = vector2
-        val offset = 1f
+        val offset = 1f / visibilityResolution
         val vertexes: FloatArray =
             listOf(
                 x, y + offset,

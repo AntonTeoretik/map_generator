@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.Floor
 import com.teoretik.geometry.integral.Array2D
 import com.teoretik.geometry.rays.HitResult
+import com.teoretik.graphics.render.GraphicsSettings.visibilityResolution
 import kotlin.math.max
 import kotlin.math.min
 
@@ -14,11 +15,14 @@ class ViewPointProcessor(val floor: Floor) {
 
     private val region = Rectangle(0f, 0f, floor.width.toFloat(), floor.height.toFloat())
 
-    val totalVisibility = Array2D(floor.width, floor.height) { _, _ -> Visibility.NOT_VISIBLE }
+    val totalVisibility = Array2D(
+        floor.width * visibilityResolution + 1,
+        floor.height * visibilityResolution + 1
+    ) { _, _ -> Visibility.NOT_VISIBLE }
 
     fun processVisibility() {
         totalVisibility.iterate().forEach { totalVisibility[it.first, it.second] = Visibility.NOT_VISIBLE }
-        viewPoints.forEach {point ->
+        viewPoints.forEach { point ->
             val preRegion = point.shape.hitBox()?.apply {
                 x += point.x
                 y += point.y
@@ -29,15 +33,20 @@ class ViewPointProcessor(val floor: Floor) {
             if (!Intersector.intersectRectangles(preRegion, region, r)) return
 
             with(totalVisibility) {
+                val xScaled = (r.x * visibilityResolution).toInt()
+                val yScaled = (r.y * visibilityResolution).toInt()
+                val widthScaled = (r.width * visibilityResolution).toInt()
+                val heightScaled = (r.height * visibilityResolution).toInt()
+
                 iterate(
-                    max(0, r.x.toInt())..min((r.x + r.width + 1).toInt(), width - 1),
-                    max(0, r.y.toInt())..min((r.y + r.height + 1).toInt(), height - 1),
+                    max(0, xScaled)..min((xScaled + widthScaled + 1), width - 1),
+                    max(0, yScaled)..min(yScaled + heightScaled + 1, height - 1),
                 ).forEach { cell ->
                     val (i, j, _) = cell
 
                     val res = point.shape.processor.processRay(
                         Vector2(point.x, point.y),
-                        Vector2(i.toFloat(), j.toFloat()),
+                        Vector2(i.toFloat() / visibilityResolution, j.toFloat() / visibilityResolution),
                         floor.obstacleProcessor.staticObstacles.asSequence().map { it.polygon },
                         processEndPoint = true
                     )
