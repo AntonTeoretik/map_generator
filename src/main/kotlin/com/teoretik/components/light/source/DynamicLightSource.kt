@@ -10,8 +10,8 @@ open class DynamicLightSource(
     y : Float,
     lightColor: LightColor,
     shape: Shape,
-    val intensityAlgorithm: IntensityAlgorithm = Linear(),
-) : LightSource(x, y, lightColor, shape) {
+    algorithm: IntensityAlgorithm = Linear(),
+) : LightSource(x, y, lightColor, shape, algorithm) {
     override var x: Float = x
         set(value) {
             field = value

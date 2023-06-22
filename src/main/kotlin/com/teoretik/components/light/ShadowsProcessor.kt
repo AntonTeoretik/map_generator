@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.Floor
 import com.teoretik.geometry.shapes.Ball
 import com.teoretik.components.light.source.DynamicLightSource
+import com.teoretik.components.light.source.LightSource
 import com.teoretik.components.light.source.StaticLightSource
 import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.graphics.render.GraphicsSettings.lightResolution
@@ -21,7 +22,7 @@ class ShadowsProcessor(
     floor: Floor
 ) {
     val dynamicLights: MutableList<DynamicLightSource> = mutableListOf()
-    val dynamicObstacles : MutableList<Obstacle> by lazy { floor.obstacleProcessor.dynamicObstacles }
+    val dynamicObstacles: MutableList<Obstacle> by lazy { floor.obstacleProcessor.dynamicObstacles }
 
     private val staticLights: MutableList<StaticLightSource> by lazy { selectStaticLights(floor) }
     private val staticObstacles: List<Obstacle> by lazy { floor.obstacleProcessor.staticObstacles }
@@ -30,7 +31,7 @@ class ShadowsProcessor(
 
     private val region = Rectangle(0f, 0f, floor.width.toFloat(), floor.height.toFloat())
 
-    val staticLightColorMap = Array2D(
+    val lightMap = Array2D(
         floor.width * lightResolution + 1,
         floor.height * lightResolution + 1
     ) { _, _ -> LightColor() }
@@ -42,13 +43,7 @@ class ShadowsProcessor(
     }
 
     private fun processStaticLight(lightSource: StaticLightSource) {
-        val lightPreRegion = lightSource.shape.hitBox()?.apply {
-            x += lightSource.x
-            y += lightSource.y
-        } ?: region
-
-        val lightRegion = Rectangle()
-        if (!Intersector.intersectRectangles(lightPreRegion, region, lightRegion)) return
+        val lightRegion = getLightRectangle(lightSource) ?: return
 
         val lightMapRegion = LightMapRegion(
             (lightResolution * lightRegion.x).toInt(),
@@ -61,7 +56,7 @@ class ShadowsProcessor(
             .filter { Intersector.intersectPolygons(it.polygon, lightRegion.toPolygon(), null) }
             .map { it.polygon }
 
-        val coordList = mutableListOf<Pair<Int,Int>>()
+        val coordList = mutableListOf<Pair<Int, Int>>()
         for (i in lightMapRegion.x until lightMapRegion.x + lightMapRegion.width) {
             for (j in lightMapRegion.y until lightMapRegion.y + lightMapRegion.height) {
                 val res = lightSource.shape.processor.processRay(
@@ -69,13 +64,64 @@ class ShadowsProcessor(
                     lightMapToWorldCoordinates(i, j),
                     relevantStaticObstacles.asSequence()
                 )
-                if (res == HitResult.HIT) {
+                if (res == HitResult.HIT)
                     coordList.add(i to j)
-                }
+
             }
         }
         lightMapRegion.lightMap = coordList
         staticLightMaps[lightSource] = lightMapRegion
+    }
+
+    private fun processDynamicLights() {
+        dynamicLights.forEach { processDynamicLight(it) }
+    }
+
+    private fun processDynamicLight(lightSource: DynamicLightSource) {
+        val lightRegion = getLightRectangle(lightSource) ?: return
+
+        val x = (lightResolution * lightRegion.x).toInt()
+        val y = (lightResolution * lightRegion.y).toInt()
+        val width = lightResolution * lightRegion.width.toInt() + 2
+        val height = lightResolution * lightRegion.height.toInt() + 2
+
+        val relevantObstacles = (staticObstacles + dynamicObstacles)
+            .filter {  Intersector.intersectPolygons(it.polygon, lightRegion.toPolygon(), null) }
+            .map { it.polygon }
+
+        for (i in x until x + width) {
+            for (j in y until y + height) {
+                val res = lightSource.shape.processor.processRay(
+                    Vector2(lightSource.x, lightSource.y),
+                    lightMapToWorldCoordinates(i, j),
+                    relevantObstacles.asSequence()
+                )
+
+                if (res == HitResult.HIT) {
+                    addLight(lightSource, i, j)
+                    //println(lightSource.computeLightInPoint(lightMapToWorldCoordinates(i, j)))
+                    //println(lightSource.algorithm.getFadingFactor(lightSource.x, lightSource.y, lightMapToWorldCoordinates(i, j)))
+                }
+            }
+        }
+    }
+
+    private fun addLight(lightSource: LightSource, i: Int, j: Int) {
+        lightMap[i, j]?.add(
+            lightSource.computeLightInPoint(lightMapToWorldCoordinates(i, j))
+        )
+    }
+
+
+    private fun getLightRectangle(lightSource: LightSource): Rectangle? {
+        val lightPreRegion = lightSource.shape.hitBox()?.apply {
+            x += lightSource.x
+            y += lightSource.y
+        } ?: region
+
+        val lightRegion = Rectangle()
+        if (!Intersector.intersectRectangles(lightPreRegion, region, lightRegion)) return null
+        return lightRegion
     }
 
     private fun selectStaticLights(floor: Floor): MutableList<StaticLightSource> {
@@ -95,21 +141,7 @@ class ShadowsProcessor(
             }.toMutableList()
     }
 
-    fun computeFinalLightMap() {
-        clearLightmap()
-        staticLightMaps.forEach { (light, lm) ->
-            lm.lightMap.forEach {
-                val (i, j) = it
-
-                if (processDynamicObstacles(light, i, j))
-                    staticLightColorMap[i, j]?.add(
-                        light.computeLightInPoint(lightMapToWorldCoordinates(i, j))
-                    )
-            }
-        }
-    }
-
-    private fun processDynamicObstacles(light: StaticLightSource, i : Int, j : Int): Boolean {
+    private fun processDynamicObstacles(light: StaticLightSource, i: Int, j: Int): Boolean {
         val res = light.shape.processor.processRay(
             Vector2(light.x, light.y),
             lightMapToWorldCoordinates(i, j),
@@ -118,7 +150,22 @@ class ShadowsProcessor(
     }
 
     private fun clearLightmap() {
-        staticLightColorMap.validIndices().forEach { (_, _, l) -> l.clear() }
+        lightMap.validIndices().forEach { (_, _, l) -> l.clear() }
+    }
+
+    fun computeFinalLightMap() {
+        clearLightmap()
+
+        staticLightMaps.forEach { (light, lm) ->
+            lm.lightMap.forEach {
+                val (i, j) = it
+
+                if (processDynamicObstacles(light, i, j))
+                    addLight(light, i, j)
+            }
+        }
+
+        processDynamicLights()
     }
 
     fun updateLight() {

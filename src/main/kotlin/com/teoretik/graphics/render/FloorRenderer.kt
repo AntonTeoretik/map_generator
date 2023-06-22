@@ -10,7 +10,7 @@ class FloorRenderer(private val floor: Floor) : Renderer {
     private val renderers = listOf(
         TerrainRenderer(TiledMap().apply { layers.add(floor) }),
         ObjectRenderer(floor.objects),
-        ShadowsRenderer(floor.lightProcessor.staticLightColorMap),
+        ShadowsRenderer(floor.lightProcessor.lightMap),
         VisibilityRenderer(floor.viewPointProcessor),
 //        ObstacleRenderer(floor.obstacleProcessor)
     )
