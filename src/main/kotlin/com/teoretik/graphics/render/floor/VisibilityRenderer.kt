@@ -49,7 +49,7 @@ class VisibilityRenderer(private val viewPointProcessor: ViewPointProcessor) : B
                 }.count() * 0.25f
 
                 Shape.color = Color.WHITE.cpy()
-                Shape.color.mul(alpha).add(Color(0.2f, 0.3f, 0.2f, 0f))
+                Shape.color.mul(alpha)//.add(Color(0.2f, 0.3f, 0.2f, 0f))
                 renderSquare(Vector2(i.toFloat() / visibilityResolution, j.toFloat() / visibilityResolution))
             }
         }

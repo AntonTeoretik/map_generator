@@ -14,6 +14,7 @@ import com.teoretik.utils.vectors.*
 
 class ObstacleProcessor(val floor: Floor) {
     val staticObstacles: List<Obstacle> = updateStaticObstacles()
+    val dynamicObstacles : MutableList<Obstacle> = mutableListOf()
 
     fun isObstacleInCell(x: Int, y: Int): Boolean {
         val (x0, y0) = floor.cellToWorldCoordinates(x, y)

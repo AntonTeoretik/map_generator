@@ -101,7 +101,7 @@ class ShadowsProcessor(
             lm.lightMap.forEach {
                 val (i, j) = it
 
-                //if (processDynamicObstacles(light, i, j))
+                if (processDynamicObstacles(light, i, j))
                     staticLightColorMap[i, j]?.add(
                         light.computeLightInPoint(lightMapToWorldCoordinates(i, j))
                     )

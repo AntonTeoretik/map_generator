@@ -1,8 +1,10 @@
 package com.teoretik.components
 
 import com.badlogic.gdx.maps.objects.TextureMapObject
+import com.badlogic.gdx.math.Polygon
 import com.badlogic.gdx.math.Vector3
 import com.teoretik.components.loaders.MapLoader
+import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.components.viewpoint.ViewPoint
 import com.teoretik.geometry.shapes.Ball
 import com.teoretik.graphics.camera.Camera
@@ -21,6 +23,13 @@ class GameConfiguration {
 
     val dynamicLight = TextureMapObject()
 
+    val dynamicObstacle = Obstacle(Polygon(floatArrayOf(
+        -0.5f, -0.5f,
+        -0.5f,  0.5f,
+         0.5f,  0.5f,
+         0.5f, -0.5f,
+        )))
+
     val viewPoint = ViewPoint(0f, 0f, Ball(10f))
 
     fun load() {
@@ -37,6 +46,7 @@ class GameConfiguration {
 
         activeLevel!!.floors[1]!!.fullUpdateLight()
         activeLevel!!.floors[1]!!.viewPoints.add(viewPoint)
+        activeLevel!!.floors[1]!!.obstacleProcessor.dynamicObstacles.add(dynamicObstacle)
         activeLevel!!.floors[2]!!.fullUpdateLight()
 
         activeLevel!!.activeFloor = 1
@@ -51,5 +61,8 @@ class GameConfiguration {
         val (x, y) = camera.getPosition2D()
         viewPoint.x = x
         viewPoint.y = y
+
+        dynamicObstacle.polygon.setPosition(x, y)
+
     }
 }
