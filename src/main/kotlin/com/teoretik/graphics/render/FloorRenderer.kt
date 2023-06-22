@@ -1,7 +1,7 @@
 package com.teoretik.graphics.render
 
 import com.badlogic.gdx.maps.tiled.TiledMap
-import com.teoretik.components.Floor
+import com.teoretik.components.map.Floor
 import com.teoretik.graphics.camera.Camera
 import com.teoretik.graphics.render.floor.*
 

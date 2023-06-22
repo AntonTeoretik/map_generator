@@ -1,6 +1,6 @@
 package com.teoretik.graphics.render
 
-import com.teoretik.components.Level
+import com.teoretik.components.map.Level
 import com.teoretik.graphics.camera.Camera
 
 

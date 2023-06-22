@@ -1,18 +1,22 @@
 package com.teoretik.components
 
-import com.badlogic.gdx.maps.objects.TextureMapObject
 import com.badlogic.gdx.math.Polygon
 import com.badlogic.gdx.math.Vector3
 import com.teoretik.components.light.LightColor
 import com.teoretik.components.light.intensity.InvDistance
-import com.teoretik.components.light.intensity.Linear
 import com.teoretik.components.light.source.DynamicLightSource
 import com.teoretik.components.loaders.MapLoader
+import com.teoretik.components.map.GlobalPosition
+import com.teoretik.components.map.Level
 import com.teoretik.components.obstacles.Obstacle
 import com.teoretik.components.viewpoint.ViewPoint
 import com.teoretik.geometry.shapes.Ball
 import com.teoretik.graphics.camera.Camera
+import com.teoretik.utils.dynamic.Oscillator
 import com.teoretik.utils.vectors.*
+import kotlin.math.PI
+import kotlin.math.cos
+import kotlin.math.sin
 
 /** Full game configuration, including
  *  - maps, levels and so on
@@ -25,10 +29,22 @@ class GameConfiguration {
 
     val camera = Camera()
 
-    val dynamicLight = DynamicLightSource(0f, 0f,
-        LightColor(1f, 1f, 1f),
+    val oscillator = Oscillator(1/16f)
+
+    val dynamicLight1 = DynamicLightSource(0f, 0f,
+        LightColor(1f, 1f, .7f),
         Ball(5f),
-        InvDistance(0.1f, 5f)
+        InvDistance(1f, 5f)
+    )
+    val dynamicLight2 = DynamicLightSource(0f, 0f,
+        LightColor(1f, 1f, .7f),
+        Ball(5f),
+        InvDistance(1f, 5f)
+    )
+    val dynamicLight3 = DynamicLightSource(0f, 0f,
+        LightColor(1f, 1f, .7f),
+        Ball(5f),
+        InvDistance(1f, 5f)
     )
 
     val dynamicObstacle = Obstacle(Polygon(floatArrayOf(
@@ -50,11 +66,14 @@ class GameConfiguration {
 
         setUpCamera()
 
-        dynamicLight.properties.put("lightProperties", "")
 
         activeLevel!!.floors[1]!!.fullUpdateLight()
 
-        activeLevel!!.floors[1]!!.lightProcessor.dynamicLights.add(dynamicLight)
+        activeLevel!!.floors[1]!!.lightProcessor.dynamicLights.add(dynamicLight1)
+        activeLevel!!.floors[1]!!.lightProcessor.dynamicLights.add(dynamicLight2)
+        activeLevel!!.floors[1]!!.lightProcessor.dynamicLights.add(dynamicLight3)
+
+
         activeLevel!!.floors[1]!!.viewPoints.add(viewPoint)
         //activeLevel!!.floors[1]!!.obstacleProcessor.dynamicObstacles.add(dynamicObstacle)
 
@@ -74,9 +93,18 @@ class GameConfiguration {
         viewPoint.x = x
         viewPoint.y = y
 
-        dynamicLight.x = x
-        dynamicLight.y = y
-        //dynamicObstacle.polygon.setPosition(x, y)
+        val phi = oscillator.phase
+        val r = 0.4f
 
+        dynamicLight1.x = x + sin(4*phi) * r
+        dynamicLight1.y = y + cos(3*phi) * r
+
+        dynamicLight2.x = x + sin(2*phi + PI.toFloat() * 0.66f) * r
+        dynamicLight2.y = y + cos(3*phi + PI.toFloat() * 0.66f) * r
+
+        dynamicLight3.x = x + sin(2*phi - PI.toFloat() * 0.66f) * r
+        dynamicLight3.y = y + cos(3*phi - PI.toFloat() * 0.66f) * r
+
+        //dynamicObstacle.polygon.setPosition(x, y)
     }
 }

@@ -7,7 +7,7 @@ import com.badlogic.gdx.maps.objects.TextureMapObject
 import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.math.Vector2
-import com.teoretik.components.Floor
+import com.teoretik.components.map.Floor
 import com.teoretik.geometry.shapes.Ball
 import com.teoretik.components.light.source.DynamicLightSource
 import com.teoretik.components.light.source.LightSource

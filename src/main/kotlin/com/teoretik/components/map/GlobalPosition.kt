@@ -1,4 +1,4 @@
-package com.teoretik.components
+package com.teoretik.components.map
 
 data class GlobalPosition(
     var x : Int,

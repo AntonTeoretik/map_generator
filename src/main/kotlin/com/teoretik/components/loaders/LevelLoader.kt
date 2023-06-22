@@ -5,7 +5,7 @@ import com.badlogic.gdx.maps.MapLayer
 import com.badlogic.gdx.maps.MapObjects
 import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
-import com.teoretik.components.Floor
+import com.teoretik.components.map.Floor
 import com.teoretik.graphics.render.GraphicsSettings.unitScale
 
 object LevelLoader {

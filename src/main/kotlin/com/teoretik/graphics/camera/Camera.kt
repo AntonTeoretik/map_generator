@@ -5,12 +5,12 @@ import com.badlogic.gdx.math.Matrix4
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.math.Vector3
 import com.badlogic.gdx.utils.viewport.Viewport
-import com.teoretik.utils.dynamic.Dynamic
+import com.teoretik.utils.dynamic.DynamicValue
 import com.teoretik.utils.dynamic.toDynamic
 
 class Camera() {
     val camera = OrthographicCamera()
-    val position : Dynamic<Vector3> = camera.position.toDynamic(0.2f)
+    val position : DynamicValue<Vector3> = camera.position.toDynamic(0.2f)
 
     fun setToOrtho(viewport: Viewport) {
         camera.setToOrtho(false, viewport.worldWidth, viewport.worldHeight)

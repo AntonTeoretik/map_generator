@@ -5,7 +5,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Polygon
 import com.badlogic.gdx.math.Vector2
-import com.teoretik.components.Floor
+import com.teoretik.components.map.Floor
 import com.teoretik.components.loaders.cellToWorldCoordinates
 import com.teoretik.geometry.integral.Array2D
 import com.teoretik.geometry.integral.InternalRectangles

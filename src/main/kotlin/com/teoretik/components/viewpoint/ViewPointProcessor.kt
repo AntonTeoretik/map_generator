@@ -3,12 +3,11 @@ package com.teoretik.components.viewpoint
 import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.math.Vector2
-import com.teoretik.components.Floor
+import com.teoretik.components.map.Floor
 import com.teoretik.geometry.integral.Array2D
 import com.teoretik.geometry.rays.HitResult
 import com.teoretik.geometry.toPolygon
 import com.teoretik.graphics.render.GraphicsSettings.visibilityResolution
-import java.time.Clock
 import kotlin.math.max
 import kotlin.math.min
 

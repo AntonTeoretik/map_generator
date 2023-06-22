@@ -9,7 +9,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.TmxMapLoader
 import com.badlogic.gdx.utils.GdxRuntimeException
 import com.badlogic.gdx.utils.XmlReader
-import com.teoretik.components.Floor
+import com.teoretik.components.map.Floor
 
 class MapLoader : TmxMapLoader() {
 

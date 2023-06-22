@@ -1,9 +1,9 @@
 package com.teoretik.utils.dynamic
 
 internal object DynamicProcessor {
-    val dynamicObjects: MutableList<Dynamic<*>> = mutableListOf()
+    val dynamicObjects: MutableList<Dynamic> = mutableListOf()
 
-    fun add(obj: Dynamic<*>) {
+    fun add(obj: DynamicValue<*>) {
         dynamicObjects += obj
     }
 

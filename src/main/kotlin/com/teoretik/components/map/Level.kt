@@ -1,4 +1,4 @@
-package com.teoretik.components
+package com.teoretik.components.map
 
 import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.math.Vector2
@@ -7,7 +7,7 @@ import com.teoretik.graphics.render.LevelRenderer
 
 
 class Level(
-    val map: TiledMap
+    map: TiledMap
 ) {
     val floors: Map<Int, Floor> = LevelLoader.loadLevel(map)
     val renderer = LevelRenderer(this)

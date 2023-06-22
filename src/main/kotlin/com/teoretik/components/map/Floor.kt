@@ -1,4 +1,4 @@
-package com.teoretik.components
+package com.teoretik.components.map
 
 import com.badlogic.gdx.maps.MapGroupLayer
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
