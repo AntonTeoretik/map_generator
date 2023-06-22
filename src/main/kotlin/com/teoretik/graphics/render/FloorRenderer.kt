@@ -11,13 +11,13 @@ class FloorRenderer(private val floor: Floor) : Renderer {
         TerrainRenderer(TiledMap().apply { layers.add(floor) }),
         ObjectRenderer(floor.objects),
         ShadowsRenderer(floor.lightProcessor.lightMap),
-        VisibilityRenderer(floor.viewPointProcessor),
+        VisibilityRenderer(floor.viewPointProcessor, floor.memoryProcessor),
 //        ObstacleRenderer(floor.obstacleProcessor)
     )
 
     override fun render() {
         floor.lightProcessor.updateLight()
-
+        floor.memoryProcessor.updateDiscoveredCells()
         renderers.forEach {it.render()}
     }
 

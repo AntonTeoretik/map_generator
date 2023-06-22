@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Refactor">
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Floor should not contain any functionality, move to processors">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/map/MemoryProcessor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/GameConfiguration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/GameConfiguration.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/map/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/map/Floor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/FloorRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/FloorRenderer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/floor/VisibilityRenderer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/floor/VisibilityRenderer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +114,7 @@
       <recent name="C:\Users\Anton Ablov\IdeaProjects\map_generator\src\main\kotlin\com\teoretik\components\light\intensity" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="com.teoretik.components.map" />
       <recent name="com.teoretik.components.light" />
       <recent name="com.teoretik.game_components.loaders" />
       <recent name="com.teoretik.graphics.render" />
@@ -514,7 +516,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687428894090</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -529,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update git ignore" />
     <MESSAGE value="Introduce BoundedRenderer" />
     <MESSAGE value="Optimize ShadowsRenderer" />
     <MESSAGE value="Refactoring" />
@@ -554,6 +555,7 @@
     <MESSAGE value="Add dynamic obstacles" />
     <MESSAGE value="Add dynamic lights" />
     <MESSAGE value="Refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor" />
+    <MESSAGE value="Floor should not contain any functionality, move to processors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Floor should not contain any functionality, move to processors" />
   </component>
 </project>

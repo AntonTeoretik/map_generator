@@ -14,7 +14,7 @@ import com.teoretik.graphics.render.FloorRenderer
  * Contains the floor configuration, namely:
  * All the tile maps for this floor
  * All the objects which are now in this floor
- *
+ * Also contains processors which store and handle additional data, for example shadows, obstacles and others
  */
 class Floor: MapGroupLayer() {
     val width: Int by lazy { tileLayers().first().width }
@@ -26,6 +26,8 @@ class Floor: MapGroupLayer() {
     val obstacleProcessor by lazy { ObstacleProcessor(this) }
     val lightProcessor by lazy { ShadowsProcessor(this) }
     val viewPointProcessor : ViewPointProcessor by lazy { ViewPointProcessor(this) }
+
+    val memoryProcessor by lazy { MemoryProcessor(this) }
 
     val renderer by lazy { FloorRenderer(this) }
 

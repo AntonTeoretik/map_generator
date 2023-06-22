@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.math.Vector2
 import com.teoretik.components.light.ShadowsProcessor
 import com.teoretik.components.light.toColorMask
+import com.teoretik.components.map.MemoryProcessor
 import com.teoretik.components.viewpoint.ViewPointProcessor
 import com.teoretik.components.viewpoint.Visibility
 import com.teoretik.graphics.camera.Camera
@@ -18,7 +19,10 @@ import com.teoretik.utils.vectors.component2
 import kotlin.math.max
 import kotlin.math.min
 
-class VisibilityRenderer(private val viewPointProcessor: ViewPointProcessor) : BoundedRenderer() {
+class VisibilityRenderer(
+    private val viewPointProcessor: ViewPointProcessor,
+    private val memoryProcessor: MemoryProcessor
+    ) : BoundedRenderer() {
     override fun setView(camera: Camera) {
         Shape.projectionMatrix = camera.projMatrix()
         super.setView(camera)
@@ -46,11 +50,18 @@ class VisibilityRenderer(private val viewPointProcessor: ViewPointProcessor) : B
             ).forEach { (i, j, _) ->
                 val alpha = sequenceOf(0 to 0, 0 to 1, 1 to 0, 1 to 1).filter { (ii, jj) ->
                     this@with[i + ii, j + jj] == Visibility.VISIBLE
-                }.count() * 0.25f
+                }.count()
 
-                Shape.color = Color.WHITE.cpy()
-                Shape.color.mul(alpha)//.add(Color(0.2f, 0.3f, 0.2f, 0f))
-                renderSquare(Vector2(i.toFloat() / visibilityResolution, j.toFloat() / visibilityResolution))
+                val vec2 = Vector2(i.toFloat() / visibilityResolution, j.toFloat() / visibilityResolution)
+
+                if (alpha == 0 && memoryProcessor.isDiscovered(vec2)) {
+                    Shape.color = Color(0.3f, 0.3f, 0.3f, 0f)
+                } else {
+                    Shape.color = Color.WHITE.cpy()
+                    Shape.color.mul(alpha * 0.25f)//.add(Color(0.2f, 0.3f, 0.2f, 0f))
+                }
+
+                renderSquare(vec2)
             }
         }
 
