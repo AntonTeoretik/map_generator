@@ -29,11 +29,6 @@ class Floor: MapGroupLayer() {
 
     val renderer by lazy { FloorRenderer(this) }
 
-    fun fullUpdateLight() {
-        lightProcessor.processStaticLights()
-        lightProcessor.computeFinalLightMap()
-    }
-
     fun tileLayers() : Sequence<TiledMapTileLayer> = layers.asSequence().filterIsInstance<TiledMapTileLayer>()
 
     fun cellToWorldCoordinates(x : Int, y : Int) = Vector2(x + 0.5f, -y + height - 0.5f)

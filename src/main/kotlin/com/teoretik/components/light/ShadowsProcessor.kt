@@ -27,7 +27,7 @@ class ShadowsProcessor(
     private val staticLights: MutableList<StaticLightSource> by lazy { selectStaticLights(floor) }
     private val staticObstacles: List<Obstacle> by lazy { floor.obstacleProcessor.staticObstacles }
 
-    private val staticLightMaps: MutableMap<StaticLightSource, LightMapRegion> = mutableMapOf()
+    private val staticLightMaps: Map<StaticLightSource, LightMapRegion> by lazy { processStaticShadows() }
 
     private val region = Rectangle(0f, 0f, floor.width.toFloat(), floor.height.toFloat())
 
@@ -38,12 +38,15 @@ class ShadowsProcessor(
 
     // Methods
 
-    fun processStaticLights() {
-        staticLights.forEach { processStaticLight(it) }
-    }
+    private fun processStaticShadows() : Map<StaticLightSource, LightMapRegion> =
+        sequence { staticLights.forEach {
+            val lightMap = processStaticLight(it)
+            if (lightMap != null) yield(it to lightMap)
+        } }.toMap()
 
-    private fun processStaticLight(lightSource: StaticLightSource) {
-        val lightRegion = getLightRectangle(lightSource) ?: return
+
+    private fun processStaticLight(lightSource: StaticLightSource) : LightMapRegion? {
+        val lightRegion = getLightRectangle(lightSource) ?: return null
 
         val lightMapRegion = LightMapRegion(
             (lightResolution * lightRegion.x).toInt(),
@@ -70,7 +73,7 @@ class ShadowsProcessor(
             }
         }
         lightMapRegion.lightMap = coordList
-        staticLightMaps[lightSource] = lightMapRegion
+        return lightMapRegion
     }
 
     private fun processDynamicLights() {

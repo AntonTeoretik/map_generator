@@ -48,10 +48,10 @@ class GameConfiguration {
     )
 
     val dynamicObstacle = Obstacle(Polygon(floatArrayOf(
-        -0.5f, -0.5f,
-        -0.5f,  0.5f,
-         0.5f,  0.5f,
-         0.5f, -0.5f,
+        -0.3f, -0.3f,
+        -0.3f,  0.3f,
+         0.3f,  0.3f,
+         0.3f, -0.3f,
         )))
 
     val viewPoint = ViewPoint(0f, 0f, Ball(10f))
@@ -67,7 +67,7 @@ class GameConfiguration {
         setUpCamera()
 
 
-        activeLevel!!.floors[1]!!.fullUpdateLight()
+        activeLevel!!.floors[1]!!.lightProcessor.computeFinalLightMap()
 
         activeLevel!!.floors[1]!!.lightProcessor.dynamicLights.add(dynamicLight1)
         activeLevel!!.floors[1]!!.lightProcessor.dynamicLights.add(dynamicLight2)
@@ -75,7 +75,7 @@ class GameConfiguration {
 
 
         activeLevel!!.floors[1]!!.viewPoints.add(viewPoint)
-        //activeLevel!!.floors[1]!!.obstacleProcessor.dynamicObstacles.add(dynamicObstacle)
+        activeLevel!!.floors[1]!!.obstacleProcessor.dynamicObstacles.add(dynamicObstacle)
 
 
         //activeLevel!!.floors[2]!!.fullUpdateLight()
@@ -105,6 +105,6 @@ class GameConfiguration {
         dynamicLight3.x = x + sin(2*phi - PI.toFloat() * 0.66f) * r
         dynamicLight3.y = y + cos(3*phi - PI.toFloat() * 0.66f) * r
 
-        //dynamicObstacle.polygon.setPosition(x, y)
+        dynamicObstacle.polygon.setPosition(x, y)
     }
 }

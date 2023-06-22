@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Add dynamic lights">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/dynamic/DynamicValue.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/dynamic/Oscillator.kt" afterDir="false" />
+    <list default="true" id="7fa402f3-a873-4e29-9824-7f954dcf8b74" name="Changes" comment="Refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/GameConfiguration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/GameConfiguration.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Level.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/Level.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/source/QuasiDynamicLightSource.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/camera/Camera.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/camera/Camera.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/GraphicsSettings.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/graphics/render/GraphicsSettings.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/dynamic/Dynamic.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/dynamic/Dynamic.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/dynamic/DynamicProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/utils/dynamic/DynamicProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/light/ShadowsProcessor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/map/Floor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/teoretik/components/map/Floor.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,11 +118,11 @@
       <recent name="com.teoretik.graphics.render" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.teoretik.components.map" />
       <recent name="com.teoretik.graphics.render.floor" />
       <recent name="com.teoretik.geometry.rays.processors" />
       <recent name="com.teoretik.components.light" />
       <recent name="com.teoretik.geometry.rays" />
-      <recent name="com.teoretik.utils.geometry.shapes" />
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.MainKt">
@@ -520,7 +514,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687428894090</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -535,7 +529,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add sample map" />
     <MESSAGE value="Update git ignore" />
     <MESSAGE value="Introduce BoundedRenderer" />
     <MESSAGE value="Optimize ShadowsRenderer" />
@@ -560,6 +553,7 @@
     <MESSAGE value="Bugfix" />
     <MESSAGE value="Add dynamic obstacles" />
     <MESSAGE value="Add dynamic lights" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add dynamic lights" />
+    <MESSAGE value="Refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor" />
   </component>
 </project>
