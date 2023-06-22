@@ -50,12 +50,13 @@ class ViewPointProcessor(val floor: Floor) {
                     max(0, yScaled)..min(yScaled + heightScaled + 1, height - 1),
                 ).forEach { cell ->
                     val (i, j, _) = cell
+                    val v2 = Vector2(i.toFloat() / visibilityResolution, j.toFloat() / visibilityResolution)
 
-                    val res = point.shape.processor.processRay(
+                    val res = point.shape.processRay(
                         Vector2(point.x, point.y),
                         Vector2(i.toFloat() / visibilityResolution, j.toFloat() / visibilityResolution),
                         relevantObstacles.asSequence(),
-                        processEndPoint = true
+                        processEndPoint = false
                     )
                     if (res == HitResult.HIT) {
                         set(i, j, Visibility.VISIBLE)

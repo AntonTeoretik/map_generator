@@ -47,12 +47,12 @@ class GameConfiguration {
         InvDistance(1f, 5f)
     )
 
-    val dynamicObstacle = Obstacle(Polygon(floatArrayOf(
-        -0.3f, -0.3f,
-        -0.3f,  0.3f,
-         0.3f,  0.3f,
-         0.3f, -0.3f,
-        )))
+    private val dynamicObstacle = Obstacle(Polygon(floatArrayOf(
+        -0.2f, -0.2f,
+        -0.2f,  0.2f,
+         0.2f,  0.2f,
+         0.2f, -0.2f,
+        )).also {it.setOrigin(0f, 0f)})
 
     val viewPoint = ViewPoint(0f, 0f, Ball(10f))
 
@@ -94,16 +94,16 @@ class GameConfiguration {
         viewPoint.y = y
 
         val phi = oscillator.phase
-        val r = 0.4f
+        val r = 0.5f
 
-        dynamicLight1.x = x + sin(4*phi) * r
-        dynamicLight1.y = y + cos(3*phi) * r
+        dynamicLight1.x = x + sin(phi) * r
+        dynamicLight1.y = y + cos(phi) * r
 
-        dynamicLight2.x = x + sin(2*phi + PI.toFloat() * 0.66f) * r
-        dynamicLight2.y = y + cos(3*phi + PI.toFloat() * 0.66f) * r
+        dynamicLight2.x = x + sin(phi + PI.toFloat() * 0.66f) * r
+        dynamicLight2.y = y + cos(phi + PI.toFloat() * 0.66f) * r
 
-        dynamicLight3.x = x + sin(2*phi - PI.toFloat() * 0.66f) * r
-        dynamicLight3.y = y + cos(3*phi - PI.toFloat() * 0.66f) * r
+        dynamicLight3.x = x + sin(phi - PI.toFloat() * 0.66f) * r
+        dynamicLight3.y = y + cos(phi - PI.toFloat() * 0.66f) * r
 
         dynamicObstacle.polygon.setPosition(x, y)
     }

@@ -8,5 +8,6 @@ object GraphicsSettings {
     val pixelResolution = 32
     val unitScale = 1f / pixelResolution
     val lightResolution = 4                         // light "pixels" per cell
-    val visibilityResolution = 2
+    val memoryResolution = 2
+    val visibilityResolution = 4
 }

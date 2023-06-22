@@ -38,14 +38,16 @@ class ShadowsProcessor(
 
     // Methods
 
-    private fun processStaticShadows() : Map<StaticLightSource, LightMapRegion> =
-        sequence { staticLights.forEach {
-            val lightMap = processStaticLight(it)
-            if (lightMap != null) yield(it to lightMap)
-        } }.toMap()
+    private fun processStaticShadows(): Map<StaticLightSource, LightMapRegion> =
+        sequence {
+            staticLights.forEach {
+                val lightMap = processStaticLight(it)
+                if (lightMap != null) yield(it to lightMap)
+            }
+        }.toMap()
 
 
-    private fun processStaticLight(lightSource: StaticLightSource) : LightMapRegion? {
+    private fun processStaticLight(lightSource: StaticLightSource): LightMapRegion? {
         val lightRegion = getLightRectangle(lightSource) ?: return null
 
         val lightMapRegion = LightMapRegion(
@@ -62,7 +64,7 @@ class ShadowsProcessor(
         val coordList = mutableListOf<Pair<Int, Int>>()
         for (i in lightMapRegion.x until lightMapRegion.x + lightMapRegion.width) {
             for (j in lightMapRegion.y until lightMapRegion.y + lightMapRegion.height) {
-                val res = lightSource.shape.processor.processRay(
+                val res = lightSource.shape.processRay(
                     Vector2(lightSource.x, lightSource.y),
                     lightMapToWorldCoordinates(i, j),
                     relevantStaticObstacles.asSequence()
@@ -89,22 +91,20 @@ class ShadowsProcessor(
         val height = lightResolution * lightRegion.height.toInt() + 2
 
         val relevantObstacles = (staticObstacles + dynamicObstacles)
-            .filter {  Intersector.intersectPolygons(it.polygon, lightRegion.toPolygon(), null) }
+            .filter { Intersector.intersectPolygons(it.polygon, lightRegion.toPolygon(), null) }
             .map { it.polygon }
 
         for (i in x until x + width) {
             for (j in y until y + height) {
-                val res = lightSource.shape.processor.processRay(
+                lightSource.shape.processRay(
                     Vector2(lightSource.x, lightSource.y),
                     lightMapToWorldCoordinates(i, j),
                     relevantObstacles.asSequence()
-                )
+                ).takeIf { it == HitResult.HIT }
+                    ?.also {
+                        addLight(lightSource, i, j)
+                    }
 
-                if (res == HitResult.HIT) {
-                    addLight(lightSource, i, j)
-                    //println(lightSource.computeLightInPoint(lightMapToWorldCoordinates(i, j)))
-                    //println(lightSource.algorithm.getFadingFactor(lightSource.x, lightSource.y, lightMapToWorldCoordinates(i, j)))
-                }
             }
         }
     }
@@ -145,7 +145,7 @@ class ShadowsProcessor(
     }
 
     private fun processDynamicObstacles(light: StaticLightSource, i: Int, j: Int): Boolean {
-        val res = light.shape.processor.processRay(
+        val res = light.shape.processRay(
             Vector2(light.x, light.y),
             lightMapToWorldCoordinates(i, j),
             dynamicObstacles.asSequence().map { it.polygon })

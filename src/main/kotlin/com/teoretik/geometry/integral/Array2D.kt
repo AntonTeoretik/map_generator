@@ -16,12 +16,20 @@ class Array2D<T>(val width: Int, val height: Int, init: (Int, Int) -> T) {
         }
     }
 
-    fun iterate(rangeX : IntRange = 0 until width, rangeY: IntRange = 0 until height) = sequence {
+    fun iterate(rangeX: IntRange = 0 until width, rangeY: IntRange = 0 until height) = sequence {
         for (i in rangeX) {
             for (j in rangeY) {
                 yield(Triple(i, j, get(i, j)))
             }
         }
     }
+}
 
+val neighbourOffsets = sequenceOf(0 to 0, 0 to 1, 1 to 0, 1 to 1)
+val allNeighbourOffsets = sequence {
+    (-1..1).forEach { i ->
+        (-1..1).forEach {
+            yield(i to it)
+        }
+    }
 }

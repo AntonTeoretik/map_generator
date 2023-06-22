@@ -12,6 +12,7 @@ import com.teoretik.graphics.render.BoundedRenderer
 import com.teoretik.graphics.render.GraphicsSettings
 import com.teoretik.graphics.resources.Shape
 import com.teoretik.geometry.integral.Array2D
+import com.teoretik.geometry.integral.neighbourOffsets
 import com.teoretik.utils.vectors.component1
 import com.teoretik.utils.vectors.component2
 import kotlin.math.max
@@ -42,7 +43,7 @@ class ShadowsRenderer(private val lightColorMap: Array2D<LightColor>) : BoundedR
                 max(y0 - 1, 0)until min(height - 1, y1 + 1)
             ).forEach { (i, j, _) ->
                 Shape.color = LightColor().run {
-                    sequenceOf(0 to 0, 0 to 1, 1 to 0, 1 to 1).forEach { (ii, jj) ->
+                    neighbourOffsets.forEach { (ii, jj) ->
                         add(this@with[i + ii, j + jj])
                     }
                     scl(0.25f)
