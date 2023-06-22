@@ -16,12 +16,12 @@ import com.teoretik.graphics.render.GraphicsSettings.lightResolution
 import com.teoretik.geometry.integral.Array2D
 import com.teoretik.geometry.rays.HitResult
 import com.teoretik.geometry.toPolygon
-import java.time.Clock
 
 class ShadowsProcessor(
     floor: Floor
 ) {
     val dynamicLights: MutableList<DynamicLightSource> = mutableListOf()
+    val dynamicObstacles : MutableList<Obstacle> by lazy { floor.obstacleProcessor.dynamicObstacles }
 
     private val staticLights: MutableList<StaticLightSource> by lazy { selectStaticLights(floor) }
     private val staticObstacles: List<Obstacle> by lazy { floor.obstacleProcessor.staticObstacles }
@@ -33,9 +33,7 @@ class ShadowsProcessor(
     val staticLightColorMap = Array2D(
         floor.width * lightResolution + 1,
         floor.height * lightResolution + 1
-    ) { _, _ ->
-        LightColor()
-    }
+    ) { _, _ -> LightColor() }
 
     // Methods
 
@@ -102,11 +100,21 @@ class ShadowsProcessor(
         staticLightMaps.forEach { (light, lm) ->
             lm.lightMap.forEach {
                 val (i, j) = it
-                staticLightColorMap[i, j]?.add(
-                    light.computeLightInPoint(lightMapToWorldCoordinates(i + lm.x, j + lm.y))
-                )
+
+                //if (processDynamicObstacles(light, i, j))
+                    staticLightColorMap[i, j]?.add(
+                        light.computeLightInPoint(lightMapToWorldCoordinates(i, j))
+                    )
             }
         }
+    }
+
+    private fun processDynamicObstacles(light: StaticLightSource, i : Int, j : Int): Boolean {
+        val res = light.shape.processor.processRay(
+            Vector2(light.x, light.y),
+            lightMapToWorldCoordinates(i, j),
+            dynamicObstacles.asSequence().map { it.polygon })
+        return res == HitResult.HIT
     }
 
     private fun clearLightmap() {
@@ -114,9 +122,9 @@ class ShadowsProcessor(
     }
 
     fun updateLight() {
-        val t1 = Clock.systemUTC().millis()
+        //val t1 = Clock.systemUTC().millis()
         computeFinalLightMap()
-        println(Clock.systemUTC().millis() - t1)
+        //println(Clock.systemUTC().millis() - t1)
     }
 
     companion object {
